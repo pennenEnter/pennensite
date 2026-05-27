@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PENNEN — Women's Slippers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ivory:#fff8e7; --paper:#fef9e7; --cream:#fef3c7;
+  --marigold:#f59e0b; --orange:#ea580c;
+  --rose:#be185d; --magenta:#db2777;
+  --teal:#0e7490; --teal-dark:#134e4a; --maroon:#7f1d1d;
+  --ink:#3d1f0a; --gold:#fbbf24; --green-wa:#128c4f;
+  --coffee:#4a2c1d; --sand:#e8c98a;
+  --radius-sm:8px; --radius:14px; --radius-lg:22px;
+  --shadow-sm:0 2px 0 var(--ink); --shadow-md:0 4px 0 var(--ink); --shadow-lg:0 8px 0 var(--ink);
+  --ease:.22s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:var(--ivory);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background-image:
+    radial-gradient(circle,rgba(245,158,11,.08) 1.2px,transparent 1.2px),
+    radial-gradient(circle,rgba(190,24,93,.05) 1px,transparent 1px);
+  background-size:28px 28px,44px 44px;background-position:0 0,14px 14px;}
+img{display:block;max-width:100%;height:auto}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+.eyebrow{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:28px;height:2px;background:var(--rose);display:inline-block}
+
+/* ── MARQUEE ── */
+.marquee{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);overflow:hidden;padding:8px 0;position:relative;z-index:5;background:linear-gradient(90deg,#a10f4e,#c2185b);color:var(--cream)}
+.marquee-track{display:flex;gap:0;white-space:nowrap;animation:marq 50s linear infinite;will-change:transform}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{font-family:'Fraunces',serif;font-weight:900;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;padding:0 34px;display:inline-flex;align-items:center;color:var(--cream)}
+.marquee-track span::after{content:'\2726';margin-left:34px;color:var(--gold);font-size:.95rem}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ── NAVBAR ── */
+.navbar{position:sticky;top:0;z-index:100;background:var(--ivory);border-bottom:2px solid var(--ink);transition:box-shadow var(--ease)}
+.navbar.scrolled{box-shadow:0 4px 0 rgba(61,31,10,.12)}
+.nav-inner {
+  max-width: 100%;
+  padding-left: 4px;
+  padding-right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 50px;
+  height: 88px;
+}
+.logo { display: flex; align-items: center;  margin-left: -12px;	}
+.logo img { height: 120px; width: auto; object-fit: contain; }
+
+.logo-text{font-family:'Fraunces',serif;font-style:italic;font-weight:900;font-size:1.7rem;color:var(--rose);letter-spacing:.01em}
+.nav-links{display:flex;align-items:center;gap:34px;margin-left:8px}
+.nav-link{font-size:.92rem;font-weight:600;color:var(--ink);position:relative;padding:6px 0;transition:color var(--ease)}
+.nav-link::after{content:'';position:absolute;left:50%;bottom:-2px;width:0;height:2px;background:var(--rose);transition:width var(--ease),left var(--ease)}
+.nav-link:hover{color:var(--rose)}
+.nav-link:hover::after,.nav-link.active::after{width:100%;left:0}
+.nav-link.active{color:var(--rose)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--rose);color:var(--cream);padding:11px 22px;border-radius:50px;font-size:.85rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);transition:all var(--ease);transform:rotate(-2deg);margin-left:auto}
+.nav-cta:hover{transform:rotate(-2deg) translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink);background:var(--magenta)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.hamburger span{display:block;width:26px;height:2.5px;background:var(--ink);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
+
+/* ── CATEGORY HERO ── */
+.cat-hero{position:relative;background:var(--paper);border-bottom:2px solid var(--ink);overflow:hidden;padding:54px 32px 46px}
+.cat-hero::before{content:'';position:absolute;top:-120px;right:-160px;width:460px;height:460px;background:radial-gradient(circle,rgba(245,158,11,.14) 0%,transparent 62%);border-radius:50%;pointer-events:none}
+.cat-hero::after{content:'';position:absolute;bottom:-120px;left:-100px;width:320px;height:320px;background:radial-gradient(circle,rgba(190,24,93,.10) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+.cat-hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:2}
+.crumb{font-size:.74rem;font-weight:700;letter-spacing:.06em;color:var(--ink);opacity:.65;margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap}
+.crumb a{color:var(--rose);font-weight:800}
+.crumb a:hover{text-decoration:underline}
+.cat-no{position:absolute;top:-8px;right:0;font-family:'Fraunces',serif;font-weight:900;font-style:italic;font-size:clamp(3rem,9vw,5.6rem);color:rgba(190,24,93,.08);line-height:1;pointer-events:none}
+.cat-title{font-family:'Fraunces',serif;font-variation-settings:"opsz" 144;font-size:clamp(2.4rem,5.4vw,4.2rem);font-weight:900;line-height:.98;letter-spacing:-.025em;color:var(--ink);margin:6px 0 18px;max-width:14ch}
+.cat-title em{font-style:italic;color:var(--rose)}
+.cat-sub{font-size:1.04rem;color:var(--ink);opacity:.78;line-height:1.7;max-width:560px}
+
+/* collection tabs */
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;position:relative;z-index:2}
+.tab{padding:10px 18px;border-radius:50px;font-weight:700;font-size:.86rem;color:var(--ink);background:var(--paper);border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink);transition:all var(--ease)}
+.tab:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.tab.active{background:var(--rose);color:var(--cream)}
+
+/* ── TOOLBAR ── */
+.controls{max-width:1280px;margin:0 auto;padding:34px 32px 6px}
+.controls-row{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.count{font-family:'Fraunces',serif;font-weight:900;font-size:1.25rem;color:var(--ink)}
+.count span{font-family:'Manrope',sans-serif;font-weight:500;font-size:.92rem;color:var(--ink);opacity:.6;margin-left:6px}
+.sortwrap{display:flex;align-items:center;gap:10px;font-size:.86rem;font-weight:700;color:var(--ink);opacity:.75}
+.sortwrap select{font-family:'Manrope',sans-serif;font-size:.88rem;font-weight:700;color:var(--ink);background:var(--paper);border:2px solid var(--ink);border-radius:50px;padding:9px 16px;cursor:pointer;box-shadow:2px 2px 0 var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{padding:7px 15px;border-radius:50px;font-weight:700;font-size:.8rem;color:var(--ink);background:var(--paper);border:2px solid var(--ink);cursor:pointer;transition:all var(--ease)}
+.chip:hover{background:var(--cream)}
+.chip.active{background:var(--marigold);color:var(--ink)}
+
+/* ── PRODUCTS GRID ── (matches index5 .product-card) */
+.section-products{padding:24px 32px 90px;background:var(--ivory)}
+.products-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px}
+.product-card{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;position:relative;transition:all var(--ease);box-shadow:4px 4px 0 var(--ink);opacity:0;transform:translateY(14px)}
+.product-card.in{opacity:1;transform:none}
+.product-card:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--ink)}
+.card-img-wrap{position:relative;aspect-ratio:4/3;overflow:hidden;border-bottom:2px solid var(--ink);background:radial-gradient(circle at 50% 62%,#fffdf3 0%,var(--cream) 82%)}
+.product-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .4s ease, transform .45s cubic-bezier(.2,.7,.2,1)}
+.hover-img{opacity:0}
+.product-card:hover .hover-img{opacity:1}
+.product-card:hover .main-img{opacity:0}
+.product-card:hover .product-img{transform:scale(1.05)}
+.card-sticker{position:absolute;top:14px;left:14px;background:var(--rose);color:var(--cream);font-size:.65rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:50px;border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink);transform:rotate(-4deg);z-index:2}
+.card-sticker--new{background:var(--teal);color:var(--cream)}
+.card-sticker--hot{background:var(--orange);color:var(--cream)}
+.card-sticker--best{background:var(--marigold);color:var(--ink)}
+.price-tag{position:absolute;top:14px;right:-8px;background:var(--gold);color:var(--ink);padding:8px 16px 8px 18px;font-family:'Fraunces',serif;font-weight:900;font-size:1.05rem;border:2px solid var(--ink);border-radius:4px 0 0 4px;box-shadow:2px 2px 0 var(--ink);z-index:2;transform:rotate(2deg)}
+.price-tag::before{content:'';position:absolute;left:-2px;top:50%;transform:translate(-100%,-50%);width:0;height:0;border:13px solid transparent;border-right:12px solid var(--ink)}
+.price-tag::after{content:'';position:absolute;left:0;top:50%;transform:translate(-100%,-50%);width:0;height:0;border:11px solid transparent;border-right:10px solid var(--gold);z-index:1}
+.card-body{padding:22px 22px 20px;display:flex;flex-direction:column;flex:1}
+.card-cat{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);margin-bottom:8px}
+.card-title{font-family:'Fraunces',serif;font-size:1.08rem;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:10px}
+.card-desc{font-size:.85rem;color:var(--ink);opacity:.7;line-height:1.6;margin-bottom:14px;flex:1}
+.swatches{display:flex;gap:7px;margin-bottom:16px}
+.swatches i{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--ink);display:inline-block}
+.card-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:16px;padding-bottom:14px;border-bottom:2px dashed rgba(61,31,10,.16)}
+.price-old{font-size:.88rem;color:var(--ink);opacity:.45;text-decoration:line-through}
+.price-discount{background:var(--teal-dark);color:var(--cream);font-size:.7rem;font-weight:800;padding:3px 9px;border-radius:50px;letter-spacing:.05em}
+.card-buy-label{font-family:'Fraunces',serif;font-style:italic;font-size:.78rem;color:var(--ink);opacity:.7;margin-bottom:10px}
+.card-btns{display:flex;flex-wrap:wrap;gap:6px}
+.card-btns a{flex:1 1 60px;max-width:90px;display:flex;align-items:center;justify-content:center;padding:8px 6px;border-radius:8px;border:1.5px solid var(--ink);min-height:40px;transition:all var(--ease)}
+.card-btns a:hover{transform:translate(-1px,-1px);box-shadow:2px 2px 0 var(--ink)}
+.card-btns a img{height:22px;width:auto;max-width:70px;object-fit:contain}
+.card-btns a .pill-txt{font-size:.66rem;font-weight:800;letter-spacing:.02em;color:var(--ink)}
+.card-btns a.platform-pill--amazon{background:#fff5e1}
+.card-btns a.platform-pill--flipkart{background:#e8f0ff}
+.card-btns a.platform-pill--meesho{background:#fde7f6}
+.card-btns a.platform-pill--snapdeal{background:#ffe1e7}
+.card-btns a.platform-pill--jiomart{background:#e0f4e3}
+.card-btns a.platform-pill--ajio{background:#fff0b3}
+.card-btns a.platform-pill--myntra{background:#ffdbe7}
+.card-btns a.platform-pill--snapdeal img{height:46px;max-width:170px}
+
+.empty{max-width:1280px;margin:40px auto;text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;color:var(--ink);opacity:.6}
+
+/* ── FOOTER ── */
+.footer{background:var(--ink);color:var(--cream);padding:80px 32px 0;position:relative;border-top:2px solid var(--ink)}
+.footer::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,248,231,.04) 1px,transparent 1px);background-size:24px 24px;pointer-events:none}
+.footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:2px dashed rgba(255,248,231,.15);position:relative;z-index:1}
+.footer-brand h3{font-family:'Fraunces',serif;font-style:italic;font-weight:900;font-size:2rem;color:var(--gold);margin-bottom:14px}
+.footer-brand p{font-size:.92rem;line-height:1.7;opacity:.7;max-width:340px}
+.footer-col h4{font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.footer-col a{display:block;font-size:.9rem;color:var(--cream);opacity:.7;margin-bottom:10px;transition:all var(--ease)}
+.footer-col a:hover{opacity:1;color:var(--marigold);transform:translateX(4px)}
+.footer-bottom{max-width:1280px;margin:0 auto;padding:24px 0;display:flex;justify-content:space-between;align-items:center;font-size:.82rem;opacity:.55;flex-wrap:wrap;gap:12px;position:relative;z-index:1}
+.footer-bottom em{font-family:'Fraunces',serif;font-style:italic;color:var(--gold)}
+
+/* ── FLOATING WHATSAPP ── */
+.wa-float{position:fixed;bottom:26px;right:26px;z-index:1000;background:var(--green-wa);color:var(--cream);border:2px solid var(--ink);border-radius:50px;padding:14px 22px;display:flex;align-items:center;gap:10px;box-shadow:4px 4px 0 var(--ink);font-weight:800;font-size:.88rem;letter-spacing:.04em;text-transform:uppercase;transition:all var(--ease);animation:waPulse 2.4s ease-in-out infinite}
+.wa-float:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);animation:none}
+@keyframes waPulse{0%,100%{box-shadow:4px 4px 0 var(--ink)}50%{box-shadow:4px 4px 0 var(--ink),0 0 0 8px rgba(18,140,79,.18)}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){.footer-inner{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
+@media(max-width:768px){
+  .hamburger{display:flex}
+  .nav-links{display:none;flex-direction:column;gap:0;position:absolute;top:73px;left:0;right:0;background:var(--ivory);border-bottom:2px solid var(--ink);padding:16px 0;z-index:99}
+  .nav-links.open{display:flex}
+  .nav-link{padding:14px 32px;border-bottom:1px dashed rgba(61,31,10,.15);font-size:1rem;width:100%}
+  .nav-cta{display:none}
+  .cat-hero{padding:42px 22px 38px}
+  .controls,.section-products{padding-left:22px;padding-right:22px}
+  .products-grid{grid-template-columns:1fr 1fr;gap:18px}
+}
+@media(max-width:520px){
+  .products-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .marquee-track span{font-size:.92rem;padding:0 22px}
+  .marquee-track span::after{margin-left:22px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index5.html" class="logo">
+      <img src="logo.png" alt="PENNEN" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="logo-text" style="display:none">PENNEN</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index5.html" class="nav-link">Home</a>
+      <a href="catalogue.html" class="nav-link active">Catalogue</a>
+    </nav>
+    <a href="index5.html" class="nav-cta">← Back to Store</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- CATEGORY HERO -->
+<section class="cat-hero">
+  <div class="cat-hero-inner">
+    <div class="cat-no"></div>
+    <nav class="crumb"><a href="index5.html">Home</a> / <a href="catalogue.html">Catalogue</a> / <span>Slippers</span></nav>
+    <span class="eyebrow"> Women's Slippers</span>
+    <h1 class="cat-title">Women's slippers, <em>soft and colourful.</em></h1>
+    <p class="cat-sub">Light, lovely and made for daily comfort — 100 slides, fur-lined cozies and flip-flops in colours that brighten the everyday.</p>
+    <div class="tabs"><a href="catalogue-men-shoes.html" class="tab">Men's Shoes</a><a href="catalogue-men-slippers.html" class="tab">Men's Slippers</a><a href="catalogue-women-shoes.html" class="tab">Women's Shoes</a><a href="catalogue-women-slippers.html" class="tab active">Women's Slippers</a></div>
+  </div>
+</section>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <div class="controls-row">
+    <div class="count" id="count">styles <span>in this collection</span></div>
+    <label class="sortwrap">Sort by
+      <select id="sort">
+        <option value="featured">Featured</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+        <option value="disc">Biggest Discount</option>
+      </select>
+    </label>
+  </div>
+  <div class="chips"><button class="chip active" data-f="all">All</button><button class="chip" data-f="slide">Slides</button><button class="chip" data-f="flipflop">Flip-Flops</button><button class="chip" data-f="mule">Mules</button></div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="section-products">
+  <div class="products-grid" id="grid"></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>PENNEN</h3>
+      <p>A Breakout footwear label from India, selling quality shoes across every major marketplace. Built honestly, priced fairly, delivered everywhere.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="index5.html">Home Store</a>
+      <a href="catalogue.html">All Collections</a>
+    </div>
+    <div class="footer-col">
+      <h4>Collections</h4>
+      <a href="catalogue-men-shoes.html">Men's Shoes</a>
+      <a href="catalogue-men-slippers.html">Men's Slippers</a>
+      <a href="catalogue-women-shoes.html">Women's Shoes</a>
+      <a href="catalogue-women-slippers.html">Women's Slippers</a>
+    </div>
+    <div class="footer-col">
+      <h4>Shop On</h4>
+      <a href="https://www.amazon.in" target="_blank" rel="noopener">Amazon</a>
+      <a href="https://www.flipkart.com" target="_blank" rel="noopener">Flipkart</a>
+      <a href="https://www.meesho.com" target="_blank" rel="noopener">Meesho</a>
+      <a href="https://www.myntra.com" target="_blank" rel="noopener">Myntra</a>
+      <a href="https://www.ajio.com" target="_blank" rel="noopener">Ajio</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 PENNEN — <em>A Growing Step.</em> All rights reserved.</span>
+    <span>Made with care in India 🇮🇳</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var hb=document.getElementById('hamburger'),nl=document.getElementById('navLinks');
+  if(hb){hb.addEventListener('click',function(){hb.classList.toggle('open');nl.classList.toggle('open')});
+    nl.querySelectorAll('.nav-link').forEach(function(a){a.addEventListener('click',function(){hb.classList.remove('open');nl.classList.remove('open')})});}
+  var nav=document.getElementById('navbar');
+  window.addEventListener('scroll',function(){if(nav)nav.classList.toggle('scrolled',window.scrollY>12)},{passive:true});
+})();
+function imgFallback(img,label){var s=document.createElement('span');s.className='pill-txt';s.textContent=label;img.replaceWith(s);}
+</script>
+
+<script>
+/* ---- selling platforms (logo file + search-URL template) ---- */
+var PLATFORMS=[
+  ["amazon","Amazon","ammaloh.png","https://www.amazon.in/s?k=PENNEN+{q}"],
+  ["flipkart","Flipkart","flipkart-log-icon-e33c.png","https://www.flipkart.com/search?q=PENNEN%20{q}"],
+  ["meesho","Meesho","Meesho_logo.png","https://www.meesho.com/search?q=PENNEN%20{q}"],
+  ["snapdeal","Snapdeal","snapdeal.png","https://www.snapdeal.com/search?keyword=PENNEN%20{q}"],
+  ["jiomart","JioMart","jiomart.png","https://www.jiomart.com/search/PENNEN%20{q}"],
+  ["ajio","Ajio","ajio.png","https://www.ajio.com/search/?text=PENNEN%20{q}"],
+  ["myntra","Myntra","myntra.png","https://www.myntra.com/PENNEN-{q}"]
+];
+
+/* ---- real PENNEN women's slipper catalogue data (generated from product photos) ---- */
+var PRODUCTS = [
+  {
+    "name": "PENNEN Snug Padded Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/1/main.jpg",
+    "hoverImage": "images/women-slippers/1/hover.jpg",
+    "price": 329,
+    "mrp": 599,
+    "disc": 45,
+    "desc": "Lightweight everyday comfort slide",
+    "sw": [
+      "#3f6078",
+      "#0c161f",
+      "#182633"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Snug+Padded+Slide"
+  },
+  {
+    "name": "PENNEN Cloud Padded Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/2/main.jpg",
+    "hoverImage": "images/women-slippers/2/hover.jpg",
+    "price": 229,
+    "mrp": 379,
+    "disc": 40,
+    "desc": "Gentle arch-support slide",
+    "sw": [
+      "#13161d",
+      "#151f2d",
+      "#10141b"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Cloud+Padded+Slide"
+  },
+  {
+    "name": "PENNEN Lily Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/3/main.jpg",
+    "hoverImage": "images/women-slippers/3/hover.jpg",
+    "price": 869,
+    "mrp": 1339,
+    "disc": 35,
+    "desc": "Padded footbed slide for all day",
+    "sw": [
+      "#c0b6a8",
+      "#6a5e54",
+      "#a9a298"
+    ],
+    "sticker": "best",
+    "q": "PENNEN+Lily+Slide"
+  },
+  {
+    "name": "PENNEN Petal Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/4/main.jpg",
+    "hoverImage": "images/women-slippers/4/hover.jpg",
+    "price": 759,
+    "mrp": 1079,
+    "disc": 30,
+    "desc": "Soft-cushion daily slide",
+    "sw": [
+      "#1b2429",
+      "#3e484d",
+      "#32383b"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Petal+Slide"
+  },
+  {
+    "name": "PENNEN Rosy Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/5/main.jpg",
+    "hoverImage": "images/women-slippers/5/hover.jpg",
+    "price": 659,
+    "mrp": 1459,
+    "disc": 55,
+    "desc": "Lightweight everyday comfort slide",
+    "sw": [
+      "#233e4e",
+      "#5e666f",
+      "#172834"
+    ],
+    "sticker": "hot",
+    "q": "PENNEN+Rosy+Slide"
+  },
+  {
+    "name": "PENNEN Soft Mule Slipper",
+    "shape": "mule",
+    "image": "images/women-slippers/6/main.jpg",
+    "hoverImage": "images/women-slippers/6/hover.jpg",
+    "price": 549,
+    "mrp": 1099,
+    "disc": 50,
+    "desc": "Comfort-padded daily mule",
+    "sw": [
+      "#c4c2b7",
+      "#433b2d",
+      "#8e8070"
+    ],
+    "sticker": "best",
+    "q": "PENNEN+Soft+Mule+Slipper"
+  },
+  {
+    "name": "PENNEN Sweet Mule Slipper",
+    "shape": "mule",
+    "image": "images/women-slippers/7/main.jpg",
+    "hoverImage": "images/women-slippers/7/hover.jpg",
+    "price": 449,
+    "mrp": 819,
+    "disc": 45,
+    "desc": "Lightweight cushioned mule",
+    "sw": [
+      "#b8b2a6",
+      "#89867c",
+      "#5d5b50"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Sweet+Mule+Slipper"
+  },
+  {
+    "name": "PENNEN Plush Comfort Mule",
+    "shape": "mule",
+    "image": "images/women-slippers/8/main.jpg",
+    "hoverImage": "images/women-slippers/8/hover.jpg",
+    "price": 429,
+    "mrp": 949,
+    "disc": 55,
+    "desc": "Comfort-padded daily mule",
+    "sw": [
+      "#6f854a",
+      "#70aab1",
+      "#dce0dd"
+    ],
+    "sticker": "hot",
+    "q": "PENNEN+Plush+Comfort+Mule"
+  },
+  {
+    "name": "PENNEN Cloud Soft Mule",
+    "shape": "mule",
+    "image": "images/women-slippers/9/main.jpg",
+    "hoverImage": "images/women-slippers/9/hover.jpg",
+    "price": 169,
+    "mrp": 259,
+    "disc": 35,
+    "desc": "Lightweight cushioned mule",
+    "sw": [
+      "#7e715b",
+      "#eee5cd",
+      "#d4cbb6"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Cloud+Soft+Mule"
+  },
+  {
+    "name": "PENNEN Plush Mule Slipper",
+    "shape": "mule",
+    "image": "images/women-slippers/10/main.jpg",
+    "hoverImage": "images/women-slippers/10/hover.jpg",
+    "price": 879,
+    "mrp": 1259,
+    "disc": 30,
+    "desc": "Easy slip-in home mule",
+    "sw": [
+      "#1a1b1f",
+      "#35404f",
+      "#20252e"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Plush+Mule+Slipper"
+  },
+  {
+    "name": "PENNEN Daisy Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/11/main.jpg",
+    "hoverImage": "images/women-slippers/11/hover.jpg",
+    "price": 779,
+    "mrp": 1729,
+    "disc": 55,
+    "desc": "Gentle arch-support slide",
+    "sw": [
+      "#3a2a28",
+      "#bf733b",
+      "#d38c50"
+    ],
+    "sticker": "hot",
+    "q": "PENNEN+Daisy+Slide"
+  },
+  {
+    "name": "PENNEN Bloom Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/12/main.jpg",
+    "hoverImage": "images/women-slippers/12/hover.jpg",
+    "price": 669,
+    "mrp": 1339,
+    "disc": 50,
+    "desc": "Padded footbed slide for all day",
+    "sw": [
+      "#4c642d",
+      "#63793e",
+      "#a0a181"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Bloom+Slide"
+  },
+  {
+    "name": "PENNEN Breeze Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/13/main.jpg",
+    "hoverImage": "images/women-slippers/13/hover.jpg",
+    "price": 569,
+    "mrp": 1029,
+    "disc": 45,
+    "desc": "Soft-cushion daily slide",
+    "sw": [
+      "#e4d3b8",
+      "#665a52",
+      "#a28f7c"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Breeze+Slide"
+  },
+  {
+    "name": "PENNEN Velvet Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/14/main.jpg",
+    "hoverImage": "images/women-slippers/14/hover.jpg",
+    "price": 459,
+    "mrp": 759,
+    "disc": 40,
+    "desc": "Lightweight everyday comfort slide",
+    "sw": [
+      "#acb7bb",
+      "#7d9491",
+      "#44553a"
+    ],
+    "sticker": "hot",
+    "q": "PENNEN+Velvet+Slide"
+  },
+  {
+    "name": "PENNEN Plush Comfort Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/15/main.jpg",
+    "hoverImage": "images/women-slippers/15/hover.jpg",
+    "price": 869,
+    "mrp": 1449,
+    "disc": 40,
+    "desc": "Gentle arch-support slide",
+    "sw": [
+      "#e1e0d7",
+      "#5e615f",
+      "#4c433d"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Plush+Comfort+Slide"
+  },
+  {
+    "name": "PENNEN Velvet Mule Slipper",
+    "shape": "mule",
+    "image": "images/women-slippers/16/main.jpg",
+    "hoverImage": "images/women-slippers/16/hover.jpg",
+    "price": 249,
+    "mrp": 359,
+    "disc": 30,
+    "desc": "Comfort-padded daily mule",
+    "sw": [
+      "#2e404b",
+      "#212c34",
+      "#6f7077"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Velvet+Mule+Slipper"
+  },
+  {
+    "name": "PENNEN Calm Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/17/main.jpg",
+    "hoverImage": "images/women-slippers/17/hover.jpg",
+    "price": 899,
+    "mrp": 1279,
+    "disc": 30,
+    "desc": "Padded footbed slide for all day",
+    "sw": [
+      "#b87746",
+      "#6a4d3c",
+      "#f8d8b3"
+    ],
+    "sticker": "new",
+    "q": "PENNEN+Calm+Slide"
+  },
+  {
+    "name": "PENNEN Pearl Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/18/main.jpg",
+    "hoverImage": "images/women-slippers/18/hover.jpg",
+    "price": 789,
+    "mrp": 1749,
+    "disc": 55,
+    "desc": "Soft-cushion daily slide",
+    "sw": [
+      "#bfbdba",
+      "#9a958f",
+      "#a7a49f"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Pearl+Slide"
+  },
+  {
+    "name": "PENNEN Mellow Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/19/main.jpg",
+    "hoverImage": "images/women-slippers/19/hover.jpg",
+    "price": 689,
+    "mrp": 1379,
+    "disc": 50,
+    "desc": "Lightweight everyday comfort slide",
+    "sw": [
+      "#1f282f",
+      "#101920",
+      "#172027"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Mellow+Slide"
+  },
+  {
+    "name": "PENNEN Blush Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/20/main.jpg",
+    "hoverImage": "images/women-slippers/20/hover.jpg",
+    "price": 579,
+    "mrp": 1049,
+    "disc": 45,
+    "desc": "Gentle arch-support slide",
+    "sw": [
+      "#1c272f",
+      "#5a6169",
+      "#2b3c46"
+    ],
+    "sticker": "new",
+    "q": "PENNEN+Blush+Slide"
+  },
+  {
+    "name": "PENNEN Mellow Mule Slipper",
+    "shape": "mule",
+    "image": "images/women-slippers/21/main.jpg",
+    "hoverImage": "images/women-slippers/21/hover.jpg",
+    "price": 469,
+    "mrp": 779,
+    "disc": 40,
+    "desc": "Comfort-padded daily mule",
+    "sw": [
+      "#cabca8",
+      "#514f4e",
+      "#837c75"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Mellow+Mule+Slipper"
+  },
+  {
+    "name": "PENNEN Blush Mule Slipper",
+    "shape": "mule",
+    "image": "images/women-slippers/22/main.jpg",
+    "hoverImage": "images/women-slippers/22/hover.jpg",
+    "price": 369,
+    "mrp": 569,
+    "disc": 35,
+    "desc": "Lightweight cushioned mule",
+    "sw": [
+      "#b9b2a7",
+      "#8c7663",
+      "#4b4a48"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Blush+Mule+Slipper"
+  },
+  {
+    "name": "PENNEN Cozy Mule Slipper",
+    "shape": "mule",
+    "image": "images/women-slippers/23/main.jpg",
+    "hoverImage": "images/women-slippers/23/hover.jpg",
+    "price": 259,
+    "mrp": 369,
+    "disc": 30,
+    "desc": "Closed-toe soft mule",
+    "sw": [
+      "#b5ab9d",
+      "#504841",
+      "#af9b87"
+    ],
+    "sticker": "new",
+    "q": "PENNEN+Cozy+Mule+Slipper"
+  },
+  {
+    "name": "PENNEN Snug Mule Slipper",
+    "shape": "mule",
+    "image": "images/women-slippers/24/main.jpg",
+    "hoverImage": "images/women-slippers/24/hover.jpg",
+    "price": 159,
+    "mrp": 349,
+    "disc": 55,
+    "desc": "Easy slip-in home mule",
+    "sw": [
+      "#574c42",
+      "#a7988a",
+      "#735a46"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Snug+Mule+Slipper"
+  },
+  {
+    "name": "PENNEN Cloud Mule Slipper",
+    "shape": "mule",
+    "image": "images/women-slippers/25/main.jpg",
+    "hoverImage": "images/women-slippers/25/hover.jpg",
+    "price": 799,
+    "mrp": 1599,
+    "disc": 50,
+    "desc": "Comfort-padded daily mule",
+    "sw": [
+      "#cccbc6",
+      "#bac6cd",
+      "#858e85"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Cloud+Mule+Slipper"
+  },
+  {
+    "name": "PENNEN Lily Mule Slipper",
+    "shape": "mule",
+    "image": "images/women-slippers/26/main.jpg",
+    "hoverImage": "images/women-slippers/26/hover.jpg",
+    "price": 699,
+    "mrp": 1269,
+    "disc": 45,
+    "desc": "Lightweight cushioned mule",
+    "sw": [
+      "#beb0a1",
+      "#383839",
+      "#745c51"
+    ],
+    "sticker": "new",
+    "q": "PENNEN+Lily+Mule+Slipper"
+  },
+  {
+    "name": "PENNEN Petal Mule Slipper",
+    "shape": "mule",
+    "image": "images/women-slippers/27/main.jpg",
+    "hoverImage": "images/women-slippers/27/hover.jpg",
+    "price": 589,
+    "mrp": 979,
+    "disc": 40,
+    "desc": "Closed-toe soft mule",
+    "sw": [
+      "#353b3f",
+      "#8b7e72",
+      "#eee2c9"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Petal+Mule+Slipper"
+  },
+  {
+    "name": "PENNEN Pearl Soft Mule",
+    "shape": "mule",
+    "image": "images/women-slippers/28/main.jpg",
+    "hoverImage": "images/women-slippers/28/hover.jpg",
+    "price": 509,
+    "mrp": 779,
+    "disc": 35,
+    "desc": "Closed-toe soft mule",
+    "sw": [
+      "#24282b",
+      "#0f1518",
+      "#323d42"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Pearl+Soft+Mule"
+  },
+  {
+    "name": "PENNEN Petal Soft Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/29/main.jpg",
+    "hoverImage": "images/women-slippers/29/hover.jpg",
+    "price": 509,
+    "mrp": 849,
+    "disc": 40,
+    "desc": "Padded footbed slide for all day",
+    "sw": [
+      "#453527",
+      "#cfc4b2",
+      "#aa9a85"
+    ],
+    "sticker": "best",
+    "q": "PENNEN+Petal+Soft+Slide"
+  },
+  {
+    "name": "PENNEN Rosy Mule Slipper",
+    "shape": "mule",
+    "image": "images/women-slippers/30/main.jpg",
+    "hoverImage": "images/women-slippers/30/hover.jpg",
+    "price": 279,
+    "mrp": 619,
+    "disc": 55,
+    "desc": "Comfort-padded daily mule",
+    "sw": [
+      "#ccbca4",
+      "#403322",
+      "#92785d"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Rosy+Mule+Slipper"
+  },
+  {
+    "name": "PENNEN Cozy Easy Mule",
+    "shape": "mule",
+    "image": "images/women-slippers/31/main.jpg",
+    "hoverImage": "images/women-slippers/31/hover.jpg",
+    "price": 479,
+    "mrp": 1059,
+    "disc": 55,
+    "desc": "Comfort-padded daily mule",
+    "sw": [
+      "#6a6660",
+      "#c6c6c6",
+      "#b86333"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Cozy+Easy+Mule"
+  },
+  {
+    "name": "PENNEN Sweet Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/32/main.jpg",
+    "hoverImage": "images/women-slippers/32/hover.jpg",
+    "price": 819,
+    "mrp": 1489,
+    "disc": 45,
+    "desc": "Soft-cushion daily slide",
+    "sw": [
+      "#151d24",
+      "#5d524e",
+      "#2b333a"
+    ],
+    "sticker": "best",
+    "q": "PENNEN+Sweet+Slide"
+  },
+  {
+    "name": "PENNEN Plush Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/33/main.jpg",
+    "hoverImage": "images/women-slippers/33/hover.jpg",
+    "price": 709,
+    "mrp": 1179,
+    "disc": 40,
+    "desc": "Lightweight everyday comfort slide",
+    "sw": [
+      "#333840",
+      "#aea8a0",
+      "#a39487"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Plush+Slide"
+  },
+  {
+    "name": "PENNEN Daisy Mule Slipper",
+    "shape": "mule",
+    "image": "images/women-slippers/34/main.jpg",
+    "hoverImage": "images/women-slippers/34/hover.jpg",
+    "price": 609,
+    "mrp": 939,
+    "disc": 35,
+    "desc": "Comfort-padded daily mule",
+    "sw": [
+      "#212a30",
+      "#191c21",
+      "#3e3838"
+    ],
+    "sticker": "hot",
+    "q": "PENNEN+Daisy+Mule+Slipper"
+  },
+  {
+    "name": "PENNEN Pearl Mule Slipper",
+    "shape": "mule",
+    "image": "images/women-slippers/35/main.jpg",
+    "hoverImage": "images/women-slippers/35/hover.jpg",
+    "price": 199,
+    "mrp": 399,
+    "disc": 50,
+    "desc": "Closed-toe soft mule",
+    "sw": [
+      "#beb5a7",
+      "#504d47",
+      "#8d7761"
+    ],
+    "sticker": "new",
+    "q": "PENNEN+Pearl+Mule+Slipper"
+  },
+  {
+    "name": "PENNEN Bloom Slip Mule",
+    "shape": "mule",
+    "image": "images/women-slippers/36/main.jpg",
+    "hoverImage": "images/women-slippers/36/hover.jpg",
+    "price": 689,
+    "mrp": 1529,
+    "disc": 55,
+    "desc": "Closed-toe soft mule",
+    "sw": [
+      "#c2af9a",
+      "#896f5a",
+      "#353a3f"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Bloom+Slip+Mule"
+  },
+  {
+    "name": "PENNEN Bloom Mule Slipper",
+    "shape": "mule",
+    "image": "images/women-slippers/37/main.jpg",
+    "hoverImage": "images/women-slippers/37/hover.jpg",
+    "price": 289,
+    "mrp": 579,
+    "disc": 50,
+    "desc": "Closed-toe soft mule",
+    "sw": [
+      "#c9b39a",
+      "#c1966d",
+      "#322918"
+    ],
+    "sticker": "hot",
+    "q": "PENNEN+Bloom+Mule+Slipper"
+  },
+  {
+    "name": "PENNEN Breeze Mule Slipper",
+    "shape": "mule",
+    "image": "images/women-slippers/38/main.jpg",
+    "hoverImage": "images/women-slippers/38/hover.jpg",
+    "price": 179,
+    "mrp": 329,
+    "disc": 45,
+    "desc": "Easy slip-in home mule",
+    "sw": [
+      "#d2c5ae",
+      "#5d5950",
+      "#7e6e5b"
+    ],
+    "sticker": "best",
+    "q": "PENNEN+Breeze+Mule+Slipper"
+  },
+  {
+    "name": "PENNEN Calm Comfort Mule",
+    "shape": "mule",
+    "image": "images/women-slippers/39/main.jpg",
+    "hoverImage": "images/women-slippers/39/hover.jpg",
+    "price": 659,
+    "mrp": 1199,
+    "disc": 45,
+    "desc": "Comfort-padded daily mule",
+    "sw": [
+      "#e0dfd6",
+      "#786859",
+      "#847d72"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Calm+Comfort+Mule"
+  },
+  {
+    "name": "PENNEN Calm Flip-Flop",
+    "shape": "flipflop",
+    "image": "images/women-slippers/40/main.jpg",
+    "hoverImage": "images/women-slippers/40/hover.jpg",
+    "price": 719,
+    "mrp": 1199,
+    "disc": 40,
+    "desc": "Easy everyday chappal",
+    "sw": [
+      "#bdbab4",
+      "#635950",
+      "#89786a"
+    ],
+    "sticker": "hot",
+    "q": "PENNEN+Calm+Flip-Flop"
+  },
+  {
+    "name": "PENNEN Velvet Flip-Flop",
+    "shape": "flipflop",
+    "image": "images/women-slippers/41/main.jpg",
+    "hoverImage": "images/women-slippers/41/hover.jpg",
+    "price": 619,
+    "mrp": 949,
+    "disc": 35,
+    "desc": "Soft-strap daily flip-flop",
+    "sw": [
+      "#817a74",
+      "#d0cdc5",
+      "#a39b92"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Velvet+Flip-Flop"
+  },
+  {
+    "name": "PENNEN Blush Flip-Flop",
+    "shape": "flipflop",
+    "image": "images/women-slippers/42/main.jpg",
+    "hoverImage": "images/women-slippers/42/hover.jpg",
+    "price": 639,
+    "mrp": 979,
+    "disc": 35,
+    "desc": "Easy everyday chappal",
+    "sw": [
+      "#817b74",
+      "#d0cdc5",
+      "#a29b92"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Blush+Flip-Flop"
+  },
+  {
+    "name": "PENNEN Pearl Flip-Flop",
+    "shape": "flipflop",
+    "image": "images/women-slippers/43/main.jpg",
+    "hoverImage": "images/women-slippers/43/hover.jpg",
+    "price": 409,
+    "mrp": 909,
+    "disc": 55,
+    "desc": "Breezy warm-weather thong",
+    "sw": [
+      "#c7c4c0",
+      "#5d5851",
+      "#827871"
+    ],
+    "sticker": "hot",
+    "q": "PENNEN+Pearl+Flip-Flop"
+  },
+  {
+    "name": "PENNEN Soft Day Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/44/main.jpg",
+    "hoverImage": "images/women-slippers/44/hover.jpg",
+    "price": 869,
+    "mrp": 1579,
+    "disc": 45,
+    "desc": "Soft-cushion daily slide",
+    "sw": [
+      "#71b3cd",
+      "#9a8e71",
+      "#edeae1"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Soft+Day+Slide"
+  },
+  {
+    "name": "PENNEN Cozy Soft Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/45/main.jpg",
+    "hoverImage": "images/women-slippers/45/hover.jpg",
+    "price": 609,
+    "mrp": 1349,
+    "disc": 55,
+    "desc": "Lightweight everyday comfort slide",
+    "sw": [
+      "#86a25f",
+      "#6c8f42",
+      "#565440"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Cozy+Soft+Slide"
+  },
+  {
+    "name": "PENNEN Cozy Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/46/main.jpg",
+    "hoverImage": "images/women-slippers/46/hover.jpg",
+    "price": 839,
+    "mrp": 1399,
+    "disc": 40,
+    "desc": "Soft-cushion daily slide",
+    "sw": [
+      "#d1a67f",
+      "#6b5442",
+      "#5f422e"
+    ],
+    "sticker": "new",
+    "q": "PENNEN+Cozy+Slide"
+  },
+  {
+    "name": "PENNEN Snug Slide",
+    "shape": "slide",
+    "image": "images/women-slippers/47/main.jpg",
+    "hoverImage": "images/women-slippers/47/hover.jpg",
+    "price": 739,
+    "mrp": 1139,
+    "disc": 35,
+    "desc": "Lightweight everyday comfort slide",
+    "sw": [
+      "#93ab5a",
+      "#749147",
+      "#5c5941"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Snug+Slide"
+  }
+];
+
+/* ---- helpers ---- */
+function peso(n){return '\u20b9'+n.toLocaleString('en-IN');}
+function stickerHtml(s){
+  if(!s)return '';
+  var label={best:'\u2605 Bestseller',new:'\u2728 New In',hot:'\ud83d\udd25 Hot'}[s];
+  return label?'<span class="card-sticker card-sticker--'+s+'">'+label+'</span>':'';
+}
+function buyRow(p){
+  return PLATFORMS.map(function(pl){
+    var href=pl[3].replace('{q}',p.q);
+    return '<a class="platform-pill--'+pl[0]+'" target="_blank" rel="noopener" href="'+href+'">'+
+      '<img src="'+pl[2]+'" alt="'+pl[1]+'" onerror="imgFallback(this,\''+pl[1]+'\')"></a>';
+  }).join('');
+}
+function card(p){
+  var dots=(p.sw||[]).map(function(s){return '<i style="background:'+s+'"></i>';}).join('');
+  return '<article class="product-card" data-shape="'+p.shape+'">'+
+    '<div class="card-img-wrap">'+
+      stickerHtml(p.sticker)+
+      '<span class="price-tag">'+peso(p.price)+'</span>'+
+      '<img src="'+p.image+'" alt="'+p.name+'" class="product-img main-img" loading="lazy">'+
+      '<img src="'+p.hoverImage+'" alt="'+p.name+' alternate view" class="product-img hover-img" loading="lazy">'+
+    '</div>'+
+    '<div class="card-body">'+
+      '<p class="card-cat">Women \u00b7 Slippers</p>'+
+      '<h3 class="card-title">'+p.name+'</h3>'+
+      '<p class="card-desc">'+p.desc+'</p>'+
+      '<div class="swatches">'+dots+'</div>'+
+      '<div class="card-price-row"><span class="price-old">'+peso(p.mrp)+'</span>'+
+        '<span class="price-discount">'+p.disc+'% OFF</span></div>'+
+      '<p class="card-buy-label">Available on \u2014</p>'+
+      '<div class="card-btns">'+buyRow(p)+'</div>'+
+    '</div></article>';
+}
+
+/* ---- state + rendering ---- */
+var grid=document.getElementById('grid');
+var activeFilter='all';
+var view=PRODUCTS.slice();
+
+function render(){
+  if(!view.length){
+    grid.innerHTML='<p class="empty">No styles in this filter yet — check back soon.</p>';
+  }else{
+    grid.innerHTML=view.map(card).join('');
+    [].slice.call(grid.querySelectorAll('.product-card')).forEach(function(el,i){
+      var d=Math.min(i,16)*45;setTimeout(function(){el.classList.add('in');},40+d);
+    });
+  }
+  document.getElementById('count').innerHTML=view.length+' styles <span>in this collection</span>';
+}
+function applyFilter(){
+  view=(activeFilter==='all')?PRODUCTS.slice():PRODUCTS.filter(function(p){return p.shape===activeFilter;});
+  sortView();
+}
+function sortView(){
+  var v=document.getElementById('sort').value;
+  if(v==='low')view.sort(function(a,b){return a.price-b.price;});
+  else if(v==='high')view.sort(function(a,b){return b.price-a.price;});
+  else if(v==='disc')view.sort(function(a,b){return b.disc-a.disc;});
+  render();
+}
+
+document.getElementById('sort').addEventListener('change',sortView);
+[].slice.call(document.querySelectorAll('.chip')).forEach(function(ch){
+  ch.addEventListener('click',function(){
+    document.querySelectorAll('.chip').forEach(function(c){c.classList.remove('active');});
+    ch.classList.add('active');
+    activeFilter=ch.dataset.f;
+    applyFilter();
+  });
+});
+
+render();
+</script>
+
+</body>
+</html>
