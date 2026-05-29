@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PENNEN — Men's Shoes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ivory:#fff8e7; --paper:#fef9e7; --cream:#fef3c7;
+  --marigold:#f59e0b; --orange:#ea580c;
+  --rose:#be185d; --magenta:#db2777;
+  --teal:#0e7490; --teal-dark:#134e4a; --maroon:#7f1d1d;
+  --ink:#3d1f0a; --gold:#fbbf24; --green-wa:#128c4f;
+  --coffee:#4a2c1d; --sand:#e8c98a;
+  --radius-sm:8px; --radius:14px; --radius-lg:22px;
+  --shadow-sm:0 2px 0 var(--ink); --shadow-md:0 4px 0 var(--ink); --shadow-lg:0 8px 0 var(--ink);
+  --ease:.22s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',sans-serif;background:var(--ivory);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background-image:
+    radial-gradient(circle,rgba(245,158,11,.08) 1.2px,transparent 1.2px),
+    radial-gradient(circle,rgba(190,24,93,.05) 1px,transparent 1px);
+  background-size:28px 28px,44px 44px;background-position:0 0,14px 14px;}
+img{display:block;max-width:100%;height:auto}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+.eyebrow{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:28px;height:2px;background:var(--rose);display:inline-block}
+
+/* ── MARQUEE ── */
+.marquee{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);overflow:hidden;padding:8px 0;position:relative;z-index:5;background:linear-gradient(90deg,#a10f4e,#c2185b);color:var(--cream)}
+.marquee-track{display:flex;gap:0;white-space:nowrap;animation:marq 50s linear infinite;will-change:transform}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{font-family:'Fraunces',serif;font-weight:900;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;padding:0 34px;display:inline-flex;align-items:center;color:var(--cream)}
+.marquee-track span::after{content:'\2726';margin-left:34px;color:var(--gold);font-size:.95rem}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ── NAVBAR ── */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--ivory);
+  border-bottom: 2px solid var(--ink);
+  transition: box-shadow var(--ease);
+}
+.navbar.scrolled { box-shadow: 0 4px 0 rgba(61, 31, 10, 0.12); }
+
+.nav-inner {
+  max-width: 100%;
+  padding-left: 4px;
+  padding-right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 50px;
+  height: 88px;
+}
+.logo { display: flex; align-items: center;  margin-left: -12px;	}
+/* Fluid logo so it fits any bar height instead of being fixed to one platform */
+.logo img { height: clamp(60px, 15vw, 120px); width: auto; object-fit: contain; }
+.logo-text{font-family:'Fraunces',serif;font-style:italic;font-weight:900;font-size:1.7rem;color:var(--rose);letter-spacing:.01em}
+.nav-links{display:flex;align-items:center;gap:34px;margin-left:8px}
+.nav-link{font-size:.92rem;font-weight:600;color:var(--ink);position:relative;padding:6px 0;transition:color var(--ease)}
+.nav-link::after{content:'';position:absolute;left:50%;bottom:-2px;width:0;height:2px;background:var(--rose);transition:width var(--ease),left var(--ease)}
+.nav-link:hover{color:var(--rose)}
+.nav-link:hover::after,.nav-link.active::after{width:100%;left:0}
+.nav-link.active{color:var(--rose)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--rose);color:var(--cream);padding:11px 22px;border-radius:50px;font-size:.85rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);transition:all var(--ease);transform:rotate(-2deg);margin-left:auto}
+.nav-cta:hover{transform:rotate(-2deg) translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink);background:var(--magenta)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.hamburger span{display:block;width:26px;height:2.5px;background:var(--ink);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
+
+/* ── CATEGORY HERO ── */
+.cat-hero{position:relative;background:var(--paper);border-bottom:2px solid var(--ink);overflow:hidden;padding:54px 32px 46px}
+.cat-hero::before{content:'';position:absolute;top:-120px;right:-160px;width:460px;height:460px;background:radial-gradient(circle,rgba(245,158,11,.14) 0%,transparent 62%);border-radius:50%;pointer-events:none}
+.cat-hero::after{content:'';position:absolute;bottom:-120px;left:-100px;width:320px;height:320px;background:radial-gradient(circle,rgba(190,24,93,.10) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+.cat-hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:2}
+.crumb{font-size:.74rem;font-weight:700;letter-spacing:.06em;color:var(--ink);opacity:.65;margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap}
+.crumb a{color:var(--rose);font-weight:800}
+.crumb a:hover{text-decoration:underline}
+.cat-no{position:absolute;top:-8px;right:0;font-family:'Fraunces',serif;font-weight:900;font-style:italic;font-size:clamp(3rem,9vw,5.6rem);color:rgba(190,24,93,.08);line-height:1;pointer-events:none}
+.cat-title{font-family:'Fraunces',serif;font-variation-settings:"opsz" 144;font-size:clamp(2.4rem,5.4vw,4.2rem);font-weight:900;line-height:.98;letter-spacing:-.025em;color:var(--ink);margin:6px 0 18px;max-width:14ch}
+.cat-title em{font-style:italic;color:var(--rose)}
+.cat-sub{font-size:1.04rem;color:var(--ink);opacity:.78;line-height:1.7;max-width:560px}
+
+/* collection tabs */
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;position:relative;z-index:2}
+.tab{padding:10px 18px;border-radius:50px;font-weight:700;font-size:.86rem;color:var(--ink);background:var(--paper);border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink);transition:all var(--ease)}
+.tab:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.tab.active{background:var(--rose);color:var(--cream)}
+
+/* ── TOOLBAR ── */
+.controls{max-width:1280px;margin:0 auto;padding:34px 32px 6px}
+.controls-row{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.count{font-family:'Fraunces',serif;font-weight:900;font-size:1.25rem;color:var(--ink)}
+.count span{font-family:'Manrope',sans-serif;font-weight:500;font-size:.92rem;color:var(--ink);opacity:.6;margin-left:6px}
+.sortwrap{display:flex;align-items:center;gap:10px;font-size:.86rem;font-weight:700;color:var(--ink);opacity:.75}
+.sortwrap select{font-family:'Manrope',sans-serif;font-size:.88rem;font-weight:700;color:var(--ink);background:var(--paper);border:2px solid var(--ink);border-radius:50px;padding:9px 16px;cursor:pointer;box-shadow:2px 2px 0 var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{padding:7px 15px;border-radius:50px;font-weight:700;font-size:.8rem;color:var(--ink);background:var(--paper);border:2px solid var(--ink);cursor:pointer;transition:all var(--ease)}
+.chip:hover{background:var(--cream)}
+.chip.active{background:var(--marigold);color:var(--ink)}
+
+/* ── PRODUCTS GRID ── */
+.section-products{padding:24px 32px 90px;background:var(--ivory)}
+.products-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px}
+.product-card{background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;position:relative;transition:all var(--ease);box-shadow:4px 4px 0 var(--ink);opacity:0;transform:translateY(14px)}
+.product-card.in{opacity:1;transform:none}
+.product-card:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--ink)}
+.card-img-wrap{position:relative;aspect-ratio:4/3;overflow:hidden;border-bottom:2px solid var(--ink);background:radial-gradient(circle at 50% 62%,#fffdf3 0%,var(--cream) 82%)}
+
+.product-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:opacity .4s ease, transform .45s cubic-bezier(.2,.7,.2,1);
+}
+.hover-img{opacity:0}
+.product-card:hover .hover-img{opacity:1}
+.product-card:hover .main-img{opacity:0}
+.product-card:hover .product-img{transform:scale(1.05)}
+
+.card-sticker{position:absolute;top:14px;left:14px;background:var(--rose);color:var(--cream);font-size:.65rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:50px;border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink);transform:rotate(-4deg);z-index:2}
+.card-sticker--new{background:var(--teal);color:var(--cream)}
+.card-sticker--hot{background:var(--orange);color:var(--cream)}
+.card-sticker--best{background:var(--marigold);color:var(--ink)}
+.price-tag{position:absolute;top:14px;right:-8px;background:var(--gold);color:var(--ink);padding:8px 16px 8px 18px;font-family:'Fraunces',serif;font-weight:900;font-size:1.05rem;border:2px solid var(--ink);border-radius:4px 0 0 4px;box-shadow:2px 2px 0 var(--ink);z-index:2;transform:rotate(2deg)}
+.price-tag::before{content:'';position:absolute;left:-2px;top:50%;transform:translate(-100%,-50%);width:0;height:0;border:13px solid transparent;border-right:12px solid var(--ink)}
+.price-tag::after{content:'';position:absolute;left:0;top:50%;transform:translate(-100%,-50%);width:0;height:0;border:11px solid transparent;border-right:10px solid var(--gold);z-index:1}
+.card-body{padding:22px 22px 20px;display:flex;flex-direction:column;flex:1}
+.card-cat{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);margin-bottom:8px}
+.card-title{font-family:'Fraunces',serif;font-size:1.08rem;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:10px}
+.card-desc{font-size:.85rem;color:var(--ink);opacity:.7;line-height:1.6;margin-bottom:14px;flex:1}
+.swatches{display:flex;gap:7px;margin-bottom:16px}
+.swatches i{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--ink);display:inline-block}
+.card-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:16px;padding-bottom:14px;border-bottom:2px dashed rgba(61,31,10,.16)}
+.price-old{font-size:.88rem;color:var(--ink);opacity:.45;text-decoration:line-through}
+.price-discount{background:var(--teal-dark);color:var(--cream);font-size:.7rem;font-weight:800;padding:3px 9px;border-radius:50px;letter-spacing:.05em}
+.card-buy-label{font-family:'Fraunces',serif;font-style:italic;font-size:.78rem;color:var(--ink);opacity:.7;margin-bottom:10px}
+.card-btns{display:flex;flex-wrap:wrap;gap:6px}
+.card-btns a{flex:1 1 60px;max-width:90px;display:flex;align-items:center;justify-content:center;padding:8px 6px;border-radius:8px;border:1.5px solid var(--ink);min-height:40px;transition:all var(--ease)}
+.card-btns a:hover{transform:translate(-1px,-1px);box-shadow:2px 2px 0 var(--ink)}
+.card-btns a img{height:22px;width:auto;max-width:70px;object-fit:contain}
+.card-btns a .pill-txt{font-size:.66rem;font-weight:800;letter-spacing:.02em;color:var(--ink)}
+.card-btns a.platform-pill--amazon{background:#fff5e1}
+.card-btns a.platform-pill--flipkart{background:#e8f0ff}
+.card-btns a.platform-pill--meesho{background:#fde7f6}
+.card-btns a.platform-pill--snapdeal{background:#ffe1e7}
+.card-btns a.platform-pill--jiomart{background:#e0f4e3}
+.card-btns a.platform-pill--ajio{background:#fff0b3}
+.card-btns a.platform-pill--myntra{background:#ffdbe7}
+.card-btns a.platform-pill--snapdeal img{height:46px;max-width:170px}
+
+.empty{max-width:1280px;margin:40px auto;text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;color:var(--ink);opacity:.6}
+
+/* ── FOOTER ── */
+.footer{background:var(--ink);color:var(--cream);padding:80px 32px 0;position:relative;border-top:2px solid var(--ink)}
+.footer::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,248,231,.04) 1px,transparent 1px);background-size:24px 24px;pointer-events:none}
+.footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:2px dashed rgba(255,248,231,.15);position:relative;z-index:1}
+.footer-brand h3{font-family:'Fraunces',serif;font-style:italic;font-weight:900;font-size:2rem;color:var(--gold);margin-bottom:14px}
+.footer-brand p{font-size:.92rem;line-height:1.7;opacity:.7;max-width:340px}
+.footer-col h4{font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.footer-col a{display:block;font-size:.9rem;color:var(--cream);opacity:.7;margin-bottom:10px;transition:all var(--ease)}
+.footer-col a:hover{opacity:1;color:var(--marigold);transform:translateX(4px)}
+.footer-bottom{max-width:1280px;margin:0 auto;padding:24px 0;display:flex;justify-content:space-between;align-items:center;font-size:.82rem;opacity:.55;flex-wrap:wrap;gap:12px;position:relative;z-index:1}
+.footer-bottom em{font-family:'Fraunces',serif;font-style:italic;color:var(--gold)}
+
+/* ── FLOATING WHATSAPP ── */
+.wa-float{position:fixed;bottom:26px;right:26px;z-index:1000;background:var(--green-wa);color:var(--cream);border:2px solid var(--ink);border-radius:50px;padding:14px 22px;display:flex;align-items:center;gap:10px;box-shadow:4px 4px 0 var(--ink);font-weight:800;font-size:.88rem;letter-spacing:.04em;text-transform:uppercase;transition:all var(--ease);animation:waPulse 2.4s ease-in-out infinite}
+.wa-float:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);animation:none}
+@keyframes waPulse{0%,100%{box-shadow:4px 4px 0 var(--ink)}50%{box-shadow:4px 4px 0 var(--ink),0 0 0 8px rgba(18,140,79,.18)}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){.footer-inner{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
+@media(max-width:768px){
+  /* Platform-invariant header: space-between self-balances regardless of which
+     children are hidden, so we don't depend on .nav-cta's margin-left:auto. */
+  .nav-inner{justify-content:space-between;gap:12px;padding-left:18px;padding-right:18px}
+  .logo{margin-left:0}
+  .hamburger{display:flex}
+  .nav-links{display:none;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;background:var(--ivory);border-bottom:2px solid var(--ink);padding:16px 0;z-index:99}
+  .nav-links.open{display:flex}
+  .nav-link{padding:14px 32px;border-bottom:1px dashed rgba(61,31,10,.15);font-size:1rem;width:100%}
+  .nav-cta{display:none}
+  .cat-hero{padding:42px 22px 38px}
+  .controls,.section-products{padding-left:22px;padding-right:22px}
+  .products-grid{grid-template-columns:1fr 1fr;gap:18px}
+}
+@media(max-width:520px){
+  .products-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .marquee-track span{font-size:.92rem;padding:0 22px}
+  .marquee-track span::after{margin-left:22px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index5.html" class="logo">
+      <img src="logo.png" alt="PENNEN" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+      <span class="logo-text" style="display:none">PENNEN</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index5.html" class="nav-link">Home</a>
+      <a href="catalogue.html" class="nav-link active">Catalogue</a>
+    </nav>
+    <a href="index5.html" class="nav-cta">← Back to Store</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- CATEGORY HERO -->
+<section class="cat-hero">
+  <div class="cat-hero-inner">
+    <div class="cat-no"></div>
+    <nav class="crumb"><a href="index5.html">Home</a> / <a href="catalogue.html">Catalogue</a> / <span>Footwear</span></nav>
+    <span class="eyebrow">Men's Shoes</span>
+    <h1 class="cat-title">Men's shoes that <em>go the distance.</em></h1>
+    <p class="cat-sub">From morning runs to office floors — everyday and performance styles built for long-lasting comfort. Pick a pair, buy on any platform you like.</p>
+    <div class="tabs"><a href="catalogue-men-shoes.html" class="tab active">Men's Shoes</a><a href="catalogue-men-slippers.html" class="tab">Men's Slippers</a><a href="catalogue-women-shoes.html" class="tab">Women's Shoes</a><a href="catalogue-women-slippers.html" class="tab">Women's Slippers</a></div>
+  </div>
+</section>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <div class="controls-row">
+    <div class="count" id="count">styles <span>in this collection</span></div>
+    <label class="sortwrap">Sort by
+      <select id="sort">
+        <option value="featured">Featured</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+        <option value="disc">Biggest Discount</option>
+      </select>
+    </label>
+  </div>
+  <div class="chips"><button class="chip active" data-f="all">All</button><button class="chip" data-f="sneaker">Sneakers</button><button class="chip" data-f="hightop">High-Tops</button><button class="chip" data-f="slipon">Slip-Ons</button></div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="section-products">
+  <div class="products-grid" id="grid"></div>
+</section>
+
+<!-- FLOATING WHATSAPP -->
+<a class="wa-float" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">WhatsApp Us</a>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>PENNEN</h3>
+      <p>A breakout footwear label from India, selling quality shoes across every major marketplace. Built honestly, priced fairly, delivered everywhere.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="index5.html">Home Store</a>
+      <a href="catalogue.html">All Collections</a>
+    </div>
+    <div class="footer-col">
+      <h4>Collections</h4>
+      <a href="catalogue-men-shoes.html">Men's Shoes</a>
+      <a href="catalogue-men-slippers.html">Men's Slippers</a>
+      <a href="catalogue-women-shoes.html">Women's Shoes</a>
+      <a href="catalogue-women-slippers.html">Women's Slippers</a>
+    </div>
+    <div class="footer-col">
+      <h4>Shop On</h4>
+      <a href="https://www.amazon.in" target="_blank" rel="noopener">Amazon</a>
+      <a href="https://www.flipkart.com" target="_blank" rel="noopener">Flipkart</a>
+      <a href="https://www.meesho.com" target="_blank" rel="noopener">Meesho</a>
+      <a href="https://www.myntra.com" target="_blank" rel="noopener">Myntra</a>
+      <a href="https://www.ajio.com" target="_blank" rel="noopener">Ajio</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 PENNEN — <em>A Growing Step.</em> All rights reserved.</span>
+    <span>Made with care in India 🇮🇳</span>
+  </div>
+</footer>
+
+<script>
+/* ---- nav + scroll behaviour ---- */
+(function(){
+  var hb=document.getElementById('hamburger'),nl=document.getElementById('navLinks');
+  if(hb){hb.addEventListener('click',function(){hb.classList.toggle('open');nl.classList.toggle('open')});
+    nl.querySelectorAll('.nav-link').forEach(function(a){a.addEventListener('click',function(){hb.classList.remove('open');nl.classList.remove('open')})});}
+  var nav=document.getElementById('navbar');
+  window.addEventListener('scroll',function(){if(nav)nav.classList.toggle('scrolled',window.scrollY>12)},{passive:true});
+})();
+
+/* fallback if a platform logo image is missing */
+function imgFallback(img,label){var s=document.createElement('span');s.className='pill-txt';s.textContent=label;img.replaceWith(s);}
+
+/* ---- selling platforms (logo file + search-URL template) ---- */
+var PLATFORMS=[
+  ["amazon","Amazon","ammaloh.png","https://www.amazon.in/s?k=PENNEN+{q}"],
+  ["flipkart","Flipkart","flipkart-log-icon-e33c.png","https://www.flipkart.com/search?q=PENNEN%20{q}"],
+  ["meesho","Meesho","Meesho_logo.png","https://www.meesho.com/search?q=PENNEN%20{q}"],
+  ["snapdeal","Snapdeal","snapdeal.png","https://www.snapdeal.com/search?keyword=PENNEN%20{q}"],
+  ["jiomart","JioMart","jiomart.png","https://www.jiomart.com/search/PENNEN%20{q}"],
+  ["ajio","Ajio","ajio.png","https://www.ajio.com/search/?text=PENNEN%20{q}"],
+  ["myntra","Myntra","myntra.png","https://www.myntra.com/PENNEN-{q}"]
+];
+
+/* ---- real PENNEN catalogue data (generated from product photos) ---- */
+var PRODUCTS = [
+  {
+    "name": "PENNEN Apex Pace",
+    "shape": "sneaker",
+    "image": "images/shoes/606/main.jpg",
+    "hoverImage": "images/shoes/606/hover.jpg",
+    "price": 2069,
+    "mrp": 4599,
+    "disc": 55,
+    "desc": "Cushioned trainer built for all-day wear",
+    "sw": [
+      "#d8d7dc",
+      "#322b2c",
+      "#ededf1"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Apex+Pace"
+  },
+  {
+    "name": "PENNEN Velocity Street High",
+    "shape": "hightop",
+    "image": "images/shoes/608/main.jpg",
+    "hoverImage": "images/shoes/608/hover.jpg",
+    "price": 1449,
+    "mrp": 2629,
+    "disc": 45,
+    "desc": "Street-ready high-top silhouette",
+    "sw": [
+      "#54575e",
+      "#686063",
+      "#9294a0"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Velocity+Street+High"
+  },
+  {
+    "name": "PENNEN Urban Street High",
+    "shape": "hightop",
+    "image": "images/shoes/609/main.jpg",
+    "hoverImage": "images/shoes/609/hover.jpg",
+    "price": 1149,
+    "mrp": 1919,
+    "disc": 40,
+    "desc": "Street-ready high-top silhouette",
+    "sw": [
+      "#dcdbe2",
+      "#232225",
+      "#a6a5ac"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Urban+Street+High"
+  },
+  {
+    "name": "PENNEN Pulse Sprint",
+    "shape": "sneaker",
+    "image": "images/shoes/1001/main.jpg",
+    "hoverImage": "images/shoes/1001/hover.jpg",
+    "price": 1039,
+    "mrp": 2599,
+    "disc": 60,
+    "desc": "Cushioned trainer built for all-day wear",
+    "sw": [
+      "#536983",
+      "#708ea9",
+      "#9d97a2"
+    ],
+    "sticker": "hot",
+    "q": "PENNEN+Pulse+Sprint"
+  },
+  {
+    "name": "PENNEN Storm Sprint",
+    "shape": "sneaker",
+    "image": "images/shoes/1002/main.jpg",
+    "hoverImage": "images/shoes/1002/hover.jpg",
+    "price": 2929,
+    "mrp": 6509,
+    "disc": 55,
+    "desc": "Breathable mesh sneaker for active days",
+    "sw": [
+      "#29293d",
+      "#dedce3",
+      "#1c2134"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Storm+Sprint"
+  },
+  {
+    "name": "PENNEN Rapid Sprint",
+    "shape": "sneaker",
+    "image": "images/shoes/1003/main.jpg",
+    "hoverImage": "images/shoes/1003/hover.jpg",
+    "price": 2619,
+    "mrp": 5239,
+    "disc": 50,
+    "desc": "Grippy outsole made for Indian roads",
+    "sw": [
+      "#3e3e46",
+      "#1e1d25",
+      "#2e2e37"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Rapid+Sprint"
+  },
+  {
+    "name": "PENNEN Urban Court",
+    "shape": "sneaker",
+    "image": "images/shoes/1004/main.jpg",
+    "hoverImage": "images/shoes/1004/hover.jpg",
+    "price": 1459,
+    "mrp": 3649,
+    "disc": 60,
+    "desc": "Grippy outsole made for Indian roads",
+    "sw": [
+      "#eeeeee",
+      "#121318",
+      "#242228"
+    ],
+    "sticker": "best",
+    "q": "PENNEN+Urban+Court"
+  },
+  {
+    "name": "PENNEN Trail Sprint",
+    "shape": "sneaker",
+    "image": "images/shoes/1005/main.jpg",
+    "hoverImage": "images/shoes/1005/hover.jpg",
+    "price": 2009,
+    "mrp": 3349,
+    "disc": 40,
+    "desc": "Lightweight everyday running sneaker",
+    "sw": [
+      "#b9a891",
+      "#443b30",
+      "#715942"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Trail+Sprint"
+  },
+  {
+    "name": "PENNEN Drift Sprint",
+    "shape": "sneaker",
+    "image": "images/shoes/1006/main.jpg",
+    "hoverImage": "images/shoes/1006/hover.jpg",
+    "price": 1699,
+    "mrp": 2829,
+    "disc": 40,
+    "desc": "Cushioned trainer built for all-day wear",
+    "sw": [
+      "#7d6f53",
+      "#313223",
+      "#68553d"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Drift+Sprint"
+  },
+  {
+    "name": "PENNEN Nova Sprint",
+    "shape": "sneaker",
+    "image": "images/shoes/1010/main.jpg",
+    "hoverImage": "images/shoes/1010/hover.jpg",
+    "price": 2659,
+    "mrp": 4829,
+    "disc": 45,
+    "desc": "Cushioned trainer built for all-day wear",
+    "sw": [
+      "#352b2a",
+      "#6d544a",
+      "#ad7a5a"
+    ],
+    "sticker": "new",
+    "q": "PENNEN+Nova+Sprint"
+  },
+  {
+    "name": "PENNEN Cruz Trainer",
+    "shape": "sneaker",
+    "image": "images/shoes/1011/main.jpg",
+    "hoverImage": "images/shoes/1011/hover.jpg",
+    "price": 2349,
+    "mrp": 4269,
+    "disc": 45,
+    "desc": "Breathable mesh sneaker for active days",
+    "sw": [
+      "#493f3b",
+      "#141110",
+      "#775e4d"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Cruz+Trainer"
+  },
+  {
+    "name": "PENNEN Summit Trainer",
+    "shape": "sneaker",
+    "image": "images/shoes/1016/main.jpg",
+    "hoverImage": "images/shoes/1016/hover.jpg",
+    "price": 809,
+    "mrp": 1619,
+    "disc": 50,
+    "desc": "Breathable mesh sneaker for active days",
+    "sw": [
+      "#25211f",
+      "#d2d1d2",
+      "#d20c16"
+    ],
+    "sticker": "new",
+    "q": "PENNEN+Summit+Trainer"
+  },
+  {
+    "name": "PENNEN Echo Trainer",
+    "shape": "sneaker",
+    "image": "images/shoes/1018/main.jpg",
+    "hoverImage": "images/shoes/1018/hover.jpg",
+    "price": 2389,
+    "mrp": 3979,
+    "disc": 40,
+    "desc": "Sporty cushioned daily runner",
+    "sw": [
+      "#464542",
+      "#252525",
+      "#2e2e2e"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Echo+Trainer"
+  },
+  {
+    "name": "PENNEN Apex Trainer",
+    "shape": "sneaker",
+    "image": "images/shoes/1019/main.jpg",
+    "hoverImage": "images/shoes/1019/hover.jpg",
+    "price": 2079,
+    "mrp": 5199,
+    "disc": 60,
+    "desc": "Lightweight everyday running sneaker",
+    "sw": [
+      "#252525",
+      "#e8e8e9",
+      "#d8d8da"
+    ],
+    "sticker": "best",
+    "q": "PENNEN+Apex+Trainer"
+  },
+  {
+    "name": "PENNEN Pulse Trainer",
+    "shape": "sneaker",
+    "image": "images/shoes/1026/main.jpg",
+    "hoverImage": "images/shoes/1026/hover.jpg",
+    "price": 2119,
+    "mrp": 5299,
+    "disc": 60,
+    "desc": "Clean street-style low-top sneaker",
+    "sw": [
+      "#e3e9e7",
+      "#dde0e8",
+      "#c0c4bf"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Pulse+Trainer"
+  },
+  {
+    "name": "PENNEN Rapid Trainer",
+    "shape": "sneaker",
+    "image": "images/shoes/1028/main.jpg",
+    "hoverImage": "images/shoes/1028/hover.jpg",
+    "price": 1499,
+    "mrp": 2999,
+    "disc": 50,
+    "desc": "Lightweight everyday running sneaker",
+    "sw": [
+      "#1d1d1e",
+      "#dad7d8",
+      "#1a1a1a"
+    ],
+    "sticker": "best",
+    "q": "PENNEN+Rapid+Trainer"
+  },
+  {
+    "name": "PENNEN Trail Trainer",
+    "shape": "sneaker",
+    "image": "images/shoes/1030/main.jpg",
+    "hoverImage": "images/shoes/1030/hover.jpg",
+    "price": 879,
+    "mrp": 1459,
+    "disc": 40,
+    "desc": "Breathable mesh sneaker for active days",
+    "sw": [
+      "#ddd9e6",
+      "#e4e4ee",
+      "#efeff7"
+    ],
+    "sticker": "hot",
+    "q": "PENNEN+Trail+Trainer"
+  },
+  {
+    "name": "PENNEN Drift Trainer",
+    "shape": "sneaker",
+    "image": "images/shoes/1031/main.jpg",
+    "hoverImage": "images/shoes/1031/hover.jpg",
+    "price": 2769,
+    "mrp": 4619,
+    "disc": 40,
+    "desc": "Clean street-style low-top sneaker",
+    "sw": [
+      "#dddce6",
+      "#ebebf2",
+      "#9c9aa4"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Drift+Trainer"
+  },
+  {
+    "name": "PENNEN Vector Weekender",
+    "shape": "slipon",
+    "image": "images/shoes/1032/main.jpg",
+    "hoverImage": "images/shoes/1032/hover.jpg",
+    "price": 2459,
+    "mrp": 6149,
+    "disc": 60,
+    "desc": "Sock-fit slip-on for off days",
+    "sw": [
+      "#bf8b67",
+      "#945938",
+      "#60563e"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Vector+Weekender"
+  },
+  {
+    "name": "PENNEN Forge Ankle Pro",
+    "shape": "hightop",
+    "image": "images/shoes/1033/main.jpg",
+    "hoverImage": "images/shoes/1033/hover.jpg",
+    "price": 2159,
+    "mrp": 4799,
+    "disc": 55,
+    "desc": "Ankle-support classic high-top",
+    "sw": [
+      "#172033",
+      "#d3cfcd",
+      "#cbc4c1"
+    ],
+    "sticker": "hot",
+    "q": "PENNEN+Forge+Ankle+Pro"
+  },
+  {
+    "name": "PENNEN Vector Ankle Pro",
+    "shape": "hightop",
+    "image": "images/shoes/1034/main.jpg",
+    "hoverImage": "images/shoes/1034/hover.jpg",
+    "price": 1849,
+    "mrp": 3699,
+    "disc": 50,
+    "desc": "Ankle-support classic high-top",
+    "sw": [
+      "#e6e5ef",
+      "#dddbe6",
+      "#f4f4f9"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Vector+Ankle+Pro"
+  },
+  {
+    "name": "PENNEN Atlas Court",
+    "shape": "sneaker",
+    "image": "images/shoes/1039/main.jpg",
+    "hoverImage": "images/shoes/1039/hover.jpg",
+    "price": 2499,
+    "mrp": 5549,
+    "disc": 55,
+    "desc": "Breathable mesh sneaker for active days",
+    "sw": [
+      "#4896b1",
+      "#d2d0d6",
+      "#387f99"
+    ],
+    "sticker": "new",
+    "q": "PENNEN+Atlas+Court"
+  },
+  {
+    "name": "PENNEN Terra Weekender",
+    "shape": "slipon",
+    "image": "images/shoes/1048/main.jpg",
+    "hoverImage": "images/shoes/1048/hover.jpg",
+    "price": 1919,
+    "mrp": 3489,
+    "disc": 45,
+    "desc": "No-laces knit slip-on comfort",
+    "sw": [
+      "#30405e",
+      "#161422",
+      "#79859b"
+    ],
+    "sticker": "best",
+    "q": "PENNEN+Terra+Weekender"
+  },
+  {
+    "name": "PENNEN Pulse Weekender",
+    "shape": "slipon",
+    "image": "images/shoes/1049/main.jpg",
+    "hoverImage": "images/shoes/1049/hover.jpg",
+    "price": 1609,
+    "mrp": 2679,
+    "disc": 40,
+    "desc": "Easy slip-on for quick errands",
+    "sw": [
+      "#eae9ef",
+      "#adacb2",
+      "#a8a7ad"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Pulse+Weekender"
+  },
+  {
+    "name": "PENNEN Terra Slip-On",
+    "shape": "slipon",
+    "image": "images/shoes/1050/main.jpg",
+    "hoverImage": "images/shoes/1050/hover.jpg",
+    "price": 1759,
+    "mrp": 3909,
+    "disc": 55,
+    "desc": "Easy slip-on for quick errands",
+    "sw": [
+      "#59585c",
+      "#161618",
+      "#d9dbe0"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Terra+Slip-On"
+  },
+  {
+    "name": "PENNEN Cruz Striker",
+    "shape": "sneaker",
+    "image": "images/shoes/1061/main.jpg",
+    "hoverImage": "images/shoes/1061/hover.jpg",
+    "price": 2299,
+    "mrp": 4179,
+    "disc": 45,
+    "desc": "Lightweight everyday running sneaker",
+    "sw": [
+      "#979692",
+      "#c5c2bf",
+      "#2b2f34"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Cruz+Striker"
+  },
+  {
+    "name": "PENNEN Metro Striker",
+    "shape": "sneaker",
+    "image": "images/shoes/1065/main.jpg",
+    "hoverImage": "images/shoes/1065/hover.jpg",
+    "price": 1069,
+    "mrp": 2379,
+    "disc": 55,
+    "desc": "Sporty cushioned daily runner",
+    "sw": [
+      "#887b7f",
+      "#5a2c26",
+      "#272b33"
+    ],
+    "sticker": "new",
+    "q": "PENNEN+Metro+Striker"
+  },
+  {
+    "name": "PENNEN Summit Striker",
+    "shape": "sneaker",
+    "image": "images/shoes/1066/main.jpg",
+    "hoverImage": "images/shoes/1066/hover.jpg",
+    "price": 2959,
+    "mrp": 5919,
+    "disc": 50,
+    "desc": "Lightweight everyday running sneaker",
+    "sw": [
+      "#90765f",
+      "#33261e",
+      "#22272e"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Summit+Striker"
+  },
+  {
+    "name": "PENNEN Apex Striker",
+    "shape": "sneaker",
+    "image": "images/shoes/1067/main.jpg",
+    "hoverImage": "images/shoes/1067/hover.jpg",
+    "price": 2649,
+    "mrp": 4819,
+    "disc": 45,
+    "desc": "Cushioned trainer built for all-day wear",
+    "sw": [
+      "#37393b",
+      "#9a9e9f",
+      "#7c7b7a"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Apex+Striker"
+  },
+  {
+    "name": "PENNEN Echo Striker",
+    "shape": "sneaker",
+    "image": "images/shoes/1068/main.jpg",
+    "hoverImage": "images/shoes/1068/hover.jpg",
+    "price": 2339,
+    "mrp": 3899,
+    "disc": 40,
+    "desc": "Clean street-style low-top sneaker",
+    "sw": [
+      "#abb1b4",
+      "#363c3f",
+      "#686f75"
+    ],
+    "sticker": "new",
+    "q": "PENNEN+Echo+Striker"
+  },
+  {
+    "name": "PENNEN Summit Tempo",
+    "shape": "sneaker",
+    "image": "images/shoes/1069/main.jpg",
+    "hoverImage": "images/shoes/1069/hover.jpg",
+    "price": 2749,
+    "mrp": 6109,
+    "disc": 55,
+    "desc": "Grippy outsole made for Indian roads",
+    "sw": [
+      "#eeeeee",
+      "#c5beb8",
+      "#b0afae"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Summit+Tempo"
+  },
+  {
+    "name": "PENNEN Urban Striker",
+    "shape": "sneaker",
+    "image": "images/shoes/1070/main.jpg",
+    "hoverImage": "images/shoes/1070/hover.jpg",
+    "price": 1719,
+    "mrp": 4299,
+    "disc": 60,
+    "desc": "Sporty cushioned daily runner",
+    "sw": [
+      "#85837e",
+      "#c9c7c3",
+      "#656360"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Urban+Striker"
+  },
+  {
+    "name": "PENNEN Velocity Striker",
+    "shape": "sneaker",
+    "image": "images/shoes/1071/main.jpg",
+    "hoverImage": "images/shoes/1071/hover.jpg",
+    "price": 1419,
+    "mrp": 3149,
+    "disc": 55,
+    "desc": "Lightweight everyday running sneaker",
+    "sw": [
+      "#a9aaad",
+      "#d9d9d9",
+      "#dfdfdf"
+    ],
+    "sticker": "new",
+    "q": "PENNEN+Velocity+Striker"
+  },
+  {
+    "name": "PENNEN Rapid Easy Step",
+    "shape": "slipon",
+    "image": "images/shoes/1076/main.jpg",
+    "hoverImage": "images/shoes/1076/hover.jpg",
+    "price": 2069,
+    "mrp": 5169,
+    "disc": 60,
+    "desc": "No-laces knit slip-on comfort",
+    "sw": [
+      "#010201",
+      "#2f271a",
+      "#171611"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Rapid+Easy+Step"
+  },
+  {
+    "name": "PENNEN Storm Striker",
+    "shape": "sneaker",
+    "image": "images/shoes/1077/main.jpg",
+    "hoverImage": "images/shoes/1077/hover.jpg",
+    "price": 1759,
+    "mrp": 3909,
+    "disc": 55,
+    "desc": "Breathable mesh sneaker for active days",
+    "sw": [
+      "#cec0b6",
+      "#5c554f",
+      "#c7b3a6"
+    ],
+    "sticker": "best",
+    "q": "PENNEN+Storm+Striker"
+  },
+  {
+    "name": "PENNEN Trail Easy Step",
+    "shape": "slipon",
+    "image": "images/shoes/1078/main.jpg",
+    "hoverImage": "images/shoes/1078/hover.jpg",
+    "price": 1449,
+    "mrp": 2899,
+    "disc": 50,
+    "desc": "Easy slip-on for quick errands",
+    "sw": [
+      "#1d1811",
+      "#403935",
+      "#040402"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Trail+Easy+Step"
+  },
+  {
+    "name": "PENNEN Drift Striker",
+    "shape": "sneaker",
+    "image": "images/shoes/1079/main.jpg",
+    "hoverImage": "images/shoes/1079/hover.jpg",
+    "price": 1139,
+    "mrp": 2069,
+    "disc": 45,
+    "desc": "Sporty cushioned daily runner",
+    "sw": [
+      "#78777a",
+      "#e8e8eb",
+      "#97959a"
+    ],
+    "sticker": "",
+    "q": "PENNEN+Drift+Striker"
+  }
+];
+
+/* ---- helpers ---- */
+function peso(n){return '\u20b9'+n.toLocaleString('en-IN');}
+function stickerHtml(s){
+  if(!s)return '';
+  var label={best:'\u2605 Bestseller',new:'\u2728 New In',hot:'\ud83d\udd25 Hot'}[s];
+  return label?'<span class="card-sticker card-sticker--'+s+'">'+label+'</span>':'';
+}
+function buyRow(p){
+  return PLATFORMS.map(function(pl){
+    var href=pl[3].replace('{q}',p.q);
+    return '<a class="platform-pill--'+pl[0]+'" target="_blank" rel="noopener" href="'+href+'">'+
+      '<img src="'+pl[2]+'" alt="'+pl[1]+'" onerror="imgFallback(this,\''+pl[1]+'\')"></a>';
+  }).join('');
+}
+function card(p){
+  var dots=(p.sw||[]).map(function(s){return '<i style="background:'+s+'"></i>';}).join('');
+  return '<article class="product-card" data-shape="'+p.shape+'">'+
+    '<div class="card-img-wrap">'+
+      stickerHtml(p.sticker)+
+      '<span class="price-tag">'+peso(p.price)+'</span>'+
+      '<img src="'+p.image+'" alt="'+p.name+'" class="product-img main-img" loading="lazy">'+
+      '<img src="'+p.hoverImage+'" alt="'+p.name+' alternate view" class="product-img hover-img" loading="lazy">'+
+    '</div>'+
+    '<div class="card-body">'+
+      '<p class="card-cat">Men \u00b7 Footwear</p>'+
+      '<h3 class="card-title">'+p.name+'</h3>'+
+      '<p class="card-desc">'+p.desc+'</p>'+
+      '<div class="swatches">'+dots+'</div>'+
+      '<div class="card-price-row"><span class="price-old">'+peso(p.mrp)+'</span>'+
+        '<span class="price-discount">'+p.disc+'% OFF</span></div>'+
+      '<p class="card-buy-label">Available on \u2014</p>'+
+      '<div class="card-btns">'+buyRow(p)+'</div>'+
+    '</div></article>';
+}
+
+/* ---- state + rendering ---- */
+var grid=document.getElementById('grid');
+var activeFilter='all';
+var view=PRODUCTS.slice();
+
+function render(){
+  if(!view.length){
+    grid.innerHTML='<p class="empty">No styles in this filter yet — check back soon.</p>';
+  }else{
+    grid.innerHTML=view.map(card).join('');
+    var cards=[].slice.call(grid.querySelectorAll('.product-card'));
+    cards.forEach(function(el,i){var d=Math.min(i,16)*45;setTimeout(function(){el.classList.add('in');},40+d);});
+  }
+  document.getElementById('count').innerHTML=view.length+' styles <span>in this collection</span>';
+}
+function applyFilter(){
+  view=(activeFilter==='all')?PRODUCTS.slice():PRODUCTS.filter(function(p){return p.shape===activeFilter;});
+  sortView();
+}
+function sortView(){
+  var v=document.getElementById('sort').value;
+  if(v==='low')view.sort(function(a,b){return a.price-b.price;});
+  else if(v==='high')view.sort(function(a,b){return b.price-a.price;});
+  else if(v==='disc')view.sort(function(a,b){return b.disc-a.disc;});
+  render();
+}
+
+document.getElementById('sort').addEventListener('change',sortView);
+[].slice.call(document.querySelectorAll('.chip')).forEach(function(ch){
+  ch.addEventListener('click',function(){
+    document.querySelectorAll('.chip').forEach(function(c){c.classList.remove('active');});
+    ch.classList.add('active');
+    activeFilter=ch.dataset.f;
+    applyFilter();
+  });
+});
+
+render();
+</script>
+
+</body>
+</html>
