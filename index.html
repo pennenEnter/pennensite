@@ -11,30 +11,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,600;1,9..144,900&family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --bg:        #F4ECE0;
-  --bg-2:      #FBF6EE;
+  --bg:        #FFFFFF;
+  --bg-2:      #FAFAFA;
   --surface:   #FFFFFF;
-  --ink:       #211A17;
-  --ink-soft:  rgba(33,26,23,.62);
-  --ink-faint: rgba(33,26,23,.40);
-  --wine:      #8B1E3F;
-  --wine-deep: #641129;
-  --wine-soft: #A8395A;
-  --red:       #E11D48;
-  --gold:      #C29A4E;
-  --gold-lite: #E2C684;
+  --ink:       #0A0A0A;
+  --ink-soft:  rgba(10,10,10,.60);
+  --ink-faint: rgba(10,10,10,.40);
+  /* "wine" tokens repurposed as ONYX — drives all buttons/CTAs to black (Nike) */
+  --wine:      #0A0A0A;
+  --wine-deep: #000000;
+  --wine-soft: #2A2A2A;
+  --red:       #C8102E;   /* logo + sale pop (Versace red) */
+  --gold:      #C8A24B;
+  --gold-lite: #E8C766;
   --gold-deep: #9A7531;
-  --line:      rgba(33,26,23,.12);
-  --line-soft: rgba(33,26,23,.07);
+  --line:      rgba(10,10,10,.13);
+  --line-soft: rgba(10,10,10,.07);
 
-  --grad-wine: linear-gradient(135deg, #A8395A 0%, #8B1E3F 52%, #641129 100%);
-  --grad-gold: linear-gradient(135deg, #E2C684 0%, #C29A4E 58%, #9A7531 100%);
-  --grad-ink:  linear-gradient(160deg, #2C2420 0%, #1A1411 100%);
+  --grad-wine: linear-gradient(135deg, #242424 0%, #0A0A0A 60%, #000000 100%);  /* onyx */
+  --grad-gold: linear-gradient(135deg, #E8C766 0%, #C8A24B 58%, #9A7531 100%);
+  --grad-ink:  linear-gradient(160deg, #161616 0%, #000000 100%);
 
-  --shadow-s: 0 4px 14px rgba(33,26,23,.08);
-  --shadow-m: 0 14px 38px rgba(33,26,23,.12);
-  --shadow-l: 0 30px 70px rgba(33,26,23,.18);
-  --shadow-wine: 0 16px 40px rgba(100,17,41,.32);
+  --shadow-s: 0 4px 14px rgba(10,10,10,.08);
+  --shadow-m: 0 14px 38px rgba(10,10,10,.12);
+  --shadow-l: 0 30px 70px rgba(10,10,10,.20);
+  --shadow-wine: 0 16px 40px rgba(10,10,10,.30);
 
   --r-s: 12px;
   --r:   20px;
@@ -54,19 +55,18 @@ body{
   -webkit-font-smoothing:antialiased;
   position:relative;
 }
-/* grain + warm vignette atmosphere */
+/* faint atmosphere on white */
 body::before{
   content:'';
   position:fixed; inset:0; z-index:0; pointer-events:none;
   background:
-    radial-gradient(1200px 700px at 88% -8%, rgba(194,154,78,.14), transparent 60%),
-    radial-gradient(1000px 800px at -6% 12%, rgba(139,30,63,.10), transparent 55%),
-    radial-gradient(900px 900px at 50% 120%, rgba(100,17,41,.08), transparent 60%);
+    radial-gradient(1200px 700px at 92% -10%, rgba(194,154,78,.025), transparent 60%),
+    radial-gradient(1000px 800px at -8% 10%, rgba(200,162,75,.02), transparent 55%);
 }
 body::after{
   content:'';
-  position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5; mix-blend-mode:multiply;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E");
+  position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.35; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
 }
 main,header,footer,section{ position:relative; z-index:1; }
 img{ display:block; max-width:100%; height:auto; }
@@ -80,10 +80,19 @@ ul{ list-style:none; }
 .italic{ font-style:italic; }
 .eyebrow{
   font-size:.72rem; font-weight:800; letter-spacing:.26em; text-transform:uppercase;
-  color:var(--wine); display:inline-flex; align-items:center; gap:12px;
+  color:var(--gold-deep); display:inline-flex; align-items:center; gap:12px;
 }
 .eyebrow::before{ content:''; width:30px; height:2px; background:var(--grad-gold); }
 .eyebrow.center{ justify-content:center; }
+
+/* Greek-key (meander) divider — Versace cue, used sparingly */
+.meander{
+  height:18px; width:100%; max-width:var(--maxw); margin:0 auto;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='18' viewBox='0 0 44 18'%3E%3Cpath d='M1 17 V5 H13 V13 H7 V9 H10 M22 17 V5 H34 V13 H28 V9 H31' fill='none' stroke='%23C8A24B' stroke-width='1.6'/%3E%3C/svg%3E");
+  background-repeat:repeat-x; background-position:center; opacity:.8;
+}
+.meander.dark{ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='18' viewBox='0 0 44 18'%3E%3Cpath d='M1 17 V5 H13 V13 H7 V9 H10 M22 17 V5 H34 V13 H28 V9 H31' fill='none' stroke='%23E8C766' stroke-width='1.6'/%3E%3C/svg%3E"); }
+.meander-wrap{ padding:0 30px; }
 
 /* ─── logo (inline SVG) ─── */
 .logo-svg{ display:block; height:100%; width:auto; }
@@ -105,13 +114,13 @@ ul{ list-style:none; }
 /* ─── nav ─── */
 .nav{
   position:sticky; top:0; z-index:50;
-  background:rgba(244,236,224,.72);
+  background:rgba(255,255,255,.78);
   -webkit-backdrop-filter:saturate(160%) blur(16px);
   backdrop-filter:saturate(160%) blur(16px);
   border-bottom:1px solid var(--line-soft);
   transition:box-shadow .3s var(--ease), background .3s var(--ease);
 }
-.nav.scrolled{ background:rgba(244,236,224,.9); box-shadow:0 10px 30px rgba(33,26,23,.08); }
+.nav.scrolled{ background:rgba(255,255,255,.92); box-shadow:0 10px 30px rgba(33,26,23,.07); }
 .nav-inner{
   max-width:var(--maxw); margin:0 auto; padding:0 30px;
   height:96px; display:flex; align-items:center; gap:40px;
@@ -124,7 +133,7 @@ ul{ list-style:none; }
 }
 .nav-link::after{
   content:''; position:absolute; left:0; bottom:-3px; height:2px; width:0;
-  background:var(--grad-wine); transition:width .3s var(--ease);
+  background:var(--grad-gold); transition:width .3s var(--ease);
 }
 .nav-link:hover{ color:var(--wine); }
 .nav-link:hover::after,.nav-link.active::after{ width:100%; }
@@ -141,11 +150,55 @@ ul{ list-style:none; }
   background:linear-gradient(110deg,transparent,rgba(255,255,255,.4),transparent);
   transform:skewX(-18deg); transition:left .55s var(--ease);
 }
-.nav-cta:hover{ transform:translateY(-2px); box-shadow:0 22px 50px rgba(100,17,41,.4); filter:brightness(1.05); }
+.nav-cta:hover{ transform:translateY(-2px); box-shadow:0 22px 50px rgba(10,10,10,.30); filter:brightness(1.05); }
 .nav-cta:hover::before{ left:130%; }
 .nav-cta .dot{ width:7px; height:7px; border-radius:50%; background:var(--gold-lite); box-shadow:0 0 0 3px rgba(226,198,132,.3); }
-.burger{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px; margin-left:auto; }
-.burger span{ width:26px; height:2.5px; background:var(--ink); border-radius:2px; transition:.3s; }
+
+/* hamburger — visible on every screen size (Nike-style menu trigger) */
+.burger{ display:inline-flex; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:10px; margin-left:18px; border-radius:10px; transition:background .25s; }
+.burger:hover{ background:rgba(33,26,23,.05); }
+.burger span{ width:26px; height:2.5px; background:var(--ink); border-radius:2px; transition:.3s var(--ease); transform-origin:center; }
+body.menu-open .burger span:nth-child(1){ transform:translateY(7.5px) rotate(45deg); }
+body.menu-open .burger span:nth-child(2){ opacity:0; }
+body.menu-open .burger span:nth-child(3){ transform:translateY(-7.5px) rotate(-45deg); }
+
+/* ─── Nike-style slide-in menu drawer ─── */
+.menu-overlay{
+  position:fixed; inset:0; z-index:80; background:rgba(20,16,14,.42);
+  -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
+  opacity:0; visibility:hidden; transition:opacity .35s var(--ease), visibility .35s;
+}
+body.menu-open .menu-overlay{ opacity:1; visibility:visible; }
+.menu-drawer{
+  position:fixed; top:0; right:0; height:100%; width:min(440px,100%); z-index:90;
+  background:#fff; box-shadow:-30px 0 80px rgba(33,26,23,.22);
+  transform:translateX(100%); transition:transform .42s var(--ease);
+  display:flex; flex-direction:column; overflow-y:auto;
+}
+body.menu-open .menu-drawer{ transform:translateX(0); }
+.menu-top{ display:flex; align-items:center; justify-content:space-between; padding:26px 30px 10px; }
+.menu-top .brand{ height:46px; color:var(--ink); display:inline-flex; }
+.menu-close{ background:none; border:none; cursor:pointer; width:42px; height:42px; border-radius:50%; display:grid; place-items:center; color:var(--ink); transition:background .25s; }
+.menu-close:hover{ background:rgba(33,26,23,.06); }
+.menu-primary{ padding:18px 30px 8px; display:flex; flex-direction:column; }
+.menu-primary a{
+  font-family:'Fraunces',serif; font-weight:900; font-size:1.7rem; letter-spacing:-.01em;
+  color:var(--ink); padding:11px 0; display:flex; align-items:center; justify-content:space-between;
+  transition:color .2s var(--ease), padding-left .25s var(--ease); border-bottom:1px solid var(--line-soft);
+}
+.menu-primary a:last-child{ border-bottom:none; }
+.menu-primary a .chev{ opacity:0; transform:translateX(-6px); transition:.25s var(--ease); color:var(--wine); }
+.menu-primary a:hover{ color:var(--wine); padding-left:8px; }
+.menu-primary a:hover .chev{ opacity:1; transform:translateX(0); }
+.menu-primary a .tagx{ font-family:'Manrope',sans-serif; font-size:.6rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; background:var(--grad-wine); color:#fff; padding:3px 9px; border-radius:50px; margin-left:10px; }
+.menu-secondary{ padding:22px 30px; margin-top:auto; display:grid; grid-template-columns:1fr 1fr; gap:10px 18px; border-top:1px solid var(--line); }
+.menu-secondary a{ font-size:.92rem; font-weight:600; color:var(--ink-soft); padding:5px 0; transition:color .2s; }
+.menu-secondary a:hover{ color:var(--wine); }
+.menu-foot{ padding:18px 30px 30px; display:flex; flex-direction:column; gap:14px; border-top:1px solid var(--line); }
+.menu-chat{ display:inline-flex; align-items:center; justify-content:center; gap:9px; background:var(--grad-wine); color:#fff; font-weight:800; font-size:.85rem; letter-spacing:.06em; text-transform:uppercase; padding:15px; border-radius:50px; box-shadow:var(--shadow-wine); }
+.menu-social{ display:flex; gap:14px; }
+.menu-social a{ width:40px; height:40px; border-radius:50%; border:1px solid var(--line); display:grid; place-items:center; color:var(--ink); transition:all .25s var(--ease); }
+.menu-social a:hover{ background:var(--wine); color:#fff; border-color:var(--wine); transform:translateY(-2px); }
 
 /* ─── hero ─── */
 .hero{ max-width:var(--maxw); margin:0 auto; padding:72px 30px 90px; position:relative; }
@@ -154,7 +207,7 @@ ul{ list-style:none; }
 .hero-kicker{ margin-bottom:22px; }
 .hero-title{ font-size:clamp(2.9rem,6vw,5.4rem); margin-bottom:24px; }
 .hero-title .accent{
-  background:var(--grad-wine); -webkit-background-clip:text; background-clip:text; color:transparent;
+  background:var(--grad-gold); -webkit-background-clip:text; background-clip:text; color:transparent;
   position:relative; white-space:nowrap;
 }
 .hero-title .ital{ font-style:italic; font-weight:500; }
@@ -166,14 +219,14 @@ ul{ list-style:none; }
 }
 .btn-primary{ background:var(--grad-wine); color:#fff; box-shadow:var(--shadow-wine); position:relative; overflow:hidden; }
 .btn-primary .arrow{ transition:transform .3s var(--ease); }
-.btn-primary:hover{ transform:translateY(-3px); box-shadow:0 24px 54px rgba(100,17,41,.42); }
+.btn-primary:hover{ transform:translateY(-3px); box-shadow:0 24px 54px rgba(10,10,10,.30); }
 .btn-primary:hover .arrow{ transform:translateX(5px); }
 .btn-ghost{ background:transparent; color:var(--ink); border:1.5px solid var(--line); }
 .btn-ghost:hover{ border-color:var(--wine); color:var(--wine); transform:translateY(-3px); box-shadow:var(--shadow-s); }
 
 .hero-stats{ display:flex; gap:34px; flex-wrap:wrap; }
 .stat .num{ font-family:'Fraunces',serif; font-weight:900; font-size:1.9rem; line-height:1; color:var(--ink); }
-.stat .num em{ font-style:normal; color:var(--wine); }
+.stat .num em{ font-style:normal; color:var(--gold-deep); }
 .stat .lbl{ font-size:.74rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-faint); margin-top:6px; }
 .stat + .stat{ padding-left:34px; border-left:1px solid var(--line); }
 
@@ -225,7 +278,7 @@ ul{ list-style:none; }
 .section{ max-width:var(--maxw); margin:0 auto; padding:96px 30px; }
 .sec-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:30px; margin-bottom:46px; flex-wrap:wrap; }
 .sec-head h2{ font-family:'Fraunces',serif; font-weight:900; font-size:clamp(2.1rem,4vw,3.3rem); line-height:1.02; letter-spacing:-.02em; max-width:18ch; }
-.sec-head h2 em{ font-style:italic; color:var(--wine); }
+.sec-head h2 em{ font-style:italic; color:var(--gold-deep); }
 .sec-head p{ color:var(--ink-soft); max-width:36ch; }
 
 /* ─── categories ─── */
@@ -280,7 +333,7 @@ ul{ list-style:none; }
 
 /* ─── footer ─── */
 .footer{ background:var(--grad-ink); color:#F4ECE0; padding:74px 30px 0; position:relative; overflow:hidden; }
-.footer::before{ content:''; position:absolute; inset:0; background:radial-gradient(700px 400px at 12% 0,rgba(139,30,63,.22),transparent 60%); }
+.footer::before{ content:''; position:absolute; inset:0; background:radial-gradient(700px 400px at 12% 0,rgba(200,162,75,.16),transparent 60%); }
 .footer-inner{ max-width:var(--maxw); margin:0 auto; display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:48px; padding-bottom:54px; border-bottom:1px solid rgba(244,236,224,.14); position:relative; }
 .footer .brand{ height:84px; color:#F4ECE0; display:inline-flex; margin-bottom:18px; }
 .footer-brand p{ color:rgba(244,236,224,.6); font-size:.92rem; max-width:36ch; }
@@ -317,12 +370,14 @@ ul{ list-style:none; }
   .story-inner{ grid-template-columns:1fr; }
   .footer-inner{ grid-template-columns:1fr 1fr; }
 }
+/* Nike-style: inline links hidden, hamburger is the menu on all sizes */
+.nav-links{ display:none; }
 @media (max-width:680px){
-  .nav-links{ display:none; }
-  .burger{ display:flex; }
   .nav-cta{ display:none; }
   .nav-inner{ height:78px; padding:0 18px; }
   .nav .brand{ height:48px; }
+  .menu-drawer{ width:100%; }
+  .menu-primary a{ font-size:1.5rem; }
   .section{ padding:64px 20px; }
   .hero{ padding:48px 20px 70px; }
   .cat-grid{ grid-template-columns:1fr; }
@@ -392,9 +447,59 @@ ul{ list-style:none; }
       <a class="nav-link" href="#footer">Contact</a>
     </nav>
     <a href="#" class="nav-cta"><span class="dot"></span> Chat Now</a>
-    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" aria-label="Open menu" aria-controls="menuDrawer" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
+
+<!-- Nike-style slide-in menu -->
+<div class="menu-overlay" id="menuOverlay"></div>
+<aside class="menu-drawer" id="menuDrawer" aria-label="Main menu" aria-hidden="true">
+  <div class="menu-top">
+    <span class="brand" aria-hidden="true">
+      <svg class="logo-svg" viewBox="0 0 260 86" style="height:46px;width:auto">
+        <g transform="translate(150,2)">
+          <path d="M64 0 L92 70 L8 52 Z" fill="url(#triRed)"/>
+          <path d="M64 0 L70 47 L40 41 Z" fill="#fff" opacity=".92"/>
+          <path d="M64 0 L52 30 L40 41 Z" fill="#fff" opacity=".35"/>
+        </g>
+        <text x="0" y="58" class="logo-word" font-size="44" fill="currentColor">PENNEN</text>
+        <line x1="2" y1="74" x2="22" y2="74" stroke="#E11D48" stroke-width="2.4"/>
+        <text x="28" y="78" class="logo-tag" font-size="9" fill="currentColor" opacity=".62">A GROWING STEP</text>
+        <line x1="150" y1="74" x2="172" y2="74" stroke="#E11D48" stroke-width="2.4"/>
+      </svg>
+    </span>
+    <button class="menu-close" id="menuClose" aria-label="Close menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="menu-primary">
+    <a href="#catalogue">New &amp; Featured <span class="chev">→</span></a>
+    <a href="catalogue-men-shoes.html">Men's Shoes <span class="chev">→</span></a>
+    <a href="catalogue-women-shoes_1_.html">Women's Shoes <span class="chev">→</span></a>
+    <a href="catalogue-men-slippers.html">Men's Slippers <span class="chev">→</span></a>
+    <a href="catalogue-women-slippers_1_.html">Women's Slippers <span class="chev">→</span></a>
+    <a href="catalogue-men-shoes.html">Sale <span class="tagx">Up to 60% off</span></a>
+  </nav>
+  <div class="menu-secondary">
+    <a href="#story">Our Story</a>
+    <a href="#footer">Find a Store</a>
+    <a href="#footer">Contact Us</a>
+    <a href="#footer">Help &amp; FAQs</a>
+    <a href="#footer">Shipping</a>
+    <a href="#footer">Returns</a>
+  </div>
+  <div class="menu-foot">
+    <a href="#" class="menu-chat">
+      <svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.3.6 4.4 1.7 6.3L3 29l7.4-2c1.8 1 3.9 1.5 6.1 1.5 6.9 0 12.5-5.6 12.5-12.5S22.9 3 16 3z"/></svg>
+      Chat with us
+    </a>
+    <div class="menu-social">
+      <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9z"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 8s-.2-1.5-.8-2.1c-.8-.8-1.6-.8-2-.9C16.5 4.7 12 4.7 12 4.7s-4.5 0-7.2.3c-.4.1-1.2.1-2 .9C2.2 6.5 2 8 2 8s-.2 1.7-.2 3.5v1c0 1.8.2 3.5.2 3.5s.2 1.5.8 2.1c.8.8 1.8.8 2.3.9 1.7.2 7 .3 7 .3s4.5 0 7.2-.3c.4-.1 1.2-.1 2-.9.6-.6.8-2.1.8-2.1s.2-1.7.2-3.5v-1c0-1.8-.2-3.5-.2-3.5zM10 14.5v-5l4.5 2.5L10 14.5z"/></svg></a>
+    </div>
+  </div>
+</aside>
 
 <main>
 <!-- hero -->
@@ -450,6 +555,8 @@ ul{ list-style:none; }
     </div>
   </div>
 </section>
+
+<div class="meander-wrap"><div class="meander reveal" aria-hidden="true"></div></div>
 
 <!-- categories -->
 <section class="section" id="catalogue">
@@ -527,6 +634,7 @@ ul{ list-style:none; }
 
 <!-- footer -->
 <footer class="footer" id="footer">
+  <div class="meander dark" style="margin-bottom:46px;opacity:.55" aria-hidden="true"></div>
   <div class="footer-inner">
     <div class="footer-brand">
       <span class="brand" style="height:84px;display:inline-flex">
@@ -572,16 +680,18 @@ ul{ list-style:none; }
   // nav scroll state
   const nav=document.getElementById('nav');
   addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>14),{passive:true});
-  // mobile menu (simple toggle of links)
+  // Nike-style slide-in menu
   const burger=document.getElementById('burger');
-  const links=document.querySelector('.nav-links');
-  burger&&burger.addEventListener('click',()=>{
-    const open=links.style.display==='flex';
-    links.style.display=open?'':'flex';
-    links.style.position='absolute'; links.style.top='100%'; links.style.left='0'; links.style.right='0';
-    links.style.flexDirection='column'; links.style.background='rgba(244,236,224,.98)';
-    links.style.padding=open?'':'18px 24px'; links.style.gap='14px'; links.style.borderBottom='1px solid var(--line)';
-  });
+  const drawer=document.getElementById('menuDrawer');
+  const overlay=document.getElementById('menuOverlay');
+  const closeBtn=document.getElementById('menuClose');
+  const openMenu=()=>{ document.body.classList.add('menu-open'); document.body.style.overflow='hidden'; burger.setAttribute('aria-expanded','true'); drawer.setAttribute('aria-hidden','false'); };
+  const closeMenu=()=>{ document.body.classList.remove('menu-open'); document.body.style.overflow=''; burger.setAttribute('aria-expanded','false'); drawer.setAttribute('aria-hidden','true'); };
+  burger&&burger.addEventListener('click',()=>document.body.classList.contains('menu-open')?closeMenu():openMenu());
+  closeBtn&&closeBtn.addEventListener('click',closeMenu);
+  overlay&&overlay.addEventListener('click',closeMenu);
+  addEventListener('keydown',e=>{ if(e.key==='Escape') closeMenu(); });
+  drawer&&drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
   // reveal on scroll
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.14});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
