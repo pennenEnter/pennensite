@@ -10,6 +10,42 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Italiana&family=JetBrains+Mono:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
+  .navpunks {
+  display: flex;
+   align-items: center;
+    gap: 40px; 
+}
+.navpunks {
+}
+.navpunks {
+}
+.navpunks a {
+   text-decoration: none;
+    color: #111;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 8px;
+}
+.navpunks a::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #111;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.navpunks a:hover::after{
+    width: 100%;
+}
+
 :root{
   /* ── paper / ink ── */
   --paper:      #F6F3EC;
@@ -487,6 +523,13 @@ body{
     <a href="#home" class="brand" aria-label="PENNEN — A Growing Step">
       <img class="crest-use" src="pennen-icon.png" alt="" style="height:120px;width:auto;"/>
     </a>
+    <span class="navpunks">  <a href="#">SHOES</a>
+    <a href="#" class="active">MEN</a>
+    <a href="#">WOMEN</a>
+    <a href="#">KIDS</a>
+    <a href="#">SPORTS &amp; LIFESTYLE</a>
+    <a href="#">OUTLET</a>
+</span>
     <nav class="nav-links">
       <a class="nav-link active" href="#home">Home</a>
       <a class="nav-link" href="#catalogue">Catalogue</a>
