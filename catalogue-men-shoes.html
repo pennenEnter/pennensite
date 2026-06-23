@@ -171,7 +171,7 @@ ul{list-style:none}
 .footer{background:var(--ink);color:var(--cream);padding:80px 32px 0;position:relative;border-top:1px solid var(--border)}
 .footer::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,248,231,.04) 1px,transparent 1px);background-size:24px 24px;pointer-events:none}
 .footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:2px dashed rgba(255,248,231,.15);position:relative;z-index:1}
-.footer-brand h3{font-family:'Fraunces',serif;font-style:italic;font-weight:900;font-size:2rem;color:var(--gold);margin-bottom:14px}
+.footer-brand h3{font-family:'Fraunces',serif;font-style:italic;font-weight:900;font-size:2rem;color:#F10000;margin-bottom:14px}
 .footer-brand p{font-size:.92rem;line-height:1.7;opacity:.7;max-width:340px}
 .footer-col h4{font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
 .footer-col a{display:block;font-size:.9rem;color:var(--cream);opacity:.7;margin-bottom:10px;transition:all var(--ease)}
@@ -316,7 +316,7 @@ body.menu-open .menu-drawer{ transform:translateX(0); }
 <header class="navbar" id="navbar">
   <div class="nav-inner">
     <a href="index.html" class="logo" aria-label="PENNEN — A Growing Step">
-      <svg class="logo-svg" viewBox="0 0 260 86" role="img" aria-label="PENNEN">
+      <img class="crest-use nav-logo" src="pennen-icon.png" alt="" style="height:72px;width:auto;">
         <g transform="translate(150,2)">
           <path d="M64 0 L92 70 L8 52 Z" fill="url(#triRed)"/>
           <path d="M64 0 L92 70 L8 52 Z" fill="none" stroke="url(#triEdge)" stroke-width="2" opacity=".7"/>
@@ -338,7 +338,7 @@ body.menu-open .menu-drawer{ transform:translateX(0); }
   </div>
 </header>
 
-<!-- Nike-style slide-in menu -->
+<!-- slide-in menu -->
 <div class="menu-overlay" id="menuOverlay"></div>
 <aside class="menu-drawer" id="menuDrawer" aria-label="Main menu" aria-hidden="true">
   <div class="menu-top">
