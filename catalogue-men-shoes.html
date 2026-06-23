@@ -3,351 +3,373 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>PENNEN — Men's Shoes</title>
+<title>PENNEN — Men's Shoes Catalogue</title>
+<meta name="description" content="PENNEN — engineered footwear, a growing step. Shop across every major Indian marketplace." />
 <link rel="icon" type="image/png" href="favicon.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Italiana&family=JetBrains+Mono:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
-:root{
-  --ivory:#FFFFFF; --paper:#ffffff; --cream:#ffffff;
-  --marigold:#C9A24A; --orange:#A87B2E;
-  --rose:#0A0A0A; --magenta:#A8324F;
-  --teal:#0A0A0A; --teal-dark:#6E162F; --maroon:#6E162F;
-  --ink:#2D1B14; --gold:#C9A24A; --green-wa:#128c4f;
-  --coffee:#4a2c1d; --sand:#e8c98a;
-  --border:rgba(45,27,20,.10); --border-soft:rgba(45,27,20,.07); --shadow-color:rgba(45,27,20,.10); --shadow-md2:rgba(45,27,20,.14);
-  --radius-sm:8px; --radius:14px; --radius-lg:22px;
-  --shadow-sm:0 3px 10px var(--shadow-color); --shadow-md:0 6px 16px var(--shadow-color); --shadow-lg:0 14px 32px var(--shadow-md2);
-  --ease:.22s ease;
+:root {
+  /* ── paper / ink ── */
+  --paper:      #F6F3EC;
+  --paper-2:    #EDE7D8;
+  --surface:    #FFFFFF;
+  --ink:        #131211;
+  --ink-soft:   rgba(19,18,17,.62);
+  --ink-faint:  rgba(19,18,17,.40);
+
+  /* ── noir (dark sections) ── */
+  --noir:       #0A0A0B;
+  --noir-2:     #000000;
+
+  /* ── gold ── */
+  --gold:       #A47B2B;
+  --gold-foil:  #D9B768;
+  --gold-deep:  #7C5A1E;
+
+  /* ── corsa red ── */
+  --corsa:      #9E1B32;
+  --corsa-2:    #C23150;
+  --corsa-deep: #5C1020;
+
+  --steel:      #6E6E72;
+  --steel-dark: rgba(244,240,230,.56);
+
+  --line:       rgba(19,18,17,.14);
+  --line-soft:  rgba(19,18,17,.08);
+  --line-dark:  rgba(244,240,230,.16);
+  --line-dark-soft: rgba(244,240,230,.09);
+
+  --grad-noir: linear-gradient(155deg,#1C1B1A 0%,#0A0A0B 55%,#000 100%);
+  --grad-gold: linear-gradient(120deg,#E3C480 0%,#A47B2B 56%,#7C5A1E 100%);
+  --grad-corsa: linear-gradient(135deg,#C23150 0%,#9E1B32 60%,#5C1020 100%);
+
+  --shadow-s: 0 4px 16px rgba(19,18,17,.10);
+  --shadow-m: 0 16px 38px rgba(19,18,17,.14);
+  --shadow-l: 0 32px 74px rgba(10,10,11,.22);
+  --shadow-btn: 0 14px 32px rgba(10,10,11,.30);
+
+  --r-s: 6px;
+  --r:   12px;
+  --r-l: 20px;
+  --ease: cubic-bezier(.22,1,.36,1);
+  --maxw: 1415px;
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Manrope',sans-serif;background:var(--ivory);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body{
+  font-family:'Manrope',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+}
+/* faint technical grid texture */
+body::before{
+  content:'';
+  position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
   background-image:
-    radial-gradient(circle,rgba(201,162,74,.05) 1.2px,transparent 1.2px),
-    radial-gradient(circle,rgba(200,162,75,.04) 1px,transparent 1px);
-  background-size:28px 28px,44px 44px;background-position:0 0,14px 14px;}
-img{display:block;max-width:100%;height:auto}
-a{text-decoration:none;color:inherit}
-ul{list-style:none}
-
-.eyebrow{font-family:'Manrope',sans-serif;font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);display:inline-flex;align-items:center;gap:10px}
-.eyebrow::before{content:'';width:28px;height:2px;background:var(--rose);display:inline-block}
-
-/* ── MARQUEE ── */
-.marquee{border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;padding:8px 0;position:relative;z-index:5;background:linear-gradient(90deg,#6E162F,#0A0A0A);color:var(--cream)}
-.marquee-track{display:flex;gap:0;white-space:nowrap;animation:marq 50s linear infinite;will-change:transform}
-.marquee:hover .marquee-track{animation-play-state:paused}
-.marquee-track span{font-family:'Fraunces',serif;font-weight:900;font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;padding:0 34px;display:inline-flex;align-items:center;color:var(--cream)}
-.marquee-track span::after{content:'\2726';margin-left:34px;color:var(--gold);font-size:.95rem}
-@keyframes marq{to{transform:translateX(-50%)}}
-
-/* ── NAVBAR ── */
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--ivory);
-  border-bottom: 1px solid var(--border);
-  transition: box-shadow var(--ease);
+    linear-gradient(rgba(19,18,17,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(19,18,17,.025) 1px, transparent 1px);
+  background-size:46px 46px;
 }
-.navbar.scrolled { box-shadow: 0 8px 24px rgba(45, 27, 20, 0.08); }
-
-.nav-inner {
-  max-width: 100%;
-  padding-left: 4px;
-  padding-right: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 50px;
-  height: 104px;
-}
-.logo { display: flex; align-items: center;  margin-left: -12px;	}
-/* Fluid logo so it fits any bar height instead of being fixed to one platform */
-.logo img { height: clamp(60px, 9vw, 86px); width: auto; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(45,27,20,.18));  margin-left: 80px}
-.logo-text{font-family:'Fraunces',serif;font-style:italic;font-weight:900;font-size:1.7rem;color:var(--rose);letter-spacing:.01em}
-.nav-links{display:flex;align-items:center;gap:34px;margin-left:8px}
-.nav-link{font-size:.92rem;font-weight:600;color:var(--ink);position:relative;padding:6px 0;transition:color var(--ease)}
-.nav-link::after{content:'';position:absolute;left:50%;bottom:-2px;width:0;height:2px;background:var(--rose);transition:width var(--ease),left var(--ease)}
-.nav-link:hover{color:var(--rose)}
-.nav-link:hover::after,.nav-link.active::after{width:100%;left:0}
-.nav-link.active{color:var(--rose)}
-.nav-cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#242424,#0A0A0A 60%,#000);color:#fff;padding:12px 24px;border-radius:50px;font-size:.82rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(255,255,255,.25);box-shadow:0 6px 18px rgba(10,10,10,.30);transition:all var(--ease);margin-left:auto}
-.nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(10,10,10,.30);filter:brightness(1.05)}
-.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
-.hamburger span{display:block;width:26px;height:2.5px;background:var(--ink);border-radius:2px;transition:all .3s}
-.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
-.hamburger.open span:nth-child(2){opacity:0}
-.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
-
-/* ── CATEGORY HERO ── */
-.cat-hero{position:relative;background:var(--paper);border-bottom:1px solid var(--border);overflow:hidden;padding:54px 32px 46px}
-.cat-hero::before{content:'';position:absolute;top:-120px;right:-160px;width:460px;height:460px;background:radial-gradient(circle,rgba(201,162,74,.14) 0%,transparent 62%);border-radius:50%;pointer-events:none}
-.cat-hero::after{content:'';position:absolute;bottom:-120px;left:-100px;width:320px;height:320px;background:radial-gradient(circle,rgba(200,162,75,.10) 0%,transparent 65%);border-radius:50%;pointer-events:none}
-.cat-hero-inner{max-width:1280px;margin:0 auto;position:relative;z-index:2}
-.crumb{font-size:.74rem;font-weight:700;letter-spacing:.06em;color:var(--ink);opacity:.65;margin-bottom:16px;display:flex;gap:8px;flex-wrap:wrap}
-.crumb a{color:var(--rose);font-weight:800}
-.crumb a:hover{text-decoration:underline}
-.cat-no{position:absolute;top:-8px;right:0;font-family:'Fraunces',serif;font-weight:900;font-style:italic;font-size:clamp(3rem,9vw,5.6rem);color:rgba(200,162,75,.08);line-height:1;pointer-events:none}
-.cat-title{font-family:'Fraunces',serif;font-variation-settings:"opsz" 144;font-size:clamp(2.4rem,5.4vw,4.2rem);font-weight:900;line-height:.98;letter-spacing:-.025em;color:var(--ink);margin:6px 0 18px;max-width:14ch}
-.cat-title em{font-style:italic;color:var(--rose)}
-.cat-sub{font-size:1.04rem;color:var(--ink);opacity:.78;line-height:1.7;max-width:560px}
-
-/* collection tabs */
-.tabs{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;position:relative;z-index:2}
-.tab{padding:10px 18px;border-radius:50px;font-weight:700;font-size:.86rem;color:var(--ink);background:var(--ivory);border:1px solid var(--border);box-shadow:0 2px 8px var(--shadow-color);transition:all var(--ease)}
-.tab:hover{transform:translate(-2px,-2px);box-shadow:0 6px 16px var(--shadow-color)}
-.tab.active{background:var(--rose);color:var(--cream)}
-
-/* ── TOOLBAR ── */
-.controls{max-width:1280px;margin:0 auto;padding:34px 32px 6px}
-.controls-row{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
-.count{font-family:'Fraunces',serif;font-weight:900;font-size:1.25rem;color:var(--ink)}
-.count span{font-family:'Manrope',sans-serif;font-weight:500;font-size:.92rem;color:var(--ink);opacity:.6;margin-left:6px}
-.sortwrap{display:flex;align-items:center;gap:10px;font-size:.86rem;font-weight:700;color:var(--ink);opacity:.75}
-.sortwrap select{font-family:'Manrope',sans-serif;font-size:.88rem;font-weight:700;color:var(--ink);background:var(--paper);border:1px solid var(--border);border-radius:50px;padding:9px 16px;cursor:pointer;box-shadow:0 3px 10px var(--shadow-color)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.chip{padding:7px 15px;border-radius:50px;font-weight:700;font-size:.8rem;color:var(--ink);background:var(--paper);border:1px solid var(--border);cursor:pointer;transition:all var(--ease)}
-.chip:hover{background:var(--cream)}
-.chip.active{background:var(--marigold);color:var(--ink)}
-
-/* ── PRODUCTS GRID ── */
-.section-products{padding:24px 32px 90px;background:var(--ivory)}
-.products-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px}
-.product-card{background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;position:relative;transition:all var(--ease);box-shadow:0 6px 16px var(--shadow-color);opacity:0;transform:translateY(14px)}
-.product-card.in{opacity:1;transform:none}
-.product-card:hover{transform:translate(-3px,-3px);box-shadow:0 14px 32px var(--shadow-md2)}
-.card-img-wrap{position:relative;aspect-ratio:4/3;overflow:hidden;border-bottom:1px solid var(--border);background:radial-gradient(circle at 50% 62%,#ffffff 0%,var(--cream) 82%)}
-
-.product-img{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:opacity .4s ease, transform .45s cubic-bezier(.2,.7,.2,1);
-}
-.hover-img{opacity:0}
-.product-card:hover .hover-img{opacity:1}
-.product-card:hover .main-img{opacity:0}
-.product-card:hover .product-img{transform:scale(1.05)}
-
-.card-sticker{position:absolute;top:14px;left:14px;background:var(--rose);color:var(--cream);font-size:.65rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:50px;box-shadow:0 4px 12px var(--shadow-color);z-index:2}
-.card-sticker--new{background:var(--teal);color:var(--cream)}
-.card-sticker--hot{background:var(--orange);color:var(--cream)}
-.card-sticker--best{background:var(--marigold);color:var(--ink)}
-.price-tag{position:absolute;top:14px;right:14px;background:var(--gold);color:var(--ink);padding:7px 14px;font-family:'Fraunces',serif;font-weight:900;font-size:1.02rem;border-radius:50px;box-shadow:0 4px 12px var(--shadow-color);z-index:2}
-.price-tag::before{display:none}
-.price-tag::after{display:none}
-.card-body{padding:22px 22px 20px;display:flex;flex-direction:column;flex:1}
-.card-cat{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);margin-bottom:8px}
-.card-title{font-family:'Fraunces',serif;font-size:1.08rem;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:10px}
-.card-desc{font-size:.85rem;color:var(--ink);opacity:.7;line-height:1.6;margin-bottom:14px;flex:1}
-.swatches{display:flex;gap:7px;margin-bottom:16px}
-.swatches i{width:16px;height:16px;border-radius:50%;border:1px solid var(--border);display:inline-block}
-.card-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:16px;padding-bottom:14px;border-bottom:2px dashed rgba(61,31,10,.16)}
-.price-old{font-size:.88rem;color:var(--ink);opacity:.45;text-decoration:line-through}
-.price-discount{background:var(--teal-dark);color:var(--cream);font-size:.7rem;font-weight:800;padding:3px 9px;border-radius:50px;letter-spacing:.05em}
-.card-buy-label{font-family:'Fraunces',serif;font-style:italic;font-size:.78rem;color:var(--ink);opacity:.7;margin-bottom:10px}
-.card-btns{display:flex;flex-wrap:wrap;gap:6px}
-.card-btns a{flex:1 1 60px;max-width:90px;display:flex;align-items:center;justify-content:center;padding:8px 6px;border-radius:8px;border:1px solid var(--border);min-height:40px;transition:all var(--ease)}
-.card-btns a:hover{transform:translate(-1px,-1px);box-shadow:0 3px 10px var(--shadow-color)}
-.card-btns a img{height:22px;width:auto;max-width:70px;object-fit:contain}
-.card-btns a .pill-txt{font-size:.66rem;font-weight:800;letter-spacing:.02em;color:var(--ink)}
-.card-btns a.platform-pill--amazon{background:#fff5e1}
-.card-btns a.platform-pill--flipkart{background:#e8f0ff}
-.card-btns a.platform-pill--meesho{background:#fde7f6}
-.card-btns a.platform-pill--snapdeal{background:#ffe1e7}
-.card-btns a.platform-pill--jiomart{background:#e0f4e3}
-.card-btns a.platform-pill--ajio{background:#fff0b3}
-.card-btns a.platform-pill--myntra{background:#ffdbe7}
-.card-btns a.platform-pill--snapdeal img{height:46px;max-width:170px}
-
-.empty{max-width:1280px;margin:40px auto;text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;color:var(--ink);opacity:.6}
-
-/* ── FOOTER ── */
-.footer{background:var(--ink);color:var(--cream);padding:80px 32px 0;position:relative;border-top:1px solid var(--border)}
-.footer::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,248,231,.04) 1px,transparent 1px);background-size:24px 24px;pointer-events:none}
-.footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:2px dashed rgba(255,248,231,.15);position:relative;z-index:1}
-.footer-brand h3{font-family:'Fraunces',serif;font-style:italic;font-weight:900;font-size:2rem;color:#F10000;margin-bottom:14px}
-.footer-brand p{font-size:.92rem;line-height:1.7;opacity:.7;max-width:340px}
-.footer-col h4{font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
-.footer-col a{display:block;font-size:.9rem;color:var(--cream);opacity:.7;margin-bottom:10px;transition:all var(--ease)}
-.footer-col a:hover{opacity:1;color:var(--marigold);transform:translateX(4px)}
-.footer-bottom{max-width:1280px;margin:0 auto;padding:24px 0;display:flex;justify-content:space-between;align-items:center;font-size:.82rem;opacity:.55;flex-wrap:wrap;gap:12px;position:relative;z-index:1}
-.footer-bottom em{font-family:'Fraunces',serif;font-style:italic;color:var(--gold)}
-
-/* ── FLOATING WHATSAPP ── */
-.wa-float{position:fixed;bottom:26px;right:26px;z-index:1000;background:var(--green-wa);color:var(--cream);border:1px solid var(--border);border-radius:50px;padding:14px 22px;display:flex;align-items:center;gap:10px;box-shadow:0 6px 16px var(--shadow-color);font-weight:800;font-size:.88rem;letter-spacing:.04em;text-transform:uppercase;transition:all var(--ease);animation:waPulse 2.4s ease-in-out infinite}
-.wa-float:hover{transform:translate(-2px,-2px);box-shadow:0 10px 24px var(--shadow-md2);animation:none}
-@keyframes waPulse{0%,100%{box-shadow:0 6px 16px var(--shadow-color)}50%{box-shadow:0 6px 16px var(--shadow-color),0 0 0 8px rgba(18,140,79,.18)}}
-
-/* ── RESPONSIVE ── */
-@media(max-width:1024px){.footer-inner{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
-@media(max-width:768px){
-  /* Platform-invariant header: space-between self-balances regardless of which
-     children are hidden, so we don't depend on .nav-cta's margin-left:auto. */
-  .nav-inner{justify-content:space-between;gap:12px;padding-left:18px;padding-right:18px}
-  .logo{margin-left:16px}
-  .hamburger{display:flex}
-  .nav-links{display:none;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;background:var(--ivory);border-bottom:1px solid var(--border);padding:16px 0;z-index:99}
-  .nav-links.open{display:flex}
-  .nav-link{padding:14px 32px;border-bottom:1px dashed rgba(61,31,10,.15);font-size:1rem;width:100%}
-  .nav-cta{display:none}
-  .cat-hero{padding:42px 22px 38px}
-  .controls,.section-products{padding-left:22px;padding-right:22px}
-  .products-grid{grid-template-columns:1fr 1fr;gap:18px}
-}
-@media(max-width:520px){
-  .products-grid{grid-template-columns:1fr}
-  .footer-inner{grid-template-columns:1fr}
-  .marquee-track span{font-size:.92rem;padding:0 22px}
-  .marquee-track span::after{margin-left:22px}
-}
-</style>
-<style id="premium-overlay">
-:root{
-  --ivory:#FFFFFF; --paper:#ffffff; --cream:#ffffff;
-  --ink:#0A0A0A; --rose:#0A0A0A; --magenta:#242424; --maroon:#000000; --red:#C8102E;
-  --gold:#C8A24B; --gold-lite:#E8C766; --gold-deep:#9A7531;
-  --border:rgba(10,10,10,.13); --border-soft:rgba(10,10,10,.07);
-  --shadow-color:rgba(10,10,10,.10); --shadow-md2:rgba(10,10,10,.14);
-}
-/* warm paper + grain + gradient-mesh atmosphere */
-body{ background:#ffffff!important; background-image:none!important; position:relative; }
-body::before{ content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+body::after{
+  content:'';
+  position:fixed; inset:0; z-index:0; pointer-events:none;
   background:
-    radial-gradient(1100px 640px at 92% -10%, rgba(200,162,75,.03), transparent 60%),
-    radial-gradient(900px 760px at -8% 14%, rgba(200,162,75,.02), transparent 55%); }
-body::after{ content:''; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5; mix-blend-mode:multiply;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E"); }
-.marquee,.navbar,.cat-hero,.section-products,.controls,main,header,footer,.footer{ position:relative; z-index:1; }
+    radial-gradient(1100px 650px at 95% -8%, rgba(164,123,43,.05), transparent 60%),
+    radial-gradient(900px 700px at -8% 8%, rgba(158,27,50,.035), transparent 55%);
+}
+main,header,footer,section,.controls,.section-products{ position:relative; z-index:1; }
+img{ display:block; max-width:100%; height:auto; }
+a{ text-decoration:none; color:inherit; }
+ul{ list-style:none; }
+::selection{ background:var(--corsa); color:#fff; }
+:focus-visible{ outline:2px solid var(--corsa); outline-offset:3px; }
 
-/* glass nav + gold accent line */
-.navbar{ background:rgba(255,255,255,.78)!important; -webkit-backdrop-filter:saturate(160%) blur(16px); backdrop-filter:saturate(160%) blur(16px); border-bottom:1px solid var(--border-soft)!important; }
-.navbar.scrolled{ background:rgba(255,255,255,.92)!important; box-shadow:0 10px 30px rgba(33,26,23,.08)!important; }
-.navbar::after{ content:''; position:absolute; left:0; right:0; bottom:-1px; height:2px;
-  background:linear-gradient(90deg,transparent,rgba(200,162,75,.55) 20%,#C8A24B 50%,rgba(200,162,75,.55) 80%,transparent); opacity:.6; }
+/* Typography */
+.display{ font-family:'Anton',sans-serif; font-weight:400; text-transform:uppercase; line-height:.94; letter-spacing:-.005em; }
+.accent{ font-family:'Italiana',serif; font-style:italic; font-weight:400; text-transform:none; letter-spacing:0; }
+.accent-gold{ background:var(--grad-corsa); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.mono{ font-family:'JetBrains Mono',monospace; }
+.eyebrow{ font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--corsa); display:inline-flex; align-items:center; gap:12px; }
+.eyebrow::before{ content:''; width:26px; height:1.5px; background:var(--corsa); }
 
-/* inline svg logo sizing */
-.logo{ display:flex; align-items:center; color:var(--ink); margin-left:16px!important; }
-.logo .logo-svg{ height:clamp(50px,7vw,66px); width:auto; display:block; filter:drop-shadow(0 3px 8px rgba(33,26,23,.14)); }
+/* Bracket effects */
+.bracket-in{ position:relative; }
+.bracket-in::before,.bracket-in::after{
+  content:''; position:absolute; width:18px; height:18px; opacity:0; z-index:3;
+  transition:opacity .35s var(--ease), transform .35s var(--ease); pointer-events:none;
+}
+.bracket-in::before{ top:16px; left:16px; border-top:1.5px solid var(--corsa-2); border-left:1.5px solid var(--corsa-2); transform:translate(-5px,-5px); }
+.bracket-in::after{ bottom:16px; right:16px; border-bottom:1.5px solid var(--corsa-2); border-right:1.5px solid var(--corsa-2); transform:translate(5px,5px); }
+.bracket-in:hover::before,.bracket-in:hover::after{ opacity:1; transform:translate(0,0); }
 
-/* nav cta shimmer */
-.nav-cta{ background:linear-gradient(135deg,#242424,#0A0A0A 60%,#000)!important; box-shadow:0 8px 22px rgba(10,10,10,.30)!important; position:relative; overflow:hidden; }
-.nav-cta::before{ content:''; position:absolute; top:0; left:-60%; width:40%; height:100%; background:linear-gradient(110deg,transparent,rgba(255,255,255,.4),transparent); transform:skewX(-18deg); transition:left .55s cubic-bezier(.22,1,.36,1); }
-.nav-cta:hover::before{ left:130%; }
+/* Meander divider */
+.meander{
+  height:16px; width:100%; max-width:var(--maxw); margin:0 auto;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16'%3E%3Cpath d='M1 15 V4 H11 V11 H6 V8 H9 M20 15 V4 H30 V11 H25 V8 H28' fill='none' stroke='%239E1B32' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat:repeat-x; background-position:center; opacity:.75;
+}
+.meander.dark{ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16'%3E%3Cpath d='M1 15 V4 H11 V11 H6 V8 H9 M20 15 V4 H30 V11 H25 V8 H28' fill='none' stroke='%23C23150' stroke-width='1.5'/%3E%3C/svg%3E"); opacity:.6; }
+.meander-wrap{ padding:0 30px; }
 
-/* premium card polish */
-.product-card{ border:1px solid var(--border)!important; box-shadow:0 10px 30px rgba(33,26,23,.08)!important; transition:transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s cubic-bezier(.22,1,.36,1)!important; }
-.product-card:hover{ transform:translateY(-8px)!important; box-shadow:0 26px 60px rgba(33,26,23,.16)!important; }
-.price-tag{ background:linear-gradient(135deg,var(--gold-lite),var(--gold) 60%,var(--gold-deep))!important; color:#3a2c0e!important; box-shadow:0 6px 16px rgba(154,117,49,.3)!important; }
-.card-sticker{ box-shadow:0 6px 16px rgba(10,10,10,.30)!important; }
-.tab.active,.chip.active{ box-shadow:0 6px 16px rgba(10,10,10,.30)!important; }
+/* Topbar Announcement */
+.topbar{
+  background:var(--grad-noir); color:#F1ECE0;
+  font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+  overflow:hidden; position:relative; z-index:60;
+}
+.topbar-track{ display:flex; gap:0; white-space:nowrap; animation:marq 38s linear infinite; padding:9px 0; }
+.topbar:hover .topbar-track{ animation-play-state:paused; }
+.topbar-track span{ padding:0 28px; display:inline-flex; align-items:center; gap:14px; opacity:.92; }
+.topbar-track span::after{ content:'◆'; color:var(--corsa-2); font-size:.5rem; }
+@keyframes marq{ to{ transform:translateX(-50%); } }
 
-/* gold eyebrow dash + cat-title italic accent already wine */
-.eyebrow::before{ background:linear-gradient(135deg,var(--gold-lite),var(--gold))!important; }
+/* Navbar */
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(246,243,236,.82);
+  -webkit-backdrop-filter:saturate(160%) blur(16px);
+  backdrop-filter:saturate(160%) blur(16px);
+  border-bottom:1px solid var(--line-soft);
+  transition:box-shadow .3s var(--ease), background .3s var(--ease);
+}
+.nav.scrolled{ background:rgba(246,243,236,.95); box-shadow:0 10px 30px rgba(19,18,17,.07); }
+.nav-inner{
+  max-width:var(--maxw); margin:0 auto; padding:0 30px;
+  height:92px; display:flex; align-items:center; gap:40px;
+}
+.nav .brand{ color:var(--ink); display:inline-flex; align-items:center; gap:12px; }
+.navpunks { display: flex; align-items: center; gap: 40px; }
+.navpunks a { text-decoration: none; color: var(--ink); font-size: 14px; font-weight: 700; text-transform: uppercase; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.5px; position: relative; padding-bottom: 8px; }
+.navpunks a::after{ content: ""; position: absolute; left: 50%; bottom: 0; width: 0; height: 2px; background: var(--corsa); transform: translateX(-50%); transition: width 0.3s ease; }
+.navpunks a:hover::after, .navpunks a.active::after{ width: 100%; }
 
-/* footer gold headings already; ensure svg footer logo light */
-.footer .logo,.footer-brand .logo{ color:#F4ECE0; }
+.nav-cta{
+  margin-left:auto; display:inline-flex; align-items:center; gap:10px;
+  background:var(--grad-noir); color:#fff; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.76rem;
+  letter-spacing:.14em; text-transform:uppercase; padding:14px 24px; border-radius:100px;
+  box-shadow:var(--shadow-btn); transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.nav-cta:hover{ transform:translateY(-2px); box-shadow:0 20px 44px rgba(10,10,11,.34); }
+.nav-cta .dot{ width:6px; height:6px; border-radius:50%; background:var(--corsa-2); box-shadow:0 0 0 3px rgba(194,49,80,.28); }
 
-/* hamburger always visible; inline links hidden (Nike-style) */
-.nav-links{ display:none !important; }
-.hamburger{ display:inline-flex !important; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:10px; margin-left:18px; border-radius:10px; transition:background .25s; }
-.hamburger:hover{ background:rgba(33,26,23,.05); }
-body.menu-open .hamburger span:nth-child(1){ transform:translateY(7.5px) rotate(45deg); }
-body.menu-open .hamburger span:nth-child(2){ opacity:0; }
-body.menu-open .hamburger span:nth-child(3){ transform:translateY(-7.5px) rotate(-45deg); }
-.menu-overlay{ position:fixed; inset:0; z-index:80; background:rgba(20,16,14,.42); -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px); opacity:0; visibility:hidden; transition:opacity .35s cubic-bezier(.22,1,.36,1), visibility .35s; }
+.burger{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:10px; margin-left:16px; border-radius:var(--r-s); transition:background .25s; }
+.burger:hover{ background:rgba(19,18,17,.05); }
+.burger span{ width:25px; height:2px; background:var(--ink); transition:.3s var(--ease); transform-origin:center; }
+body.menu-open .burger span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+body.menu-open .burger span:nth-child(2){ opacity:0; }
+body.menu-open .burger span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* Slide-in Menu Drawer */
+.menu-overlay{
+  position:fixed; inset:0; z-index:80; background:rgba(8,8,8,.5);
+  -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
+  opacity:0; visibility:hidden; transition:opacity .35s var(--ease), visibility .35s;
+}
 body.menu-open .menu-overlay{ opacity:1; visibility:visible; }
-.menu-drawer{ position:fixed; top:0; right:0; height:100%; width:min(440px,100%); z-index:90; background:#fff; box-shadow:-30px 0 80px rgba(33,26,23,.22); transform:translateX(100%); transition:transform .42s cubic-bezier(.22,1,.36,1); display:flex; flex-direction:column; overflow-y:auto; }
+.menu-drawer{
+  position:fixed; top:0; right:0; height:100%; width:min(440px,100%); z-index:90;
+  background:var(--noir); color:#F1ECE0; box-shadow:-30px 0 80px rgba(0,0,0,.4);
+  transform:translateX(100%); transition:transform .42s var(--ease);
+  display:flex; flex-direction:column; overflow-y:auto; border-left:1px solid var(--line-dark);
+}
 body.menu-open .menu-drawer{ transform:translateX(0); }
 .menu-top{ display:flex; align-items:center; justify-content:space-between; padding:26px 30px 10px; }
-.menu-top .brand{ height:46px; color:var(--ink); display:inline-flex; }
-.menu-close{ background:none; border:none; cursor:pointer; width:42px; height:42px; border-radius:50%; display:grid; place-items:center; color:var(--ink); transition:background .25s; }
-.menu-close:hover{ background:rgba(33,26,23,.06); }
+.menu-close{ background:none; border:none; cursor:pointer; width:42px; height:42px; border-radius:50%; display:grid; place-items:center; color:#F1ECE0; transition:background .25s; }
+.menu-close:hover{ background:rgba(244,240,230,.08); }
 .menu-primary{ padding:18px 30px 8px; display:flex; flex-direction:column; }
-.menu-primary a{ font-family:'Fraunces',serif; font-weight:900; font-size:1.7rem; letter-spacing:-.01em; color:var(--ink); padding:11px 0; display:flex; align-items:center; justify-content:space-between; transition:color .2s, padding-left .25s cubic-bezier(.22,1,.36,1); border-bottom:1px solid var(--border-soft); }
+.menu-primary a{ font-family:'Anton',sans-serif; font-weight:400; text-transform:uppercase; font-size:1.55rem; letter-spacing:.01em; color:#F1ECE0; padding:13px 0; display:flex; align-items:center; justify-content:space-between; transition:color .2s var(--ease), padding-left .25s var(--ease); border-bottom:1px solid var(--line-dark-soft); }
 .menu-primary a:last-child{ border-bottom:none; }
-.menu-primary a.cur{ color:var(--rose); }
-.menu-primary a .chev{ opacity:0; transform:translateX(-6px); transition:.25s cubic-bezier(.22,1,.36,1); color:var(--rose); }
-.menu-primary a:hover{ color:var(--rose); padding-left:8px; }
+.menu-primary a .chev{ font-family:'JetBrains Mono',monospace; opacity:0; transform:translateX(-6px); transition:.25s var(--ease); color:var(--corsa-2); }
+.menu-primary a:hover{ color:#fff; padding-left:8px; }
 .menu-primary a:hover .chev{ opacity:1; transform:translateX(0); }
-.menu-primary a .tagx{ font-family:'Manrope',sans-serif; font-size:.6rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; background:linear-gradient(135deg,#242424,#0A0A0A 60%,#000); color:#fff; padding:3px 9px; border-radius:50px; margin-left:10px; }
-.menu-secondary{ padding:22px 30px; margin-top:auto; display:grid; grid-template-columns:1fr 1fr; gap:10px 18px; border-top:1px solid var(--border); }
-.menu-secondary a{ font-size:.92rem; font-weight:600; color:rgba(33,26,23,.62); padding:5px 0; transition:color .2s; }
-.menu-secondary a:hover{ color:var(--rose); }
-.menu-foot{ padding:18px 30px 30px; display:flex; flex-direction:column; gap:14px; border-top:1px solid var(--border); }
-.menu-chat{ display:inline-flex; align-items:center; justify-content:center; gap:9px; background:linear-gradient(135deg,#242424,#0A0A0A 60%,#000); color:#fff; font-weight:800; font-size:.85rem; letter-spacing:.06em; text-transform:uppercase; padding:15px; border-radius:50px; box-shadow:0 12px 30px rgba(10,10,10,.30); }
+.menu-primary a .tagx{ font-family:'JetBrains Mono',monospace; font-size:.56rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:var(--grad-corsa); color:#fff; padding:4px 9px; border-radius:3px; margin-left:10px; }
+.menu-secondary{ padding:22px 30px; margin-top:auto; display:grid; grid-template-columns:1fr 1fr; gap:10px 18px; border-top:1px solid var(--line-dark); }
+.menu-secondary a{ font-family:'JetBrains Mono',monospace; font-size:.78rem; letter-spacing:.02em; color:var(--steel-dark); padding:5px 0; transition:color .2s; }
+.menu-secondary a:hover{ color:#fff; }
+.menu-foot{ padding:18px 30px 30px; display:flex; flex-direction:column; gap:14px; border-top:1px solid var(--line-dark); }
+.menu-chat{ display:inline-flex; align-items:center; justify-content:center; gap:9px; background:var(--grad-corsa); color:#fff; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; padding:15px; border-radius:100px; box-shadow:0 16px 38px rgba(158,27,50,.38); }
 .menu-social{ display:flex; gap:14px; }
-.menu-social a{ width:40px; height:40px; border-radius:50%; border:1px solid var(--border); display:grid; place-items:center; color:var(--ink); transition:all .25s cubic-bezier(.22,1,.36,1); }
-.menu-social a:hover{ background:var(--rose); color:#fff; border-color:var(--rose); transform:translateY(-2px); }
-@media(max-width:680px){ .menu-drawer{ width:100%; } .menu-primary a{ font-size:1.5rem; } }
+.menu-social a{ width:40px; height:40px; border-radius:50%; border:1px solid var(--line-dark); display:grid; place-items:center; color:#F1ECE0; transition:all .25s var(--ease); }
+.menu-social a:hover{ background:var(--corsa-2); color:#fff; border-color:var(--corsa-2); transform:translateY(-2px); }
 
-/* Onyx & Gold accent patches */
-.cat-hero em,.cat-title em,.cat-hero .accent,.cat-title .accent{ color:var(--gold-deep)!important; }
-.eyebrow{ color:var(--gold-deep)!important; }
-.cat-no{ color:rgba(10,10,10,.05)!important; }
-.tab.active,.chip.active{ background:#0A0A0A!important; color:#fff!important; border-color:#0A0A0A!important; box-shadow:0 6px 16px rgba(10,10,10,.22)!important; }
-.nav-link.active,.nav-link:hover{ color:#0A0A0A!important; }
-.nav-link::after{ background:linear-gradient(135deg,var(--gold-lite),var(--gold))!important; }
-.menu-primary a.cur,.menu-primary a:hover{ color:var(--gold-deep)!important; }
-.menu-primary a .chev,.menu-secondary a:hover{ color:var(--gold-deep)!important; }
-.menu-social a:hover{ background:#0A0A0A!important; border-color:#0A0A0A!important; }
-.price-tag{ background:linear-gradient(135deg,var(--gold-lite),var(--gold) 60%,var(--gold-deep))!important; color:#2A2008!important; }
-.card-sticker{ background:#0A0A0A!important; color:#fff!important; }
-.card-sticker.hot{ background:var(--red)!important; }
-/* Greek-key meander divider */
-.meander{ height:18px; width:100%; max-width:1280px; margin:0 auto; background-repeat:repeat-x; background-position:center; opacity:.8;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='18' viewBox='0 0 44 18'%3E%3Cpath d='M1 17 V5 H13 V13 H7 V9 H10 M22 17 V5 H34 V13 H28 V9 H31' fill='none' stroke='%23C8A24B' stroke-width='1.6'/%3E%3C/svg%3E"); }
-.meander-wrap{ padding:24px 32px; }
+/* Catalogue Hero */
+.cat-hero { max-width:var(--maxw); margin:0 auto; padding:64px 30px 42px; position:relative; }
+.crumb { font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:600; letter-spacing:.06em; color:var(--ink-faint); margin-bottom:16px; display:flex; gap:8px; flex-wrap:wrap; text-transform:uppercase; }
+.crumb a { color:var(--corsa); font-weight:700; transition:color .3s; }
+.crumb a:hover { color:var(--corsa-deep); }
+.cat-title { font-size:clamp(2.7rem,5.6vw,4.85rem); margin: 16px 0 24px; }
+.cat-sub { font-size:1.08rem; color:var(--ink-soft); max-width:560px; line-height: 1.7; }
+.tabs { display:flex; flex-wrap:wrap; gap:14px; margin-top:38px; }
+.tab { font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; padding:14px 28px; border-radius:100px; background:transparent; color:var(--ink); border:1.5px solid var(--line); cursor:pointer; transition:all .3s var(--ease); }
+.tab:hover { border-color:var(--ink); transform:translateY(-2px); box-shadow:var(--shadow-s); }
+.tab.active { background:var(--grad-noir); color:#fff; border-color:transparent; box-shadow:var(--shadow-btn); }
+
+/* Controls */
+.controls { max-width:var(--maxw); margin:0 auto; padding:24px 30px 10px; display:flex; flex-direction:column; gap:20px; }
+.controls-row { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:18px; }
+.count { font-family:'Anton',sans-serif; font-size:1.5rem; text-transform:uppercase; color:var(--ink); }
+.count span { font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:600; color:var(--ink-soft); letter-spacing:.1em; margin-left:8px; }
+.sortwrap { display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono',monospace; font-size:.75rem; font-weight:700; text-transform:uppercase; color:var(--ink); }
+.sortwrap select { font-family:'JetBrains Mono',monospace; font-size:.75rem; font-weight:600; text-transform:uppercase; background:var(--surface); border:1.5px solid var(--line); border-radius:100px; padding:10px 18px; cursor:pointer; box-shadow:var(--shadow-s); }
+.chips { display:flex; flex-wrap:wrap; gap:10px; }
+.chip { font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:8px 18px; border-radius:100px; background:transparent; color:var(--ink); border:1.5px solid var(--line); cursor:pointer; transition:all .3s var(--ease); }
+.chip:hover { border-color:var(--ink); background:var(--paper-2); }
+.chip.active { background:var(--corsa); color:#fff; border-color:transparent; }
+
+/* Product Grid */
+.section-products { padding: 24px 30px 92px; }
+.products-grid { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+.product-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; position: relative; transition: all .4s var(--ease); box-shadow: var(--shadow-s); opacity: 0; transform: translateY(14px); }
+.product-card.in { opacity: 1; transform: none; }
+.product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-m); }
+.card-img-wrap { position: relative; aspect-ratio: 4/3; overflow: hidden; border-bottom: 1px solid var(--line); background: radial-gradient(circle at 50% 62%, #fff 0%, var(--paper-2) 100%); }
+.product-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .4s ease, transform .45s var(--ease); }
+.hover-img { opacity: 0; }
+.product-card:hover .hover-img { opacity: 1; }
+.product-card:hover .main-img { opacity: 0; }
+.product-card:hover .product-img { transform: scale(1.06); }
+
+.card-sticker { position: absolute; top: 16px; left: 16px; background: var(--noir); color: #fff; font-family: 'JetBrains Mono', monospace; font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 6px 12px; border-radius: 4px; z-index: 2; box-shadow: var(--shadow-s); }
+.card-sticker--new { background: var(--grad-gold); color: #fff; }
+.card-sticker--hot { background: var(--grad-corsa); color: #fff; }
+.card-sticker--best { background: var(--grad-noir); color: #fff; }
+
+.price-tag { position: absolute; top: 16px; right: 16px; background: var(--grad-gold); color: #fff; padding: 6px 14px; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: .85rem; border-radius: 4px; box-shadow: var(--shadow-s); z-index: 2; }
+
+.card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+.card-cat { font-family: 'JetBrains Mono', monospace; font-size: .65rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--corsa); margin-bottom: 10px; }
+.card-title { font-family: 'Anton', sans-serif; font-size: 1.4rem; font-weight: 400; text-transform: uppercase; color: var(--ink); line-height: 1.1; margin-bottom: 12px; letter-spacing: 0.01em;}
+.card-desc { font-size: .88rem; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; flex: 1; }
+.swatches { display: flex; gap: 8px; margin-bottom: 18px; }
+.swatches i { width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--line); display: inline-block; box-shadow: 0 2px 4px rgba(0,0,0,.05); }
+.card-price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line); font-family: 'JetBrains Mono', monospace; }
+.price-old { font-size: .85rem; color: var(--ink-faint); text-decoration: line-through; font-weight: 600; }
+.price-discount { background: var(--corsa-deep); color: #fff; font-size: .65rem; font-weight: 700; padding: 4px 8px; border-radius: 4px; letter-spacing: .05em; text-transform: uppercase; }
+.card-buy-label { font-family: 'Italiana', serif; font-style: italic; font-size: 1.1rem; color: var(--ink); margin-bottom: 12px; font-weight: 600;}
+
+.card-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.card-btns a { flex: 1 1 60px; max-width: 90px; display: flex; align-items: center; justify-content: center; padding: 8px; border-radius: var(--r-s); border: 1.5px solid var(--line); min-height: 44px; transition: all .3s var(--ease); background: var(--paper); }
+.card-btns a:hover { transform: translateY(-3px); box-shadow: var(--shadow-s); border-color: var(--ink); background: var(--surface); }
+.card-btns a img { height: 22px; width: auto; max-width: 60px; object-fit: contain; filter: grayscale(1) opacity(0.6); transition: filter .3s, opacity .3s; }
+.card-btns a:hover img { filter: none; opacity: 1; }
+
+.empty { max-width: 1280px; margin: 40px auto; text-align: center; font-family: 'Italiana', serif; font-style: italic; font-size: 1.5rem; color: var(--ink-soft); }
+
+/* Footer */
+.footer{ background:var(--grad-noir); color:#F1ECE0; padding:70px 30px 0; position:relative; overflow:hidden; border-top: 1px solid var(--line-dark); }
+.footer-crest{ position:absolute; right:-40px; bottom:-40px; width:320px; height:320px; opacity:.05; pointer-events:none; }
+.footer-inner{ max-width:var(--maxw); margin:0 auto; display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:48px; padding-bottom:50px; border-bottom:1px solid var(--line-dark); position:relative; z-index: 2; }
+.footer .brand{ margin-bottom:18px; color:#F1ECE0; }
+.footer-brand p{ color:rgba(244,239,228,.58); font-size:.9rem; max-width:34ch; }
+.footer-col h4{ font-family:'JetBrains Mono',monospace; font-size:.68rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.88); margin-bottom:18px; }
+.footer-col a{ display:flex; align-items:center; gap:8px; font-size:.9rem; color:rgba(244,239,228,.64); margin-bottom:12px; transition:color .25s, transform .25s var(--ease); }
+.footer-col a::before{ content:'›'; color:var(--corsa-2); font-weight:700; }
+.footer-col a:hover{ color:#fff; transform:translateX(4px); }
+.footer-bot{ max-width:var(--maxw); margin:0 auto; padding:22px 0 28px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.02em; color:rgba(244,239,228,.46); position:relative; z-index: 2;}
+
+/* Floating WhatsApp */
+.wa{ position:fixed; right:24px; bottom:24px; z-index:40; display:inline-flex; align-items:center; gap:10px; background:#128c4f; color:#fff; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; padding:14px 22px; border-radius:100px; box-shadow:0 14px 34px rgba(18,140,79,.4); transition:transform .3s var(--ease); }
+.wa:hover{ transform:translateY(-3px) scale(1.02); }
+
+/* Responsive */
+@media (max-width:1000px){
+  .navpunks{ display:none; }
+  .footer-inner{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:768px){
+  .nav-cta{ display:none; }
+  .burger{ display:flex; margin-left:auto; }
+  .nav-inner{ height:76px; padding:0 18px; justify-content: space-between; }
+  .menu-drawer{ width:100%; }
+  .cat-hero { padding:42px 20px; }
+  .controls, .section-products { padding-left: 20px; padding-right: 20px; }
+  .products-grid{ grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+  .footer-inner{ grid-template-columns:1fr 1fr; gap:30px; }
+}
+@media (max-width:520px){
+  .products-grid{ grid-template-columns:1fr; }
+  .footer-inner{ grid-template-columns:1fr; gap:24px; }
+  .topbar-track span{ font-size: .65rem; padding: 0 16px; }
+}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-<linearGradient id="triRed" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF3B5C"/><stop offset=".5" stop-color="#E11D48"/><stop offset="1" stop-color="#9E0E30"/></linearGradient>
-<linearGradient id="triEdge" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFA9B8"/><stop offset="1" stop-color="#E11D48"/></linearGradient>
-</defs></svg>
 
+<!-- Crest Symbol Definition for Footer -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="goldFace" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C23150"/>
+      <stop offset=".55" stop-color="#9E1B32"/>
+      <stop offset="1" stop-color="#5C1020"/>
+    </linearGradient>
+    <path id="crestArcTop" d="M28,100 a72,72 0 0,1 144,0" />
+    <path id="crestArcBot" d="M172,100 a72,72 0 0,1 -144,0" />
+    <symbol id="crest" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="92" fill="none" stroke="#9E1B32" stroke-width="1.2"/>
+      <circle cx="100" cy="100" r="80" fill="none" stroke="#9E1B32" stroke-width="1" stroke-dasharray="1.6 5.2"/>
+      <text font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" letter-spacing="4" fill="#ffffff">
+        <textPath href="#crestArcTop" startOffset="50%" text-anchor="middle">PENNEN</textPath>
+      </text>
+      <text font-family="JetBrains Mono, monospace" font-size="8" font-weight="600" letter-spacing="3" fill="rgba(255,255,255,.72)">
+        <textPath href="#crestArcBot" startOffset="50%" text-anchor="middle">A GROWING STEP</textPath>
+      </text>
+      <path d="M100 58 L142 142 L58 142 Z" fill="url(#goldFace)"/>
+      <path d="M100 58 L114 118 L78 110 Z" fill="#fff" opacity=".92"/>
+      <path d="M100 58 L88 102 L78 110 Z" fill="#fff" opacity=".3"/>
+      <line x1="76" y1="150" x2="124" y2="150" stroke="#9E1B32" stroke-width="3"/>
+    </symbol>
+  </defs>
+</svg>
 
-<!-- HEADER -->
-<header class="navbar" id="navbar">
+<!-- Announcement -->
+<div class="topbar" aria-label="Announcements">
+  <div class="topbar-track">
+    <span>Fast shipping</span><span>Easy returns</span><span>Proudly made in India</span><span>Up to 60% off this season</span>
+    <span>Fast shipping</span><span>Easy returns</span><span>Proudly made in India</span><span>Up to 60% off this season</span>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="nav" id="nav">
   <div class="nav-inner">
-    <a href="index.html" class="logo" aria-label="PENNEN — A Growing Step">
-      <img class="crest-use nav-logo" src="pennen-icon.png" alt="" style="height:120px;width:auto;">
-        <g transform="translate(150,2)">
-          <path d="M64 0 L92 70 L8 52 Z" fill="url(#triRed)"/>
-          <path d="M64 0 L92 70 L8 52 Z" fill="none" stroke="url(#triEdge)" stroke-width="2" opacity=".7"/>
-          <path d="M64 0 L70 47 L40 41 Z" fill="#fff" opacity=".92"/>
-          <path d="M64 0 L52 30 L40 41 Z" fill="#fff" opacity=".35"/>
-          </g>
-      </svg>
+    <a href="index.html" class="brand" aria-label="PENNEN — A Growing Step">
+      <img class="crest-use nav-logo" src="pennen-icon.png" alt="" style="height:72px;width:auto;"/>
     </a>
-    <nav class="nav-links" id="navLinks">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="catalogue.html" class="nav-link active">Catalogue</a>
-    </nav>
-    <a href="index.html" class="nav-cta">← Back to Store</a>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <span class="navpunks">
+      <a href="catalogue-men-shoes.html" class="active">MEN</a>
+      <a href="catalogue-women-shoes_1_.html">WOMEN</a>
+      <a href="#">KIDS</a>
+      <a href="#">SPORTS &amp; LIFESTYLE</a>
+      <a href="catalogue.html">OUTLET</a>
+    </span>
+    <a href="index.html" class="nav-cta"><span class="dot"></span> Back to Store</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-controls="menuDrawer" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<!-- slide-in menu -->
+<!-- Slide-in Menu -->
 <div class="menu-overlay" id="menuOverlay"></div>
 <aside class="menu-drawer" id="menuDrawer" aria-label="Main menu" aria-hidden="true">
   <div class="menu-top">
     <span class="brand" aria-hidden="true">
-        <img class="crest-use nav-logo" src="pennen-icon.png" alt="" style="height:120px;width:auto;">
-        <g transform="translate(150,2)"><path d="M64 0 L92 70 L8 52 Z" fill="url(#triRed)"/><path d="M64 0 L70 47 L40 41 Z" fill="#fff" opacity=".92"/><path d="M64 0 L52 30 L40 41 Z" fill="#fff" opacity=".35"/></g>
-      </svg>
+      <img class="crest-use" src="pennen-icon.png" alt="" style="height:38px;width:auto;">
+      <span style="font-family:'Anton', sans-serif; font-size:24px; margin-left: 10px;">PENNEN</span>
     </span>
-    <button class="menu-close" id="menuClose" aria-label="Close menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <button class="menu-close" id="menuClose" aria-label="Close menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
   </div>
   <nav class="menu-primary">
     <a href="index.html#catalogue">New &amp; Featured <span class="chev">→</span></a>
-    <a href="catalogue-men-shoes.html" class="cur">Men's Shoes <span class="chev">→</span></a>
+    <a href="catalogue-men-shoes.html">Men's Shoes <span class="chev">→</span></a>
     <a href="catalogue-women-shoes_1_.html">Women's Shoes <span class="chev">→</span></a>
     <a href="catalogue-men-slippers.html">Men's Slippers <span class="chev">→</span></a>
     <a href="catalogue-women-slippers_1_.html">Women's Slippers <span class="chev">→</span></a>
@@ -362,7 +384,10 @@ body.menu-open .menu-drawer{ transform:translateX(0); }
     <a href="index.html#footer">Returns</a>
   </div>
   <div class="menu-foot">
-    <a href="#" class="menu-chat"><svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.3.6 4.4 1.7 6.3L3 29l7.4-2c1.8 1 3.9 1.5 6.1 1.5 6.9 0 12.5-5.6 12.5-12.5S22.9 3 16 3z"/></svg> Chat with us</a>
+    <a href="#" class="menu-chat">
+      <svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.3.6 4.4 1.7 6.3L3 29l7.4-2c1.8 1 3.9 1.5 6.1 1.5 6.9 0 12.5-5.6 12.5-12.5S22.9 3 16 3z"/></svg>
+      Chat with us
+    </a>
     <div class="menu-social">
       <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
       <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9z"/></svg></a>
@@ -371,21 +396,23 @@ body.menu-open .menu-drawer{ transform:translateX(0); }
   </div>
 </aside>
 
-
-<!-- CATEGORY HERO -->
+<!-- Category Hero -->
 <section class="cat-hero">
-  <div class="cat-hero-inner">
-    <div class="cat-no"></div>
-    <nav class="crumb"><a href="index.html">Home</a> / <a href="catalogue.html">Catalogue</a> / <span>Footwear</span></nav>
-    <span class="eyebrow">Men's Shoes</span>
-    <h1 class="cat-title">Men's shoes that <em>go the distance.</em></h1>
-    <p class="cat-sub">From morning runs to office floors — everyday and performance styles built for long-lasting comfort. Pick a pair, buy on any platform you like.</p>
-    <div class="tabs"><a href="catalogue-men-shoes.html" class="tab active">Men's Shoes</a><a href="catalogue-men-slippers.html" class="tab">Men's Slippers</a><a href="#" class="tab">Women's Shoes</a><a href="catalogue-women-slippers.html" class="tab">Women's Slippers</a></div>
+  <nav class="crumb"><a href="index.html">Home</a> / <a href="catalogue.html">Catalogue</a> / <span>Footwear</span></nav>
+  <div class="eyebrow">Men's Shoes</div>
+  <h1 class="display cat-title">Men's shoes that <span class="accent accent-gold">go the distance.</span></h1>
+  <p class="cat-sub">From morning runs to office floors — everyday and performance styles built for long-lasting comfort. Pick a pair, buy on any platform you like.</p>
+  <div class="tabs">
+    <a href="catalogue-men-shoes.html" class="tab active">Men's Shoes</a>
+    <a href="catalogue-men-slippers.html" class="tab">Men's Slippers</a>
+    <a href="#" class="tab">Women's Shoes</a>
+    <a href="catalogue-women-slippers.html" class="tab">Women's Slippers</a>
   </div>
 </section>
+
 <div class="meander-wrap"><div class="meander" aria-hidden="true"></div></div>
 
-<!-- CONTROLS -->
+<!-- Controls -->
 <div class="controls">
   <div class="controls-row">
     <div class="count" id="count">styles <span>in this collection</span></div>
@@ -398,28 +425,41 @@ body.menu-open .menu-drawer{ transform:translateX(0); }
       </select>
     </label>
   </div>
-  <div class="chips"><button class="chip active" data-f="all">All</button><button class="chip" data-f="sneaker">Sneakers</button><button class="chip" data-f="hightop">High-Tops</button><button class="chip" data-f="slipon">Slip-Ons</button></div>
+  <div class="chips">
+    <button class="chip active" data-f="all">All</button>
+    <button class="chip" data-f="sneaker">Sneakers</button>
+    <button class="chip" data-f="hightop">High-Tops</button>
+    <button class="chip" data-f="slipon">Slip-Ons</button>
+  </div>
 </div>
 
-<!-- PRODUCTS -->
+<!-- Products Grid -->
 <section class="section-products">
   <div class="products-grid" id="grid"></div>
 </section>
 
-<!-- FLOATING WHATSAPP -->
-<a class="wa-float" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">WhatsApp Us</a>
+<!-- Floating WhatsApp -->
+<a class="wa" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.3.6 4.4 1.7 6.3L3 29l7.4-2c1.8 1 3.9 1.5 6.1 1.5 6.9 0 12.5-5.6 12.5-12.5S22.9 3 16 3zm0 22.6c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4 1.1 1.1-3.9-.2-.4c-1.1-1.7-1.6-3.6-1.6-5.6C5.6 9.7 10.3 5 16 5s10.4 4.7 10.4 10.5S21.7 25.6 16 25.6z"/></svg>
+  WhatsApp Us
+</a>
 
-<!-- FOOTER -->
-<footer class="footer">
+<!-- Footer -->
+<footer class="footer" id="footer">
+  <svg class="footer-crest" viewBox="0 0 200 200" aria-hidden="true"><use href="#crest"/></svg>
+  <div class="meander dark" style="margin-bottom:46px" aria-hidden="true"></div>
   <div class="footer-inner">
     <div class="footer-brand">
-      <h3>PENNEN</h3>
-      <p>A breakout footwear label from India, selling quality shoes across every major marketplace. Built honestly, priced fairly, delivered everywhere.</p>
+      <span class="brand">
+        <img class="crest-use nav-logo" src="pennen-icon.png" alt="" style="height:150px;width:auto;">
+       </span>
+      <p style="margin-top:18px">A breakout footwear label from India, selling quality shoes across every major marketplace. Built honestly, priced fairly, delivered everywhere.</p>
     </div>
     <div class="footer-col">
       <h4>Explore</h4>
       <a href="index.html">Home Store</a>
       <a href="catalogue.html">All Collections</a>
+      <a href="index.html#story">Our Story</a>
     </div>
     <div class="footer-col">
       <h4>Collections</h4>
@@ -437,25 +477,33 @@ body.menu-open .menu-drawer{ transform:translateX(0); }
       <a href="https://www.ajio.com" target="_blank" rel="noopener">Ajio</a>
     </div>
   </div>
-  <div class="footer-bottom">
-    <span>© 2026 PENNEN — <em>A Growing Step.</em> All rights reserved.</span>
-    <span>Made with care in India 🇮🇳</span>
+  <div class="footer-bot">
+    <span>© 2026 PENNEN — A GROWING STEP. ALL RIGHTS RESERVED.</span>
+    <span>MADE IN INDIA 🇮🇳</span>
   </div>
 </footer>
 
 <script>
-/* ---- nav + scroll behaviour ---- */
-(function(){
-  var hb=document.getElementById('hamburger'),nl=document.getElementById('navLinks');
-  /* inline-link toggle removed — Nike-style drawer used instead */
-  var nav=document.getElementById('navbar');
-  window.addEventListener('scroll',function(){if(nav)nav.classList.toggle('scrolled',window.scrollY>12)},{passive:true});
-})();
+/* ---- Nav + Scroll Behaviour ---- */
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 14), {passive:true});
 
-/* fallback if a platform logo image is missing */
-function imgFallback(img,label){var s=document.createElement('span');s.className='pill-txt';s.textContent=label;img.replaceWith(s);}
+const burger = document.getElementById('burger');
+const drawer = document.getElementById('menuDrawer');
+const overlay = document.getElementById('menuOverlay');
+const closeBtn = document.getElementById('menuClose');
+const openMenu = () => { document.body.classList.add('menu-open'); document.body.style.overflow='hidden'; burger.setAttribute('aria-expanded','true'); drawer.setAttribute('aria-hidden','false'); };
+const closeMenu = () => { document.body.classList.remove('menu-open'); document.body.style.overflow=''; burger.setAttribute('aria-expanded','false'); drawer.setAttribute('aria-hidden','true'); };
+burger && burger.addEventListener('click', () => document.body.classList.contains('menu-open') ? closeMenu() : openMenu());
+closeBtn && closeBtn.addEventListener('click', closeMenu);
+overlay && overlay.addEventListener('click', closeMenu);
+addEventListener('keydown', e => { if(e.key==='Escape') closeMenu(); });
+drawer && drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
-/* ---- selling platforms (logo file + search-URL template) ---- */
+/* ---- Fallback ---- */
+function imgFallback(img,label){var s=document.createElement('span');s.className='pill-txt mono';s.style.fontSize='0.65rem';s.style.fontWeight='700';s.textContent=label;img.replaceWith(s);}
+
+/* ---- Selling Platforms ---- */
 var PLATFORMS=[
   ["amazon","Amazon","ammaloh.png","https://www.amazon.in/s?k=PENNEN+{q}"],
   ["flipkart","Flipkart","flipkart-log-icon-e33c.png","https://www.flipkart.com/search?q=PENNEN%20{q}"],
@@ -466,656 +514,64 @@ var PLATFORMS=[
   ["myntra","Myntra","Myntra.png","https://www.myntra.com/PENNEN-{q}"]
 ];
 
-/* ---- real PENNEN catalogue data (generated from product photos) ---- */
+/* ---- PENNEN Catalogue Data ---- */
 var PRODUCTS = [
-  {
-    "name": "PENNEN Apex Pace",
-    "shape": "sneaker",
-    "image": "images/shoes/606/main.jpg",
-    "hoverImage": "images/shoes/606/hover.jpg",
-    "price": 2069,
-    "mrp": 4599,
-    "disc": 55,
-    "desc": "Cushioned trainer built for all-day wear",
-    "sw": [
-      "#d8d7dc",
-      "#322b2c",
-      "#ededf1"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Apex+Pace"
-  },
-  {
-    "name": "PENNEN Velocity Street High",
-    "shape": "hightop",
-    "image": "images/shoes/608/main.jpg",
-    "hoverImage": "images/shoes/608/hover.jpg",
-    "price": 1449,
-    "mrp": 2629,
-    "disc": 45,
-    "desc": "Street-ready high-top silhouette",
-    "sw": [
-      "#54575e",
-      "#686063",
-      "#9294a0"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Velocity+Street+High"
-  },
-  {
-    "name": "PENNEN Urban Street High",
-    "shape": "hightop",
-    "image": "images/shoes/609/main.jpg",
-    "hoverImage": "images/shoes/609/hover.jpg",
-    "price": 1149,
-    "mrp": 1919,
-    "disc": 40,
-    "desc": "Street-ready high-top silhouette",
-    "sw": [
-      "#dcdbe2",
-      "#232225",
-      "#a6a5ac"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Urban+Street+High"
-  },
-  {
-    "name": "PENNEN Pulse Sprint",
-    "shape": "sneaker",
-    "image": "images/shoes/1001/main.jpg",
-    "hoverImage": "images/shoes/1001/hover.jpg",
-    "price": 1039,
-    "mrp": 2599,
-    "disc": 60,
-    "desc": "Cushioned trainer built for all-day wear",
-    "sw": [
-      "#536983",
-      "#708ea9",
-      "#9d97a2"
-    ],
-    "sticker": "hot",
-    "q": "PENNEN+Pulse+Sprint"
-  },
-  {
-    "name": "PENNEN Storm Sprint",
-    "shape": "sneaker",
-    "image": "images/shoes/1002/main.jpg",
-    "hoverImage": "images/shoes/1002/hover.jpg",
-    "price": 2929,
-    "mrp": 6509,
-    "disc": 55,
-    "desc": "Breathable mesh sneaker for active days",
-    "sw": [
-      "#29293d",
-      "#dedce3",
-      "#1c2134"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Storm+Sprint"
-  },
-  {
-    "name": "PENNEN Rapid Sprint",
-    "shape": "sneaker",
-    "image": "images/shoes/1003/main.jpg",
-    "hoverImage": "images/shoes/1003/hover.jpg",
-    "price": 2619,
-    "mrp": 5239,
-    "disc": 50,
-    "desc": "Grippy outsole made for Indian roads",
-    "sw": [
-      "#3e3e46",
-      "#1e1d25",
-      "#2e2e37"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Rapid+Sprint"
-  },
-  {
-    "name": "PENNEN Urban Court",
-    "shape": "sneaker",
-    "image": "images/shoes/1004/main.jpg",
-    "hoverImage": "images/shoes/1004/hover.jpg",
-    "price": 1459,
-    "mrp": 3649,
-    "disc": 60,
-    "desc": "Grippy outsole made for Indian roads",
-    "sw": [
-      "#eeeeee",
-      "#121318",
-      "#242228"
-    ],
-    "sticker": "best",
-    "q": "PENNEN+Urban+Court"
-  },
-  {
-    "name": "PENNEN Trail Sprint",
-    "shape": "sneaker",
-    "image": "images/shoes/1005/main.jpg",
-    "hoverImage": "images/shoes/1005/hover.jpg",
-    "price": 2009,
-    "mrp": 3349,
-    "disc": 40,
-    "desc": "Lightweight everyday running sneaker",
-    "sw": [
-      "#b9a891",
-      "#443b30",
-      "#715942"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Trail+Sprint"
-  },
-  {
-    "name": "PENNEN Drift Sprint",
-    "shape": "sneaker",
-    "image": "images/shoes/1006/main.jpg",
-    "hoverImage": "images/shoes/1006/hover.jpg",
-    "price": 1699,
-    "mrp": 2829,
-    "disc": 40,
-    "desc": "Cushioned trainer built for all-day wear",
-    "sw": [
-      "#7d6f53",
-      "#313223",
-      "#68553d"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Drift+Sprint"
-  },
-  {
-    "name": "PENNEN Nova Sprint",
-    "shape": "sneaker",
-    "image": "images/shoes/1010/main.jpg",
-    "hoverImage": "images/shoes/1010/hover.jpg",
-    "price": 2659,
-    "mrp": 4829,
-    "disc": 45,
-    "desc": "Cushioned trainer built for all-day wear",
-    "sw": [
-      "#352b2a",
-      "#6d544a",
-      "#ad7a5a"
-    ],
-    "sticker": "new",
-    "q": "PENNEN+Nova+Sprint"
-  },
-  {
-    "name": "PENNEN Cruz Trainer",
-    "shape": "sneaker",
-    "image": "images/shoes/1011/main.jpg",
-    "hoverImage": "images/shoes/1011/hover.jpg",
-    "price": 2349,
-    "mrp": 4269,
-    "disc": 45,
-    "desc": "Breathable mesh sneaker for active days",
-    "sw": [
-      "#493f3b",
-      "#141110",
-      "#775e4d"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Cruz+Trainer"
-  },
-  {
-    "name": "PENNEN Summit Trainer",
-    "shape": "sneaker",
-    "image": "images/shoes/1016/main.jpg",
-    "hoverImage": "images/shoes/1016/hover.jpg",
-    "price": 809,
-    "mrp": 1619,
-    "disc": 50,
-    "desc": "Breathable mesh sneaker for active days",
-    "sw": [
-      "#25211f",
-      "#d2d1d2",
-      "#d20c16"
-    ],
-    "sticker": "new",
-    "q": "PENNEN+Summit+Trainer"
-  },
-  {
-    "name": "PENNEN Echo Trainer",
-    "shape": "sneaker",
-    "image": "images/shoes/1018/main.jpg",
-    "hoverImage": "images/shoes/1018/hover.jpg",
-    "price": 2389,
-    "mrp": 3979,
-    "disc": 40,
-    "desc": "Sporty cushioned daily runner",
-    "sw": [
-      "#464542",
-      "#252525",
-      "#2e2e2e"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Echo+Trainer"
-  },
-  {
-    "name": "PENNEN Apex Trainer",
-    "shape": "sneaker",
-    "image": "images/shoes/1019/main.jpg",
-    "hoverImage": "images/shoes/1019/hover.jpg",
-    "price": 2079,
-    "mrp": 5199,
-    "disc": 60,
-    "desc": "Lightweight everyday running sneaker",
-    "sw": [
-      "#252525",
-      "#e8e8e9",
-      "#d8d8da"
-    ],
-    "sticker": "best",
-    "q": "PENNEN+Apex+Trainer"
-  },
-  {
-    "name": "PENNEN Pulse Trainer",
-    "shape": "sneaker",
-    "image": "images/shoes/1026/main.jpg",
-    "hoverImage": "images/shoes/1026/hover.jpg",
-    "price": 2119,
-    "mrp": 5299,
-    "disc": 60,
-    "desc": "Clean street-style low-top sneaker",
-    "sw": [
-      "#e3e9e7",
-      "#dde0e8",
-      "#c0c4bf"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Pulse+Trainer"
-  },
-  {
-    "name": "PENNEN Rapid Trainer",
-    "shape": "sneaker",
-    "image": "images/shoes/1028/main.jpg",
-    "hoverImage": "images/shoes/1028/hover.jpg",
-    "price": 1499,
-    "mrp": 2999,
-    "disc": 50,
-    "desc": "Lightweight everyday running sneaker",
-    "sw": [
-      "#1d1d1e",
-      "#dad7d8",
-      "#1a1a1a"
-    ],
-    "sticker": "best",
-    "q": "PENNEN+Rapid+Trainer"
-  },
-  {
-    "name": "PENNEN Trail Trainer",
-    "shape": "sneaker",
-    "image": "images/shoes/1030/main.jpg",
-    "hoverImage": "images/shoes/1030/hover.jpg",
-    "price": 879,
-    "mrp": 1459,
-    "disc": 40,
-    "desc": "Breathable mesh sneaker for active days",
-    "sw": [
-      "#ddd9e6",
-      "#e4e4ee",
-      "#efeff7"
-    ],
-    "sticker": "hot",
-    "q": "PENNEN+Trail+Trainer"
-  },
-  {
-    "name": "PENNEN Drift Trainer",
-    "shape": "sneaker",
-    "image": "images/shoes/1031/main.jpg",
-    "hoverImage": "images/shoes/1031/hover.jpg",
-    "price": 2769,
-    "mrp": 4619,
-    "disc": 40,
-    "desc": "Clean street-style low-top sneaker",
-    "sw": [
-      "#dddce6",
-      "#ebebf2",
-      "#9c9aa4"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Drift+Trainer"
-  },
-  {
-    "name": "PENNEN Vector Weekender",
-    "shape": "slipon",
-    "image": "images/shoes/1032/main.jpg",
-    "hoverImage": "images/shoes/1032/hover.jpg",
-    "price": 2459,
-    "mrp": 6149,
-    "disc": 60,
-    "desc": "Sock-fit slip-on for off days",
-    "sw": [
-      "#bf8b67",
-      "#945938",
-      "#60563e"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Vector+Weekender"
-  },
-  {
-    "name": "PENNEN Forge Ankle Pro",
-    "shape": "hightop",
-    "image": "images/shoes/1033/main.jpg",
-    "hoverImage": "images/shoes/1033/hover.jpg",
-    "price": 2159,
-    "mrp": 4799,
-    "disc": 55,
-    "desc": "Ankle-support classic high-top",
-    "sw": [
-      "#172033",
-      "#d3cfcd",
-      "#cbc4c1"
-    ],
-    "sticker": "hot",
-    "q": "PENNEN+Forge+Ankle+Pro"
-  },
-  {
-    "name": "PENNEN Vector Ankle Pro",
-    "shape": "hightop",
-    "image": "images/shoes/1034/main.jpg",
-    "hoverImage": "images/shoes/1034/hover.jpg",
-    "price": 1849,
-    "mrp": 3699,
-    "disc": 50,
-    "desc": "Ankle-support classic high-top",
-    "sw": [
-      "#e6e5ef",
-      "#dddbe6",
-      "#f4f4f9"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Vector+Ankle+Pro"
-  },
-  {
-    "name": "PENNEN Atlas Court",
-    "shape": "sneaker",
-    "image": "images/shoes/1039/main.jpg",
-    "hoverImage": "images/shoes/1039/hover.jpg",
-    "price": 2499,
-    "mrp": 5549,
-    "disc": 55,
-    "desc": "Breathable mesh sneaker for active days",
-    "sw": [
-      "#4896b1",
-      "#d2d0d6",
-      "#387f99"
-    ],
-    "sticker": "new",
-    "q": "PENNEN+Atlas+Court"
-  },
-  {
-    "name": "PENNEN Terra Weekender",
-    "shape": "slipon",
-    "image": "images/shoes/1048/main.jpg",
-    "hoverImage": "images/shoes/1048/hover.jpg",
-    "price": 1919,
-    "mrp": 3489,
-    "disc": 45,
-    "desc": "No-laces knit slip-on comfort",
-    "sw": [
-      "#30405e",
-      "#161422",
-      "#79859b"
-    ],
-    "sticker": "best",
-    "q": "PENNEN+Terra+Weekender"
-  },
-  {
-    "name": "PENNEN Pulse Weekender",
-    "shape": "slipon",
-    "image": "images/shoes/1049/main.jpg",
-    "hoverImage": "images/shoes/1049/hover.jpg",
-    "price": 1609,
-    "mrp": 2679,
-    "disc": 40,
-    "desc": "Easy slip-on for quick errands",
-    "sw": [
-      "#eae9ef",
-      "#adacb2",
-      "#a8a7ad"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Pulse+Weekender"
-  },
-  {
-    "name": "PENNEN Terra Slip-On",
-    "shape": "slipon",
-    "image": "images/shoes/1050/main.jpg",
-    "hoverImage": "images/shoes/1050/hover.jpg",
-    "price": 1759,
-    "mrp": 3909,
-    "disc": 55,
-    "desc": "Easy slip-on for quick errands",
-    "sw": [
-      "#59585c",
-      "#161618",
-      "#d9dbe0"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Terra+Slip-On"
-  },
-  {
-    "name": "PENNEN Cruz Striker",
-    "shape": "sneaker",
-    "image": "images/shoes/1061/main.jpg",
-    "hoverImage": "images/shoes/1061/hover.jpg",
-    "price": 2299,
-    "mrp": 4179,
-    "disc": 45,
-    "desc": "Lightweight everyday running sneaker",
-    "sw": [
-      "#979692",
-      "#c5c2bf",
-      "#2b2f34"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Cruz+Striker"
-  },
-  {
-    "name": "PENNEN Metro Striker",
-    "shape": "sneaker",
-    "image": "images/shoes/1065/main.jpg",
-    "hoverImage": "images/shoes/1065/hover.jpg",
-    "price": 1069,
-    "mrp": 2379,
-    "disc": 55,
-    "desc": "Sporty cushioned daily runner",
-    "sw": [
-      "#887b7f",
-      "#5a2c26",
-      "#272b33"
-    ],
-    "sticker": "new",
-    "q": "PENNEN+Metro+Striker"
-  },
-  {
-    "name": "PENNEN Summit Striker",
-    "shape": "sneaker",
-    "image": "images/shoes/1066/main.jpg",
-    "hoverImage": "images/shoes/1066/hover.jpg",
-    "price": 2959,
-    "mrp": 5919,
-    "disc": 50,
-    "desc": "Lightweight everyday running sneaker",
-    "sw": [
-      "#90765f",
-      "#33261e",
-      "#22272e"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Summit+Striker"
-  },
-  {
-    "name": "PENNEN Apex Striker",
-    "shape": "sneaker",
-    "image": "images/shoes/1067/main.jpg",
-    "hoverImage": "images/shoes/1067/hover.jpg",
-    "price": 2649,
-    "mrp": 4819,
-    "disc": 45,
-    "desc": "Cushioned trainer built for all-day wear",
-    "sw": [
-      "#37393b",
-      "#9a9e9f",
-      "#7c7b7a"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Apex+Striker"
-  },
-  {
-    "name": "PENNEN Echo Striker",
-    "shape": "sneaker",
-    "image": "images/shoes/1068/main.jpg",
-    "hoverImage": "images/shoes/1068/hover.jpg",
-    "price": 2339,
-    "mrp": 3899,
-    "disc": 40,
-    "desc": "Clean street-style low-top sneaker",
-    "sw": [
-      "#abb1b4",
-      "#363c3f",
-      "#686f75"
-    ],
-    "sticker": "new",
-    "q": "PENNEN+Echo+Striker"
-  },
-  {
-    "name": "PENNEN Summit Tempo",
-    "shape": "sneaker",
-    "image": "images/shoes/1069/main.jpg",
-    "hoverImage": "images/shoes/1069/hover.jpg",
-    "price": 2749,
-    "mrp": 6109,
-    "disc": 55,
-    "desc": "Grippy outsole made for Indian roads",
-    "sw": [
-      "#eeeeee",
-      "#c5beb8",
-      "#b0afae"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Summit+Tempo"
-  },
-  {
-    "name": "PENNEN Urban Striker",
-    "shape": "sneaker",
-    "image": "images/shoes/1070/main.jpg",
-    "hoverImage": "images/shoes/1070/hover.jpg",
-    "price": 1719,
-    "mrp": 4299,
-    "disc": 60,
-    "desc": "Sporty cushioned daily runner",
-    "sw": [
-      "#85837e",
-      "#c9c7c3",
-      "#656360"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Urban+Striker"
-  },
-  {
-    "name": "PENNEN Velocity Striker",
-    "shape": "sneaker",
-    "image": "images/shoes/1071/main.jpg",
-    "hoverImage": "images/shoes/1071/hover.jpg",
-    "price": 1419,
-    "mrp": 3149,
-    "disc": 55,
-    "desc": "Lightweight everyday running sneaker",
-    "sw": [
-      "#a9aaad",
-      "#d9d9d9",
-      "#dfdfdf"
-    ],
-    "sticker": "new",
-    "q": "PENNEN+Velocity+Striker"
-  },
-  {
-    "name": "PENNEN Rapid Easy Step",
-    "shape": "slipon",
-    "image": "images/shoes/1076/main.jpg",
-    "hoverImage": "images/shoes/1076/hover.jpg",
-    "price": 2069,
-    "mrp": 5169,
-    "disc": 60,
-    "desc": "No-laces knit slip-on comfort",
-    "sw": [
-      "#010201",
-      "#2f271a",
-      "#171611"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Rapid+Easy+Step"
-  },
-  {
-    "name": "PENNEN Storm Striker",
-    "shape": "sneaker",
-    "image": "images/shoes/1077/main.jpg",
-    "hoverImage": "images/shoes/1077/hover.jpg",
-    "price": 1759,
-    "mrp": 3909,
-    "disc": 55,
-    "desc": "Breathable mesh sneaker for active days",
-    "sw": [
-      "#cec0b6",
-      "#5c554f",
-      "#c7b3a6"
-    ],
-    "sticker": "best",
-    "q": "PENNEN+Storm+Striker"
-  },
-  {
-    "name": "PENNEN Trail Easy Step",
-    "shape": "slipon",
-    "image": "images/shoes/1078/main.jpg",
-    "hoverImage": "images/shoes/1078/hover.jpg",
-    "price": 1449,
-    "mrp": 2899,
-    "disc": 50,
-    "desc": "Easy slip-on for quick errands",
-    "sw": [
-      "#1d1811",
-      "#403935",
-      "#040402"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Trail+Easy+Step"
-  },
-  {
-    "name": "PENNEN Drift Striker",
-    "shape": "sneaker",
-    "image": "images/shoes/1079/main.jpg",
-    "hoverImage": "images/shoes/1079/hover.jpg",
-    "price": 1139,
-    "mrp": 2069,
-    "disc": 45,
-    "desc": "Sporty cushioned daily runner",
-    "sw": [
-      "#78777a",
-      "#e8e8eb",
-      "#97959a"
-    ],
-    "sticker": "",
-    "q": "PENNEN+Drift+Striker"
-  }
+  { "name": "PENNEN Apex Pace", "shape": "sneaker", "image": "images/shoes/606/main.jpg", "hoverImage": "images/shoes/606/hover.jpg", "price": 2069, "mrp": 4599, "disc": 55, "desc": "Cushioned trainer built for all-day wear", "sw": ["#d8d7dc", "#322b2c", "#ededf1"], "sticker": "", "q": "PENNEN+Apex+Pace" },
+  { "name": "PENNEN Velocity Street High", "shape": "hightop", "image": "images/shoes/608/main.jpg", "hoverImage": "images/shoes/608/hover.jpg", "price": 1449, "mrp": 2629, "disc": 45, "desc": "Street-ready high-top silhouette", "sw": ["#54575e", "#686063", "#9294a0"], "sticker": "", "q": "PENNEN+Velocity+Street+High" },
+  { "name": "PENNEN Urban Street High", "shape": "hightop", "image": "images/shoes/609/main.jpg", "hoverImage": "images/shoes/609/hover.jpg", "price": 1149, "mrp": 1919, "disc": 40, "desc": "Street-ready high-top silhouette", "sw": ["#dcdbe2", "#232225", "#a6a5ac"], "sticker": "", "q": "PENNEN+Urban+Street+High" },
+  { "name": "PENNEN Pulse Sprint", "shape": "sneaker", "image": "images/shoes/1001/main.jpg", "hoverImage": "images/shoes/1001/hover.jpg", "price": 1039, "mrp": 2599, "disc": 60, "desc": "Cushioned trainer built for all-day wear", "sw": ["#536983", "#708ea9", "#9d97a2"], "sticker": "hot", "q": "PENNEN+Pulse+Sprint" },
+  { "name": "PENNEN Storm Sprint", "shape": "sneaker", "image": "images/shoes/1002/main.jpg", "hoverImage": "images/shoes/1002/hover.jpg", "price": 2929, "mrp": 6509, "disc": 55, "desc": "Breathable mesh sneaker for active days", "sw": ["#29293d", "#dedce3", "#1c2134"], "sticker": "", "q": "PENNEN+Storm+Sprint" },
+  { "name": "PENNEN Rapid Sprint", "shape": "sneaker", "image": "images/shoes/1003/main.jpg", "hoverImage": "images/shoes/1003/hover.jpg", "price": 2619, "mrp": 5239, "disc": 50, "desc": "Grippy outsole made for Indian roads", "sw": ["#3e3e46", "#1e1d25", "#2e2e37"], "sticker": "", "q": "PENNEN+Rapid+Sprint" },
+  { "name": "PENNEN Urban Court", "shape": "sneaker", "image": "images/shoes/1004/main.jpg", "hoverImage": "images/shoes/1004/hover.jpg", "price": 1459, "mrp": 3649, "disc": 60, "desc": "Grippy outsole made for Indian roads", "sw": ["#eeeeee", "#121318", "#242228"], "sticker": "best", "q": "PENNEN+Urban+Court" },
+  { "name": "PENNEN Trail Sprint", "shape": "sneaker", "image": "images/shoes/1005/main.jpg", "hoverImage": "images/shoes/1005/hover.jpg", "price": 2009, "mrp": 3349, "disc": 40, "desc": "Lightweight everyday running sneaker", "sw": ["#b9a891", "#443b30", "#715942"], "sticker": "", "q": "PENNEN+Trail+Sprint" },
+  { "name": "PENNEN Drift Sprint", "shape": "sneaker", "image": "images/shoes/1006/main.jpg", "hoverImage": "images/shoes/1006/hover.jpg", "price": 1699, "mrp": 2829, "disc": 40, "desc": "Cushioned trainer built for all-day wear", "sw": ["#7d6f53", "#313223", "#68553d"], "sticker": "", "q": "PENNEN+Drift+Sprint" },
+  { "name": "PENNEN Nova Sprint", "shape": "sneaker", "image": "images/shoes/1010/main.jpg", "hoverImage": "images/shoes/1010/hover.jpg", "price": 2659, "mrp": 4829, "disc": 45, "desc": "Cushioned trainer built for all-day wear", "sw": ["#352b2a", "#6d544a", "#ad7a5a"], "sticker": "new", "q": "PENNEN+Nova+Sprint" },
+  { "name": "PENNEN Cruz Trainer", "shape": "sneaker", "image": "images/shoes/1011/main.jpg", "hoverImage": "images/shoes/1011/hover.jpg", "price": 2349, "mrp": 4269, "disc": 45, "desc": "Breathable mesh sneaker for active days", "sw": ["#493f3b", "#141110", "#775e4d"], "sticker": "", "q": "PENNEN+Cruz+Trainer" },
+  { "name": "PENNEN Summit Trainer", "shape": "sneaker", "image": "images/shoes/1016/main.jpg", "hoverImage": "images/shoes/1016/hover.jpg", "price": 809, "mrp": 1619, "disc": 50, "desc": "Breathable mesh sneaker for active days", "sw": ["#25211f", "#d2d1d2", "#d20c16"], "sticker": "new", "q": "PENNEN+Summit+Trainer" },
+  { "name": "PENNEN Echo Trainer", "shape": "sneaker", "image": "images/shoes/1018/main.jpg", "hoverImage": "images/shoes/1018/hover.jpg", "price": 2389, "mrp": 3979, "disc": 40, "desc": "Sporty cushioned daily runner", "sw": ["#464542", "#252525", "#2e2e2e"], "sticker": "", "q": "PENNEN+Echo+Trainer" },
+  { "name": "PENNEN Apex Trainer", "shape": "sneaker", "image": "images/shoes/1019/main.jpg", "hoverImage": "images/shoes/1019/hover.jpg", "price": 2079, "mrp": 5199, "disc": 60, "desc": "Lightweight everyday running sneaker", "sw": ["#252525", "#e8e8e9", "#d8d8da"], "sticker": "best", "q": "PENNEN+Apex+Trainer" },
+  { "name": "PENNEN Pulse Trainer", "shape": "sneaker", "image": "images/shoes/1026/main.jpg", "hoverImage": "images/shoes/1026/hover.jpg", "price": 2119, "mrp": 5299, "disc": 60, "desc": "Clean street-style low-top sneaker", "sw": ["#e3e9e7", "#dde0e8", "#c0c4bf"], "sticker": "", "q": "PENNEN+Pulse+Trainer" },
+  { "name": "PENNEN Rapid Trainer", "shape": "sneaker", "image": "images/shoes/1028/main.jpg", "hoverImage": "images/shoes/1028/hover.jpg", "price": 1499, "mrp": 2999, "disc": 50, "desc": "Lightweight everyday running sneaker", "sw": ["#1d1d1e", "#dad7d8", "#1a1a1a"], "sticker": "best", "q": "PENNEN+Rapid+Trainer" },
+  { "name": "PENNEN Trail Trainer", "shape": "sneaker", "image": "images/shoes/1030/main.jpg", "hoverImage": "images/shoes/1030/hover.jpg", "price": 879, "mrp": 1459, "disc": 40, "desc": "Breathable mesh sneaker for active days", "sw": ["#ddd9e6", "#e4e4ee", "#efeff7"], "sticker": "hot", "q": "PENNEN+Trail+Trainer" },
+  { "name": "PENNEN Drift Trainer", "shape": "sneaker", "image": "images/shoes/1031/main.jpg", "hoverImage": "images/shoes/1031/hover.jpg", "price": 2769, "mrp": 4619, "disc": 40, "desc": "Clean street-style low-top sneaker", "sw": ["#dddce6", "#ebebf2", "#9c9aa4"], "sticker": "", "q": "PENNEN+Drift+Trainer" },
+  { "name": "PENNEN Vector Weekender", "shape": "slipon", "image": "images/shoes/1032/main.jpg", "hoverImage": "images/shoes/1032/hover.jpg", "price": 2459, "mrp": 6149, "disc": 60, "desc": "Sock-fit slip-on for off days", "sw": ["#bf8b67", "#945938", "#60563e"], "sticker": "", "q": "PENNEN+Vector+Weekender" },
+  { "name": "PENNEN Forge Ankle Pro", "shape": "hightop", "image": "images/shoes/1033/main.jpg", "hoverImage": "images/shoes/1033/hover.jpg", "price": 2159, "mrp": 4799, "disc": 55, "desc": "Ankle-support classic high-top", "sw": ["#172033", "#d3cfcd", "#cbc4c1"], "sticker": "hot", "q": "PENNEN+Forge+Ankle+Pro" },
+  { "name": "PENNEN Vector Ankle Pro", "shape": "hightop", "image": "images/shoes/1034/main.jpg", "hoverImage": "images/shoes/1034/hover.jpg", "price": 1849, "mrp": 3699, "disc": 50, "desc": "Ankle-support classic high-top", "sw": ["#e6e5ef", "#dddbe6", "#f4f4f9"], "sticker": "", "q": "PENNEN+Vector+Ankle+Pro" },
+  { "name": "PENNEN Atlas Court", "shape": "sneaker", "image": "images/shoes/1039/main.jpg", "hoverImage": "images/shoes/1039/hover.jpg", "price": 2499, "mrp": 5549, "disc": 55, "desc": "Breathable mesh sneaker for active days", "sw": ["#4896b1", "#d2d0d6", "#387f99"], "sticker": "new", "q": "PENNEN+Atlas+Court" },
+  { "name": "PENNEN Terra Weekender", "shape": "slipon", "image": "images/shoes/1048/main.jpg", "hoverImage": "images/shoes/1048/hover.jpg", "price": 1919, "mrp": 3489, "disc": 45, "desc": "No-laces knit slip-on comfort", "sw": ["#30405e", "#161422", "#79859b"], "sticker": "best", "q": "PENNEN+Terra+Weekender" },
+  { "name": "PENNEN Pulse Weekender", "shape": "slipon", "image": "images/shoes/1049/main.jpg", "hoverImage": "images/shoes/1049/hover.jpg", "price": 1609, "mrp": 2679, "disc": 40, "desc": "Easy slip-on for quick errands", "sw": ["#eae9ef", "#adacb2", "#a8a7ad"], "sticker": "", "q": "PENNEN+Pulse+Weekender" },
+  { "name": "PENNEN Terra Slip-On", "shape": "slipon", "image": "images/shoes/1050/main.jpg", "hoverImage": "images/shoes/1050/hover.jpg", "price": 1759, "mrp": 3909, "disc": 55, "desc": "Easy slip-on for quick errands", "sw": ["#59585c", "#161618", "#d9dbe0"], "sticker": "", "q": "PENNEN+Terra+Slip-On" },
+  { "name": "PENNEN Cruz Striker", "shape": "sneaker", "image": "images/shoes/1061/main.jpg", "hoverImage": "images/shoes/1061/hover.jpg", "price": 2299, "mrp": 4179, "disc": 45, "desc": "Lightweight everyday running sneaker", "sw": ["#979692", "#c5c2bf", "#2b2f34"], "sticker": "", "q": "PENNEN+Cruz+Striker" },
+  { "name": "PENNEN Metro Striker", "shape": "sneaker", "image": "images/shoes/1065/main.jpg", "hoverImage": "images/shoes/1065/hover.jpg", "price": 1069, "mrp": 2379, "disc": 55, "desc": "Sporty cushioned daily runner", "sw": ["#887b7f", "#5a2c26", "#272b33"], "sticker": "new", "q": "PENNEN+Metro+Striker" },
+  { "name": "PENNEN Summit Striker", "shape": "sneaker", "image": "images/shoes/1066/main.jpg", "hoverImage": "images/shoes/1066/hover.jpg", "price": 2959, "mrp": 5919, "disc": 50, "desc": "Lightweight everyday running sneaker", "sw": ["#90765f", "#33261e", "#22272e"], "sticker": "", "q": "PENNEN+Summit+Striker" },
+  { "name": "PENNEN Apex Striker", "shape": "sneaker", "image": "images/shoes/1067/main.jpg", "hoverImage": "images/shoes/1067/hover.jpg", "price": 2649, "mrp": 4819, "disc": 45, "desc": "Cushioned trainer built for all-day wear", "sw": ["#37393b", "#9a9e9f", "#7c7b7a"], "sticker": "", "q": "PENNEN+Apex+Striker" },
+  { "name": "PENNEN Echo Striker", "shape": "sneaker", "image": "images/shoes/1068/main.jpg", "hoverImage": "images/shoes/1068/hover.jpg", "price": 2339, "mrp": 3899, "disc": 40, "desc": "Clean street-style low-top sneaker", "sw": ["#abb1b4", "#363c3f", "#686f75"], "sticker": "new", "q": "PENNEN+Echo+Striker" },
+  { "name": "PENNEN Summit Tempo", "shape": "sneaker", "image": "images/shoes/1069/main.jpg", "hoverImage": "images/shoes/1069/hover.jpg", "price": 2749, "mrp": 6109, "disc": 55, "desc": "Grippy outsole made for Indian roads", "sw": ["#eeeeee", "#c5beb8", "#b0afae"], "sticker": "", "q": "PENNEN+Summit+Tempo" },
+  { "name": "PENNEN Urban Striker", "shape": "sneaker", "image": "images/shoes/1070/main.jpg", "hoverImage": "images/shoes/1070/hover.jpg", "price": 1719, "mrp": 4299, "disc": 60, "desc": "Sporty cushioned daily runner", "sw": ["#85837e", "#c9c7c3", "#656360"], "sticker": "", "q": "PENNEN+Urban+Striker" },
+  { "name": "PENNEN Velocity Striker", "shape": "sneaker", "image": "images/shoes/1071/main.jpg", "hoverImage": "images/shoes/1071/hover.jpg", "price": 1419, "mrp": 3149, "disc": 55, "desc": "Lightweight everyday running sneaker", "sw": ["#a9aaad", "#d9d9d9", "#dfdfdf"], "sticker": "new", "q": "PENNEN+Velocity+Striker" },
+  { "name": "PENNEN Rapid Easy Step", "shape": "slipon", "image": "images/shoes/1076/main.jpg", "hoverImage": "images/shoes/1076/hover.jpg", "price": 2069, "mrp": 5169, "disc": 60, "desc": "No-laces knit slip-on comfort", "sw": ["#010201", "#2f271a", "#171611"], "sticker": "", "q": "PENNEN+Rapid+Easy+Step" },
+  { "name": "PENNEN Storm Striker", "shape": "sneaker", "image": "images/shoes/1077/main.jpg", "hoverImage": "images/shoes/1077/hover.jpg", "price": 1759, "mrp": 3909, "disc": 55, "desc": "Breathable mesh sneaker for active days", "sw": ["#cec0b6", "#5c554f", "#c7b3a6"], "sticker": "best", "q": "PENNEN+Storm+Striker" },
+  { "name": "PENNEN Trail Easy Step", "shape": "slipon", "image": "images/shoes/1078/main.jpg", "hoverImage": "images/shoes/1078/hover.jpg", "price": 1449, "mrp": 2899, "disc": 50, "desc": "Easy slip-on for quick errands", "sw": ["#1d1811", "#403935", "#040402"], "sticker": "", "q": "PENNEN+Trail+Easy+Step" },
+  { "name": "PENNEN Drift Striker", "shape": "sneaker", "image": "images/shoes/1079/main.jpg", "hoverImage": "images/shoes/1079/hover.jpg", "price": 1139, "mrp": 2069, "disc": 45, "desc": "Sporty cushioned daily runner", "sw": ["#78777a", "#e8e8eb", "#97959a"], "sticker": "", "q": "PENNEN+Drift+Striker" }
 ];
 
-/* ---- helpers ---- */
+/* ---- Helpers ---- */
 function peso(n){return '\u20b9'+n.toLocaleString('en-IN');}
 function stickerHtml(s){
   if(!s)return '';
-  var label={best:'\u2605 Bestseller',new:'\u2728 New In',hot:'\ud83d\udd25 Hot'}[s];
+  var label={best:'\u2605 Bestseller',new:'\u2728 New',hot:'\ud83d\udd25 Hot'}[s];
   return label?'<span class="card-sticker card-sticker--'+s+'">'+label+'</span>':'';
 }
 function buyRow(p){
   return PLATFORMS.map(function(pl){
     var href=pl[3].replace('{q}',p.q);
-    return '<a class="platform-pill--'+pl[0]+'" target="_blank" rel="noopener" href="'+href+'">'+
+    return '<a target="_blank" rel="noopener" href="'+href+'">'+
       '<img src="'+pl[2]+'" alt="'+pl[1]+'" onerror="imgFallback(this,\''+pl[1]+'\')"></a>';
   }).join('');
 }
 function card(p){
   var dots=(p.sw||[]).map(function(s){return '<i style="background:'+s+'"></i>';}).join('');
-  return '<article class="product-card" data-shape="'+p.shape+'">'+
+  return '<article class="product-card bracket-in" data-shape="'+p.shape+'">'+
     '<div class="card-img-wrap">'+
       stickerHtml(p.sticker)+
       '<span class="price-tag">'+peso(p.price)+'</span>'+
@@ -1134,10 +590,10 @@ function card(p){
     '</div></article>';
 }
 
-/* ---- state + rendering ---- */
-var grid=document.getElementById('grid');
-var activeFilter='all';
-var view=PRODUCTS.slice();
+/* ---- State + Rendering ---- */
+var grid = document.getElementById('grid');
+var activeFilter = 'all';
+var view = PRODUCTS.slice();
 
 function render(){
   if(!view.length){
@@ -1147,10 +603,10 @@ function render(){
     var cards=[].slice.call(grid.querySelectorAll('.product-card'));
     cards.forEach(function(el,i){var d=Math.min(i,16)*45;setTimeout(function(){el.classList.add('in');},40+d);});
   }
-  document.getElementById('count').innerHTML=view.length+' styles <span>in this collection</span>';
+  document.getElementById('count').innerHTML = view.length + ' styles <span>in this collection</span>';
 }
 function applyFilter(){
-  view=(activeFilter==='all')?PRODUCTS.slice():PRODUCTS.filter(function(p){return p.shape===activeFilter;});
+  view = (activeFilter==='all') ? PRODUCTS.slice() : PRODUCTS.filter(function(p){return p.shape===activeFilter;});
   sortView();
 }
 function sortView(){
@@ -1161,7 +617,7 @@ function sortView(){
   render();
 }
 
-document.getElementById('sort').addEventListener('change',sortView);
+document.getElementById('sort').addEventListener('change', sortView);
 [].slice.call(document.querySelectorAll('.chip')).forEach(function(ch){
   ch.addEventListener('click',function(){
     document.querySelectorAll('.chip').forEach(function(c){c.classList.remove('active');});
@@ -1174,21 +630,5 @@ document.getElementById('sort').addEventListener('change',sortView);
 render();
 </script>
 
-
-<script>
-(function(){
-  var burger=document.getElementById('hamburger');
-  var drawer=document.getElementById('menuDrawer');
-  var overlay=document.getElementById('menuOverlay');
-  var closeBtn=document.getElementById('menuClose');
-  function open(){document.body.classList.add('menu-open');document.body.style.overflow='hidden';burger&&burger.setAttribute('aria-expanded','true');drawer&&drawer.setAttribute('aria-hidden','false');}
-  function close(){document.body.classList.remove('menu-open');document.body.style.overflow='';burger&&burger.setAttribute('aria-expanded','false');drawer&&drawer.setAttribute('aria-hidden','true');}
-  burger&&burger.addEventListener('click',function(){document.body.classList.contains('menu-open')?close():open();});
-  closeBtn&&closeBtn.addEventListener('click',close);
-  overlay&&overlay.addEventListener('click',close);
-  window.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
-  drawer&&drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
-})();
-</script>
 </body>
 </html>
