@@ -1,0 +1,127 @@
+==================================================
+PENNEN FOOTWEAR WEBSITE — CLEANUP MANIFEST
+Timestamp: 2026-08-20 20:19:00
+Target Root: p:\hustle\Internship\PenonWebsite\v1\pennensite-main
+Backup Archive: C:\Users\acer\.gemini\antigravity-ide\brain\20890607-4a79-4031-a687-3971974fdc1e\scratch\cleanup_backup.zip
+==================================================
+
+STATUS     GROUP        SIZE (BYTES)   FILE PATH                                          REASON
+------------------------------------------------------------------------------------------------------------------------
+DELETED    Group A      7446755        PENNEN-catalogue-fixed.zip                         Group A - Confirmed Obsolete/Duplicate/Legacy
+DELETED    Group A      11615109       PENNEN-slippers-fixed.zip                          Group A - Confirmed Obsolete/Duplicate/Legacy
+DELETED    Group A      10051870       PENNEN-women-slippers-fixed.zip                    Group A - Confirmed Obsolete/Duplicate/Legacy
+DELETED    Group A      35933          files.zip                                          Group A - Confirmed Obsolete/Duplicate/Legacy
+DELETED    Group A      50967          files1.zip                                         Group A - Confirmed Obsolete/Duplicate/Legacy
+DELETED    Group A      632086         1 (6).jpg                                          Group A - Confirmed Obsolete/Duplicate/Legacy
+DELETED    Group A      3323067        1 (7) copy.jpg                                     Group A - Confirmed Obsolete/Duplicate/Legacy
+DELETED    Group A      438887         1 (9) copy.jpg                                     Group A - Confirmed Obsolete/Duplicate/Legacy
+DELETED    Group A      704599         canavsnik.jpg                                      Group A - Confirmed Obsolete/Duplicate/Legacy
+DELETED    Group A      91957          leatherderb.jpg                                    Group A - Confirmed Obsolete/Duplicate/Legacy
+DELETED    Group A      2867790        loafers.jpg                                        Group A - Confirmed Obsolete/Duplicate/Legacy
+DELETED    Group A      81410          maleshoe.jpg                                       Group A - Confirmed Obsolete/Duplicate/Legacy
+DELETED    Group A      658881         manni.jpg                                          Group A - Confirmed Obsolete/Duplicate/Legacy
+DELETED    Group A      824466         messrun.jpg                                        Group A - Confirmed Obsolete/Duplicate/Legacy
+DELETED    Group A      1053951        slipperz.jpg                                       Group A - Confirmed Obsolete/Duplicate/Legacy
+DELETED    Group A      754146         slippm.jpg                                         Group A - Confirmed Obsolete/Duplicate/Legacy
+DELETED    Group A      12032          flogo_clean.png                                    Group A - Confirmed Obsolete/Duplicate/Legacy
+DELETED    Group A      37844          PENNEN-catalogue-fixed/catalogue.html              Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      99956          PENNEN-catalogue-fixed/images/shoes/1001/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      151428         PENNEN-catalogue-fixed/images/shoes/1001/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      113528         PENNEN-catalogue-fixed/images/shoes/1002/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      65463          PENNEN-catalogue-fixed/images/shoes/1002/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      152211         PENNEN-catalogue-fixed/images/shoes/1003/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      75303          PENNEN-catalogue-fixed/images/shoes/1003/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      131582         PENNEN-catalogue-fixed/images/shoes/1004/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      54144          PENNEN-catalogue-fixed/images/shoes/1004/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      142181         PENNEN-catalogue-fixed/images/shoes/1005/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      153150         PENNEN-catalogue-fixed/images/shoes/1005/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      166891         PENNEN-catalogue-fixed/images/shoes/1006/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      151082         PENNEN-catalogue-fixed/images/shoes/1006/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      172792         PENNEN-catalogue-fixed/images/shoes/1010/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      192056         PENNEN-catalogue-fixed/images/shoes/1010/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      158962         PENNEN-catalogue-fixed/images/shoes/1011/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      212744         PENNEN-catalogue-fixed/images/shoes/1011/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      144885         PENNEN-catalogue-fixed/images/shoes/1016/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      62788          PENNEN-catalogue-fixed/images/shoes/1016/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      115201         PENNEN-catalogue-fixed/images/shoes/1018/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      47049          PENNEN-catalogue-fixed/images/shoes/1018/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      35563          PENNEN-catalogue-fixed/images/shoes/1019/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      64642          PENNEN-catalogue-fixed/images/shoes/1019/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      160583         PENNEN-catalogue-fixed/images/shoes/1026/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      39224          PENNEN-catalogue-fixed/images/shoes/1026/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      36391          PENNEN-catalogue-fixed/images/shoes/1028/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      42309          PENNEN-catalogue-fixed/images/shoes/1028/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      115092         PENNEN-catalogue-fixed/images/shoes/1030/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      34143          PENNEN-catalogue-fixed/images/shoes/1030/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      159952         PENNEN-catalogue-fixed/images/shoes/1031/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      43804          PENNEN-catalogue-fixed/images/shoes/1031/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      94508          PENNEN-catalogue-fixed/images/shoes/1032/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      129199         PENNEN-catalogue-fixed/images/shoes/1032/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      157353         PENNEN-catalogue-fixed/images/shoes/1033/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      136748         PENNEN-catalogue-fixed/images/shoes/1033/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      48677          PENNEN-catalogue-fixed/images/shoes/1034/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      46991          PENNEN-catalogue-fixed/images/shoes/1034/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      67814          PENNEN-catalogue-fixed/images/shoes/1039/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      58082          PENNEN-catalogue-fixed/images/shoes/1039/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      118233         PENNEN-catalogue-fixed/images/shoes/1048/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      86749          PENNEN-catalogue-fixed/images/shoes/1048/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      93769          PENNEN-catalogue-fixed/images/shoes/1049/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      99809          PENNEN-catalogue-fixed/images/shoes/1049/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      86444          PENNEN-catalogue-fixed/images/shoes/1050/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      60280          PENNEN-catalogue-fixed/images/shoes/1050/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      148253         PENNEN-catalogue-fixed/images/shoes/1061/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      158303         PENNEN-catalogue-fixed/images/shoes/1061/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      50773          PENNEN-catalogue-fixed/images/shoes/1065/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      113750         PENNEN-catalogue-fixed/images/shoes/1065/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      106410         PENNEN-catalogue-fixed/images/shoes/1066/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      84298          PENNEN-catalogue-fixed/images/shoes/1066/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      52776          PENNEN-catalogue-fixed/images/shoes/1067/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      120044         PENNEN-catalogue-fixed/images/shoes/1067/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      89549          PENNEN-catalogue-fixed/images/shoes/1068/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      110600         PENNEN-catalogue-fixed/images/shoes/1068/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      71721          PENNEN-catalogue-fixed/images/shoes/1069/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      68465          PENNEN-catalogue-fixed/images/shoes/1069/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      66551          PENNEN-catalogue-fixed/images/shoes/1070/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      74230          PENNEN-catalogue-fixed/images/shoes/1070/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      53122          PENNEN-catalogue-fixed/images/shoes/1071/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      53310          PENNEN-catalogue-fixed/images/shoes/1071/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      187897         PENNEN-catalogue-fixed/images/shoes/1076/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      83097          PENNEN-catalogue-fixed/images/shoes/1076/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      198600         PENNEN-catalogue-fixed/images/shoes/1077/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      140622         PENNEN-catalogue-fixed/images/shoes/1077/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      112101         PENNEN-catalogue-fixed/images/shoes/1078/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      81357          PENNEN-catalogue-fixed/images/shoes/1078/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      86615          PENNEN-catalogue-fixed/images/shoes/1079/hover.jpg Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      56401          PENNEN-catalogue-fixed/images/shoes/1079/main.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      136967         PENNEN-catalogue-fixed/images/shoes/606/hover.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      67349          PENNEN-catalogue-fixed/images/shoes/606/main.jpg   Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      100960         PENNEN-catalogue-fixed/images/shoes/608/hover.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      62396          PENNEN-catalogue-fixed/images/shoes/608/main.jpg   Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      116348         PENNEN-catalogue-fixed/images/shoes/609/hover.jpg  Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      57773          PENNEN-catalogue-fixed/images/shoes/609/main.jpg   Group A - File in obsolete extracted folder (PENNEN-catalogue-fixed)
+DELETED    Group A      45038          PENNEN-slippers-fixed/catalogue-men-slippers.html  Group A - File in obsolete extracted folder (PENNEN-slippers-fixed)
+DELETED    Group A Dir  0              js                                                 Group A - Empty directory (js)
+DELETED    Group B      20415          style.css                                          Group B - Confirmed Unreferenced Loose Test/Prototype Asset
+DELETED    Group B      2882379        1 (11) copy.jpg                                    Group B - Confirmed Unreferenced Loose Test/Prototype Asset
+DELETED    Group B      2448023        7.jpg                                              Group B - Confirmed Unreferenced Loose Test/Prototype Asset
+DELETED    Group B      6259           amazon.png                                         Group B - Confirmed Unreferenced Loose Test/Prototype Asset
+DELETED    Group B      1486           download.png                                       Group B - Confirmed Unreferenced Loose Test/Prototype Asset
+DELETED    Group B      3395           download_clean.png                                 Group B - Confirmed Unreferenced Loose Test/Prototype Asset
+DELETED    Group B      5207           flogo.png                                          Group B - Confirmed Unreferenced Loose Test/Prototype Asset
+DELETED    Group B      2511806        mascot_hero.png                                    Group B - Confirmed Unreferenced Loose Test/Prototype Asset
+DELETED    Group B      212583         sale-banner.png                                    Group B - Confirmed Unreferenced Loose Test/Prototype Asset
+DELETED    Group B      640683         slippw.jpg                                         Group B - Confirmed Unreferenced Loose Test/Prototype Asset
+DELETED    Group B      1886146        womenshoe.png                                      Group B - Confirmed Unreferenced Loose Test/Prototype Asset
+DELETED    Group B      720636         wslipperz.jpg                                      Group B - Confirmed Unreferenced Loose Test/Prototype Asset
+SKIPPED    PROTECTED    0              catalogue-men-shoes.html                           Protected core file
+SKIPPED    PROTECTED    0              catalogue-men-slippers.html                        Protected core file
+SKIPPED    PROTECTED    0              catalogue-women-shoes.html                         Protected core file
+SKIPPED    PROTECTED    0              catalogue-women-shoes_1_.html                      Protected core file
+SKIPPED    PROTECTED    0              catalogue-women-slippers.html                      Protected core file
+SKIPPED    PROTECTED    0              catalogue-women-slippers_1_.html                   Protected core file
+DELETED    Group A      47514          catalogue-men-shoes.html                           Group A - Legacy Static Catalogue HTML Prototype
+DELETED    Group A      53622          catalogue-men-slippers.html                        Group A - Legacy Static Catalogue HTML Prototype
+DELETED    Group A      37450          catalogue-women-shoes.html                         Group A - Legacy Static Catalogue HTML Prototype
+DELETED    Group A      49709          catalogue-women-shoes_1_.html                      Group A - Legacy Static Catalogue HTML Prototype
+DELETED    Group A      42064          catalogue-women-slippers.html                      Group A - Legacy Static Catalogue HTML Prototype
+DELETED    Group A      50998          catalogue-women-slippers_1_.html                   Group A - Legacy Static Catalogue HTML Prototype

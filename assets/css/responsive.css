@@ -1,0 +1,515 @@
+/* ==========================================================================
+   PENNEN Footwear — Responsive Layout & Breakpoints (Luxury Editorial System)
+   ========================================================================== */
+
+/* ── Large Desktop & Tablet Landscape (<= 1100px) ── */
+@media (max-width: 1100px) {
+  .nav-main-links {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .hero-grid {
+    gap: 40px;
+  }
+
+  .statement-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .arrivals-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .cat-grid-large {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .campaign-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .campaign-visual {
+    min-height: 360px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* ── Tablet Portrait (<= 860px) ── */
+@media (max-width: 860px) {
+  .nav-search-form {
+    display: none;
+  }
+
+  .hero {
+    padding: 36px 24px 28px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .hero-video-stage {
+    max-width: 640px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-market-strip {
+    margin-top: 36px;
+  }
+
+  .hero-market-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .hero-market-links {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .story {
+    padding: 80px 24px;
+  }
+
+  .story-inner {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .story-pic {
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* 2-Column Catalogue Grid on Tablets */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .p-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .p-gallery {
+    position: static;
+    max-width: 560px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* ── Mobile Devices (<= 600px) ── */
+@media (max-width: 600px) {
+  .nav-inner {
+    padding: 0 18px;
+    height: 72px;
+  }
+
+  .nav-logo {
+    height: 44px;
+  }
+
+  .nav-action-btn .nav-btn-text {
+    display: none;
+  }
+
+  .nav-action-btn {
+    padding: 8px 12px;
+  }
+
+  .hero {
+    padding: 24px 18px 20px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.6rem, 11vw, 3.4rem);
+    margin: 8px 0 16px;
+  }
+
+  .hero-lead {
+    font-size: 0.96rem;
+    margin-bottom: 22px;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    margin-bottom: 24px;
+    gap: 12px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: 18px 24px;
+    padding-top: 18px;
+  }
+
+  .hero-video-stage {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 6px;
+  }
+
+  .hero-video-plate {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--r);
+  }
+
+  .hero-tech-card {
+    position: static;
+    margin-top: 12px;
+    width: 100%;
+    text-align: left;
+    padding: 12px 16px;
+    border-radius: var(--r-s);
+  }
+
+  .hero-market-strip {
+    margin-top: 26px;
+    padding-top: 18px;
+  }
+
+  .hero-market-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    width: 100%;
+  }
+
+  .hero-market-link {
+    padding: 8px 6px;
+    width: 100%;
+  }
+
+  .hero-market-link img {
+    height: 13px;
+    max-width: 44px;
+  }
+
+  .statement-section {
+    padding: 44px 18px;
+  }
+
+  .statement-logos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sec-editorial {
+    padding: 56px 18px;
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .arrivals-section {
+    padding: 56px 18px;
+  }
+
+  .arrivals-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cat-grid-large {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .cat-meta {
+    padding: 26px 12px 12px;
+  }
+
+  .cat-meta .k {
+    font-size: 0.60rem;
+  }
+
+  .cat-meta h3 {
+    font-size: 1.20rem;
+  }
+
+  .cat-meta .go {
+    font-size: 0.66rem;
+  }
+
+  /* ── 2-Column Luxury Mobile Catalogue Layout ── */
+  .section-products {
+    padding: 18px 16px 70px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .product-card .card-body {
+    padding: 14px 10px;
+  }
+
+  .product-card .card-title {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+  }
+
+  .product-card .card-cat {
+    font-size: 0.60rem;
+  }
+
+  .product-card .card-desc {
+    display: none; /* Keep clean aesthetic on mobile 2-col */
+  }
+
+  .product-card .card-price-row {
+    margin-bottom: 10px;
+    gap: 6px;
+  }
+
+  .product-card .price-old {
+    font-size: 0.70rem;
+  }
+
+  .product-card .price-discount {
+    font-size: 0.62rem;
+    padding: 2px 4px;
+  }
+
+  .product-card .card-action-link {
+    padding: 8px 10px;
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+  }
+
+  .controls {
+    padding: 18px 16px 6px;
+  }
+
+  .controls-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .filter-selects-group {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .filter-item-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .filter-select {
+    width: 100%;
+  }
+
+  .campaign-section {
+    padding: 0 18px;
+    margin-bottom: 56px;
+  }
+
+  .campaign-content {
+    padding: 34px 20px;
+  }
+
+  .campaign-specs-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .market-hub-section {
+    padding: 56px 18px;
+  }
+
+  .market-hub-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .story {
+    padding: 60px 18px;
+  }
+
+  .story h2.display {
+    font-size: 2.4rem;
+  }
+
+  .story p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .story-quote {
+    font-size: 1.05rem;
+  }
+
+  .story-pic {
+    padding: 24px 16px;
+  }
+
+  .cta-band {
+    padding: 0 18px;
+    margin: 56px auto;
+  }
+
+  .cta-box {
+    padding: 44px 18px;
+  }
+
+  .cta-box h2.display {
+    font-size: 2.3rem;
+  }
+
+  .cta-box p {
+    font-size: 0.98rem;
+    margin-bottom: 26px;
+  }
+
+  .footer {
+    padding: 56px 18px 28px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-bot {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  /* ── Mobile Product Detail Page (PDP) Layout ── */
+  .p-detail {
+    padding: 18px 16px 60px;
+  }
+
+  .p-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 56px;
+  }
+
+  .p-gallery {
+    position: static;
+  }
+
+  .p-thumb {
+    width: 64px;
+    height: 64px;
+  }
+
+  .p-title {
+    font-size: 2.1rem;
+  }
+
+  .p-desc {
+    font-size: 0.96rem;
+  }
+
+  .p-price-box {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .p-price-cur {
+    font-size: 1.75rem;
+  }
+
+  .p-specs-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .where-to-buy-card {
+    padding: 18px 14px;
+  }
+
+  .where-to-buy-btn {
+    padding: 11px 14px;
+  }
+
+  .where-to-buy-name {
+    font-size: 0.76rem;
+  }
+
+  .related-section {
+    padding-top: 36px;
+  }
+
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .wa {
+    bottom: 18px;
+    right: 18px;
+    padding: 10px 16px;
+    font-size: 0.70rem;
+  }
+}
+
+/* ── Small Mobile (<= 375px) ── */
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 2.3rem;
+  }
+
+  .cat-grid-large {
+    grid-template-columns: 1fr;
+  }
+
+  .market-hub-grid {
+    grid-template-columns: 1fr;
+  }
+}

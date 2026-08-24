@@ -1,0 +1,51 @@
+{
+  "amazon": {
+    "id": "amazon",
+    "name": "Amazon",
+    "logo": "ammaloh.png",
+    "searchUrl": "https://www.amazon.in/s?k=PENNEN+{q}",
+    "homeUrl": "https://www.amazon.in"
+  },
+  "flipkart": {
+    "id": "flipkart",
+    "name": "Flipkart",
+    "logo": "flipkart-log-icon-e33c.png",
+    "searchUrl": "https://www.flipkart.com/search?q=PENNEN%20{q}",
+    "homeUrl": "https://www.flipkart.com"
+  },
+  "meesho": {
+    "id": "meesho",
+    "name": "Meesho",
+    "logo": "Meesho_logo.png",
+    "searchUrl": "https://www.meesho.com/search?q=PENNEN%20{q}",
+    "homeUrl": "https://www.meesho.com"
+  },
+  "snapdeal": {
+    "id": "snapdeal",
+    "name": "Snapdeal",
+    "logo": "Snapdeal.png",
+    "searchUrl": "https://www.snapdeal.com/search?keyword=PENNEN%20{q}",
+    "homeUrl": "https://www.snapdeal.com"
+  },
+  "jiomart": {
+    "id": "jiomart",
+    "name": "JioMart",
+    "logo": "jiomart.png",
+    "searchUrl": "https://www.jiomart.com/search/PENNEN%20{q}",
+    "homeUrl": "https://www.jiomart.com"
+  },
+  "ajio": {
+    "id": "ajio",
+    "name": "Ajio",
+    "logo": "AJIO.png",
+    "searchUrl": "https://www.ajio.com/search/?text=PENNEN%20{q}",
+    "homeUrl": "https://www.ajio.com"
+  },
+  "myntra": {
+    "id": "myntra",
+    "name": "Myntra",
+    "logo": "Myntra.png",
+    "searchUrl": "https://www.myntra.com/PENNEN-{q}",
+    "homeUrl": "https://www.myntra.com"
+  }
+}

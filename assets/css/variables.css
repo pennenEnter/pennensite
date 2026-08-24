@@ -1,0 +1,339 @@
+/* ==========================================================================
+   PENNEN Footwear — Central Luxury Design Token System (Light Theme Editorial)
+   ========================================================================== */
+
+:root {
+  /* ── 1. Light Luxury Color Palette (Prompt Specification) ── */
+  --color-bg:          #F7F4ED;          /* Warm Ivory / Primary canvas base */
+  --color-bg-alt:      #FAF8F5;          /* Ecru Paper / Secondary canvas */
+  --color-surface:     #FFFFFF;          /* Pure Crisp White surface */
+  --color-surface-2:   #EFE9DE;          /* Soft Cream container surface */
+  --color-surface-3:   #E6DFCFA8;        /* Subtle Linen highlight */
+  
+  /* Text & Ink Shades */
+  --color-dark:        #171717;          /* Charcoal Carbon Noir */
+  --color-dark-2:      #21201E;          /* Warm Charcoal Graphite */
+  --color-text:        #171717;          /* Primary ink text (ultra crisp) */
+  --color-text-sub:    #33312E;          /* Secondary high-contrast text */
+  --color-muted:       #635F58;          /* Warm grey editorial body copy */
+  --color-faint:       #918C83;          /* Micro captions & technical labels */
+  
+  /* Luxury Accents (Restrained, Editorial & Sophisticated) */
+  --color-gold:        #B79A63;          /* Warm Satin Gold */
+  --color-gold-foil:   #D4B572;          /* Luminous Gold Foil */
+  --color-gold-deep:   #8E733D;          /* Deep Bronze Gold */
+  --color-accent:      #8C3043;          /* Muted Luxury Burgundy / Signature CTA */
+  --color-accent-2:    #AE3E55;          /* Lighter Burgundy Highlight */
+  --color-accent-deep: #5A1724;          /* Velvet Deep Burgundy */
+  --color-terracotta:  #B86B52;          /* Terracotta Warmth (micro detail) */
+  --color-sage:        #7C8A78;          /* Subtle Sage Green (micro detail) */
+  --color-success:     #1E7E4E;          /* Forest Emerald Stock Indicator */
+  --color-steel:       #6B6E74;          /* Technical Neutral Steel */
+
+  /* Hairline Razor Structural Borders */
+  --color-border:      rgba(23, 23, 23, 0.08);  /* Primary hairline border */
+  --color-border-soft: rgba(23, 23, 23, 0.04);  /* Micro divider */
+  --color-border-hover:rgba(23, 23, 23, 0.22);  /* Active/Hover border */
+  --color-border-dark: rgba(247, 244, 237, 0.12);/* Dark section border */
+  --color-border-gold: rgba(183, 154, 99, 0.35); /* Subtle luxury gold outline */
+
+  /* ── 2. Backward Compatibility Aliases ── */
+  --paper:             var(--color-bg);
+  --paper-2:           var(--color-surface-2);
+  --surface:           var(--color-surface);
+  --ink:               var(--color-text);
+  --ink-soft:          var(--color-muted);
+  --ink-faint:         var(--color-faint);
+  --noir:              var(--color-dark);
+  --noir-2:            var(--color-dark-2);
+  --gold:              var(--color-gold);
+  --gold-foil:         var(--color-gold-foil);
+  --gold-deep:         var(--color-gold-deep);
+  --corsa:             var(--color-accent);
+  --corsa-2:           var(--color-accent-2);
+  --corsa-deep:        var(--color-accent-deep);
+  --steel:             var(--color-steel);
+  --steel-dark:        rgba(247, 244, 237, 0.58);
+  --line:              var(--color-border);
+  --line-soft:         var(--color-border-soft);
+  --line-dark:         var(--color-border-dark);
+  --line-dark-soft:    rgba(247, 244, 237, 0.07);
+
+  /* ── 3. High-Fashion Editorial Typography Tokens ── */
+  --font-display:      'Anton', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-editorial:    'Italiana', 'Cormorant Garamond', Georgia, serif;
+  --font-serif:        'Cormorant Garamond', 'Italiana', Georgia, serif;
+  --font-body:         'Plus Jakarta Sans', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:         'JetBrains Mono', 'SF Mono', Consolas, monospace;
+
+  /* ── 4. Sophisticated Luxury Gradients ── */
+  --grad-noir:         linear-gradient(145deg, #22211F 0%, #171717 65%, #0F0E0E 100%);
+  --grad-gold:         linear-gradient(125deg, #D4B572 0%, #B79A63 55%, #8E733D 100%);
+  --grad-corsa:        linear-gradient(135deg, #AE3E55 0%, #8C3043 60%, #5A1724 100%);
+  --grad-warm-ivory:   linear-gradient(180deg, #FAF8F5 0%, #F7F4ED 100%);
+  --grad-card-glow:    radial-gradient(ellipse at 50% 0%, rgba(183, 154, 99, 0.08) 0%, transparent 70%);
+
+  /* ── 5. Spatial Shadows (Soft, Atmospheric, Zero Mud) ── */
+  --shadow-xs:         0 1px 3px rgba(23, 23, 23, 0.03);
+  --shadow-s:          0 4px 14px rgba(23, 23, 23, 0.05);
+  --shadow-m:          0 12px 30px rgba(23, 23, 23, 0.06);
+  --shadow-l:          0 24px 54px rgba(23, 23, 23, 0.09);
+  --shadow-hover:      0 18px 40px rgba(23, 23, 23, 0.08);
+  --shadow-btn:        0 8px 24px rgba(23, 23, 23, 0.16);
+  --shadow-accent:     0 10px 28px rgba(140, 48, 67, 0.28);
+
+  /* ── 6. Geometry & Radii ── */
+  --r-xs:              3px;
+  --r-s:               5px;
+  --r:                 8px;
+  --r-l:               12px;
+  --r-pill:            999px;
+
+  /* ── 7. Transitions & Layout Bounds ── */
+  --ease:              cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft:         cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-smooth:       cubic-bezier(0.4, 0, 0.2, 1);
+  --maxw:              1380px;
+}
+
+/* ── Global Reset & Box Sizing ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.68;
+  font-size: 1rem;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* Subtle architectural grain / grid ambience */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image:
+    linear-gradient(rgba(23, 23, 23, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 23, 23, 0.015) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(1200px 700px at 95% -4%, rgba(183, 154, 99, 0.035), transparent 60%),
+    radial-gradient(900px 700px at -5% 15%, rgba(140, 48, 67, 0.025), transparent 55%);
+}
+
+main, header, footer, section, .controls, .section-products {
+  position: relative;
+  z-index: 1;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #FFFFFF;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* ── Typography Utility Hierarchy ── */
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 0.94;
+  letter-spacing: -0.015em;
+}
+
+.accent {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.accent-gold {
+  background: var(--grad-corsa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.accent-gold-foil {
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 22px;
+  height: 1.5px;
+  background: var(--color-accent);
+}
+
+.eyebrow.center {
+  justify-content: center;
+}
+
+.eyebrow.center::after {
+  content: '';
+  width: 22px;
+  height: 1.5px;
+  background: var(--color-accent);
+}
+
+.eyebrow.on-dark {
+  color: var(--color-gold-foil);
+}
+
+.eyebrow.on-dark::before,
+.eyebrow.on-dark::after {
+  background: var(--color-gold-foil);
+}
+
+/* ── Architectural Meander Divider ── */
+.meander {
+  height: 12px;
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='12' viewBox='0 0 40 12'%3E%3Cpath d='M1 11 V2 H11 V9 H6 V6 H9 M20 11 V2 H30 V9 H25 V6 H28' fill='none' stroke='%238C3043' stroke-width='1.1' opacity='0.4'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  opacity: 0.6;
+}
+
+.meander.dark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='12' viewBox='0 0 40 12'%3E%3Cpath d='M1 11 V2 H11 V9 H6 V6 H9 M20 11 V2 H30 V9 H25 V6 H28' fill='none' stroke='%23D4B572' stroke-width='1.1' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+.meander-wrap {
+  padding: 0 32px;
+}
+
+/* ── Technical Precision Bracket Accents ── */
+.bracket {
+  position: relative;
+}
+
+.bracket::before,
+.bracket::after {
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  pointer-events: none;
+  transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+}
+
+.bracket::before {
+  top: -2px;
+  left: -2px;
+  border-top: 1.5px solid var(--color-accent);
+  border-left: 1.5px solid var(--color-accent);
+}
+
+.bracket::after {
+  bottom: -2px;
+  right: -2px;
+  border-bottom: 1.5px solid var(--color-accent);
+  border-right: 1.5px solid var(--color-accent);
+}
+
+.bracket-in {
+  position: relative;
+}
+
+.bracket-in::before,
+.bracket-in::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  opacity: 0;
+  z-index: 3;
+  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+  pointer-events: none;
+}
+
+.bracket-in::before {
+  top: 14px;
+  left: 14px;
+  border-top: 1.5px solid var(--color-accent);
+  border-left: 1.5px solid var(--color-accent);
+  transform: translate(-3px, -3px);
+}
+
+.bracket-in::after {
+  bottom: 14px;
+  right: 14px;
+  border-bottom: 1.5px solid var(--color-accent);
+  border-right: 1.5px solid var(--color-accent);
+  transform: translate(3px, 3px);
+}
+
+.bracket-in:hover::before,
+.bracket-in:hover::after {
+  opacity: 1;
+  transform: translate(0, 0);
+}
