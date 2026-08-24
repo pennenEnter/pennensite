@@ -1,0 +1,1113 @@
+/* ==========================================================================
+   PENNEN Footwear — Luxury Brand Homepage Styles (Light Theme Editorial)
+   ========================================================================== */
+
+/* ── 1. Hero Section (Cinematic Footwear Motion & Brand Narrative) ── */
+.hero {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 52px 36px 44px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1.15fr;
+  gap: 52px;
+  align-items: center;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 5;
+}
+
+.hero-kicker {
+  margin-bottom: 14px;
+}
+
+.hero-title {
+  font-size: clamp(3.2rem, 6.2vw, 5.6rem);
+  color: var(--color-text);
+  margin: 8px 0 20px;
+  display: flex;
+  flex-direction: column;
+  letter-spacing: -0.015em;
+  line-height: 0.94;
+}
+
+.hero-line-wrap {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 4px;
+}
+
+.hero-line {
+  display: block;
+  transform: translateY(105%);
+  opacity: 0;
+}
+
+.hero-lead {
+  font-size: 1.06rem;
+  color: var(--color-muted);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 34px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 38px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 36px;
+  padding-top: 26px;
+  border-top: 1px solid var(--color-border);
+}
+
+.stat .num {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+.stat .num em {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.stat .lbl {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-faint);
+  margin-top: 6px;
+}
+
+/* ── Hero Cinematic Video Showcase ── */
+.hero-video-stage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  transition: transform 0.2s ease-out;
+}
+
+.hero-video-plate {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--color-dark);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-l);
+  box-shadow: 0 16px 44px rgba(23, 23, 23, 0.10), 0 4px 14px rgba(23, 23, 23, 0.04);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), border-color 0.45s var(--ease);
+}
+
+.hero-video-plate:hover {
+  transform: translateY(-3px);
+  border-color: rgba(23, 23, 23, 0.22);
+  box-shadow: 0 24px 60px rgba(23, 23, 23, 0.14), 0 6px 20px rgba(23, 23, 23, 0.06);
+}
+
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #171717;
+}
+
+.hero-cinematic-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border: 0;
+  outline: none;
+  pointer-events: none;
+  background: #171717;
+  transition: transform 0.7s var(--ease);
+}
+
+.hero-video-plate:hover .hero-cinematic-video {
+  transform: scale(1.03);
+}
+
+.hero-video-fallback-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+/* Subtle cinematic depth gradient scrim */
+.hero-video-scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(23, 23, 23, 0.18) 0%, transparent 35%, transparent 65%, rgba(23, 23, 23, 0.32) 100%);
+  z-index: 2;
+}
+
+/* Floating Technical Metadata Glass Card */
+.hero-tech-card {
+  position: absolute;
+  bottom: -16px;
+  right: -12px;
+  z-index: 7;
+  background: rgba(23, 23, 23, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #FFFFFF;
+  padding: 13px 18px;
+  border-radius: var(--r);
+  border: 1px solid var(--color-border-dark);
+  box-shadow: var(--shadow-l);
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+.hero-tech-card:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.3);
+}
+
+.hero-tech-card .k {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold-foil);
+  font-weight: 700;
+}
+
+.hero-tech-card .v {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: #FFFFFF;
+  line-height: 1.1;
+  margin: 2px 0;
+}
+
+.hero-tech-card .s {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.12em;
+  color: rgba(247, 244, 237, 0.65);
+}
+
+/* ── Integrated Understated Marketplace Ribbon ── */
+.hero-market-strip {
+  margin-top: 42px;
+  padding-top: 22px;
+  border-top: 1px solid var(--color-border);
+}
+
+.hero-market-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-market-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  white-space: nowrap;
+}
+
+.hero-market-label .market-label-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  display: inline-block;
+}
+
+.hero-market-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hero-market-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-s);
+  transition: all 0.25s var(--ease);
+  text-decoration: none;
+}
+
+.hero-market-link img {
+  height: 15px;
+  width: auto;
+  max-width: 58px;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.65);
+  transition: filter 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.hero-market-link .market-name {
+  display: none;
+}
+
+.hero-market-link:hover {
+  background: #FFFFFF;
+  border-color: var(--color-text);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xs);
+}
+
+.hero-market-link:hover img {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.06);
+}
+
+/* ── Hero Load Animation Choreography ── */
+@keyframes heroFadeScaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.97) translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes heroLineReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(105%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroItemFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-anim-video {
+  opacity: 0;
+  animation: heroFadeScaleIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+.hero-anim-eyebrow {
+  opacity: 0;
+  animation: heroItemFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+}
+
+.hero-line-1 {
+  animation: heroLineReveal 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+}
+
+.hero-line-2 {
+  animation: heroLineReveal 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.60s forwards;
+}
+
+.hero-line-3 {
+  animation: heroLineReveal 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards;
+}
+
+.hero-anim-desc {
+  opacity: 0;
+  animation: heroItemFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.90s forwards;
+}
+
+.hero-anim-cta {
+  opacity: 0;
+  animation: heroItemFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 1.05s forwards;
+}
+
+.hero-anim-stats {
+  opacity: 0;
+  animation: heroItemFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 1.15s forwards;
+}
+
+.hero-anim-market {
+  opacity: 0;
+  animation: heroItemFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) 1.25s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim-video,
+  .hero-anim-eyebrow,
+  .hero-line,
+  .hero-anim-desc,
+  .hero-anim-cta,
+  .hero-anim-stats,
+  .hero-anim-market {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ── 2. Marketplace Availability Statement ── */
+.statement-section {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 64px 36px;
+}
+
+.statement-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 52px;
+  align-items: center;
+}
+
+.statement-text-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.statement-headline {
+  font-size: clamp(1.8rem, 3.6vw, 2.7rem);
+  font-family: var(--font-display);
+  color: var(--color-text);
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin: 8px 0 14px;
+}
+
+.statement-headline .statement-highlight {
+  color: var(--color-accent);
+}
+
+.statement-sub {
+  font-size: 1.02rem;
+  color: var(--color-muted);
+  line-height: 1.68;
+  max-width: 540px;
+}
+
+.statement-logos-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.statement-logos-title {
+  font-family: var(--font-mono);
+  font-size: 0.70rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-faint);
+}
+
+.statement-logos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.statement-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 14px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-s);
+  transition: all 0.25s var(--ease);
+}
+
+.statement-logo-item:hover {
+  background: var(--color-surface);
+  border-color: var(--color-text);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xs);
+}
+
+.statement-logo-item img {
+  height: 22px;
+  width: auto;
+  max-width: 80px;
+  object-fit: contain;
+}
+
+/* ── 3. Editorial Featured Products Section ── */
+.sec-editorial {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 86px 36px;
+}
+
+.sec-head {
+  margin-bottom: 40px;
+}
+
+.sec-head-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 44px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.sec-head-split h2,
+.sec-head h2 {
+  font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.sec-link-arrow {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.sec-link-arrow:hover {
+  transform: translateX(4px);
+  color: var(--color-accent-2);
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.feat-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-xs);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
+}
+
+.feat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-m);
+  border-color: rgba(23, 23, 23, 0.20);
+}
+
+.feat-img-wrap {
+  position: relative;
+  background: #F0ECE3;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.feat-img-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.feat-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.feat-card:hover .feat-img {
+  transform: scale(1.04);
+}
+
+.feat-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.feat-cat {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 6px;
+}
+
+.feat-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+  line-height: 1.15;
+}
+
+.feat-title a {
+  color: inherit;
+  transition: color 0.2s var(--ease);
+}
+
+.feat-title a:hover {
+  color: var(--color-accent);
+}
+
+.feat-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 8px 0 14px;
+}
+
+.feat-price {
+  font-family: var(--font-mono);
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.feat-mrp {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--color-faint);
+  text-decoration: line-through;
+}
+
+.feat-discount {
+  font-family: var(--font-mono);
+  font-size: 0.70rem;
+  font-weight: 800;
+  color: var(--color-success);
+  background: rgba(30, 126, 78, 0.09);
+  padding: 3px 7px;
+  border-radius: var(--r-xs);
+  margin-left: auto;
+}
+
+.feat-avail-label {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-faint);
+  margin-bottom: 6px;
+}
+
+.feat-avail-platforms {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  margin-bottom: 18px;
+}
+
+.feat-cta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-s);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  transition: all 0.25s var(--ease);
+}
+
+.feat-cta:hover {
+  background: var(--color-dark);
+  color: #FFFFFF;
+  border-color: var(--color-dark);
+}
+
+/* ── 4. New Arrivals Section ── */
+.arrivals-section {
+  background: var(--color-surface-2);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 86px 36px;
+}
+
+.arrivals-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+.arrivals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.arrival-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.arrival-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-m);
+}
+
+.arrival-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 4;
+  font-family: var(--font-mono);
+  font-size: 0.60rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 9px;
+  background: var(--color-accent);
+  color: #FFFFFF;
+  border-radius: var(--r-xs);
+}
+
+/* ── 5. Shop by Category (Large Photography & High-Contrast Typography) ── */
+.cat-grid-large {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.cat-card-large {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r-l);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-decoration: none;
+  box-shadow: var(--shadow-s);
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
+}
+
+.cat-card-large:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-l);
+  border-color: rgba(23, 23, 23, 0.28);
+}
+
+.cat-card-large img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s var(--ease);
+}
+
+.cat-card-large:hover img {
+  transform: scale(1.05);
+}
+
+/* Category Card Meta Bottom Overlay */
+.cat-meta {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 20px 20px;
+  background: linear-gradient(180deg, rgba(23, 23, 23, 0) 0%, rgba(23, 23, 23, 0.76) 38%, rgba(23, 23, 23, 0.95) 100%);
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.cat-meta .k {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold-foil);
+  margin-bottom: 4px;
+}
+
+.cat-meta h3 {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  letter-spacing: 0.01em;
+  margin-bottom: 6px;
+  line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.cat-meta .go {
+  font-family: var(--font-mono);
+  font-size: 0.70rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.25s var(--ease), color 0.25s var(--ease);
+}
+
+.cat-card-large:hover .cat-meta .go {
+  color: #FFFFFF;
+  transform: translateX(4px);
+}
+
+/* ── 6. Brand Story / Ethos Section ── */
+.story {
+  background: var(--color-dark);
+  color: #EFE9DE;
+  padding: 104px 36px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--color-border-dark);
+  border-bottom: 1px solid var(--color-border-dark);
+}
+
+.story-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.story .eyebrow.on-dark {
+  color: var(--color-gold-foil);
+  font-family: var(--font-mono);
+  font-size: 0.70rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.story h2.display {
+  font-size: clamp(2.5rem, 5.2vw, 4.2rem);
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  line-height: 0.96;
+  margin-bottom: 24px;
+}
+
+.story p {
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: rgba(239, 233, 222, 0.84);
+  margin-bottom: 20px;
+  max-width: 580px;
+}
+
+.story-quote {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--color-gold-foil);
+  margin-top: 26px;
+  padding-left: 18px;
+  border-left: 2.5px solid var(--color-gold);
+}
+
+.story-pic {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--r-l);
+  padding: 40px 24px;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-l);
+  position: relative;
+}
+
+.story-pic img {
+  width: 100%;
+  max-width: 420px;
+  filter: drop-shadow(0 20px 32px rgba(0, 0, 0, 0.45));
+  transition: transform 0.4s var(--ease);
+}
+
+.story-pic:hover img {
+  transform: scale(1.03) rotate(-1.5deg);
+}
+
+/* ── 7. Brand Campaign Lookbook Section ── */
+.campaign-section {
+  max-width: var(--maxw);
+  margin: 0 auto 86px;
+  padding: 0 36px;
+}
+
+.campaign-banner {
+  background: var(--color-dark);
+  color: #EFE9DE;
+  border-radius: var(--r-l);
+  overflow: hidden;
+  border: 1px solid var(--color-border-dark);
+  box-shadow: var(--shadow-l);
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+}
+
+.campaign-content {
+  padding: 56px 46px;
+  display: flex;
+  flex-direction: column;
+}
+
+.campaign-headline {
+  font-size: clamp(2.3rem, 4.8vw, 4rem);
+  font-family: var(--font-display);
+  color: #FFFFFF;
+  margin: 12px 0 16px;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.campaign-copy {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: rgba(239, 233, 222, 0.78);
+  max-width: 500px;
+  margin-bottom: 28px;
+}
+
+.campaign-specs-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 34px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(247, 244, 237, 0.12);
+}
+
+.camp-spec-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.camp-spec-title {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold-foil);
+  margin-bottom: 2px;
+}
+
+.camp-spec-desc {
+  font-size: 0.84rem;
+  color: rgba(239, 233, 222, 0.7);
+}
+
+.campaign-visual {
+  height: 100%;
+  min-height: 420px;
+  position: relative;
+  background: var(--color-dark-2);
+}
+
+.campaign-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── 8. Marketplace Discovery Section ── */
+.market-hub-section {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 86px 36px;
+}
+
+.market-hub-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+.market-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 16px;
+}
+
+.market-hub-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 26px 18px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--r);
+  transition: all 0.3s var(--ease);
+}
+
+.market-hub-card:hover {
+  background: var(--color-surface);
+  border-color: var(--color-text);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-s);
+}
+
+.market-hub-card img {
+  height: 30px;
+  width: auto;
+  max-width: 100px;
+  object-fit: contain;
+  margin-bottom: 14px;
+}
+
+.market-hub-card h4 {
+  font-family: var(--font-mono);
+  font-size: 0.80rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.market-hub-card p {
+  font-size: 0.76rem;
+  color: var(--color-muted);
+  margin-bottom: 14px;
+}
+
+.market-hub-card .market-link-btn {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.market-hub-card:hover .market-link-btn {
+  color: var(--color-accent-2);
+}
+
+/* ── 9. Final Brand CTA Band ── */
+.cta-band {
+  max-width: var(--maxw);
+  margin: 86px auto;
+  padding: 0 36px;
+}
+
+.cta-box {
+  background: radial-gradient(circle at 50% 0%, rgba(140, 48, 67, 0.28) 0%, #171717 75%);
+  border: 1.5px solid rgba(183, 154, 99, 0.35);
+  border-radius: var(--r-l);
+  padding: 76px 44px;
+  text-align: center;
+  box-shadow: 0 20px 54px rgba(23, 23, 23, 0.38);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-box .eyebrow.on-dark {
+  color: var(--color-gold-foil);
+  font-family: var(--font-mono);
+  font-size: 0.70rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.cta-box h2.display {
+  font-size: clamp(2.6rem, 5.8vw, 4.4rem);
+  color: #FFFFFF;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.cta-box p {
+  font-size: 1.10rem;
+  color: rgba(239, 233, 222, 0.85);
+  max-width: 560px;
+  margin: 0 auto 34px;
+  line-height: 1.65;
+}
