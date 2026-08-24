@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PENNEN — Women's Shoes Catalogue</title>
+<meta name="description" content="PENNEN — engineered footwear, a growing step. Shop across every major Indian marketplace." />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Italiana&family=JetBrains+Mono:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root {
+  /* ── paper / ink ── */
+  --paper:      #F6F3EC;
+  --paper-2:    #EDE7D8;
+  --surface:    #FFFFFF;
+  --ink:        #131211;
+  --ink-soft:   rgba(19,18,17,.62);
+  --ink-faint:  rgba(19,18,17,.40);
+
+  /* ── noir (dark sections) ── */
+  --noir:       #0A0A0B;
+  --noir-2:     #000000;
+
+  /* ── gold ── */
+  --gold:       #A47B2B;
+  --gold-foil:  #D9B768;
+  --gold-deep:  #7C5A1E;
+
+  /* ── corsa red ── */
+  --corsa:      #9E1B32;
+  --corsa-2:    #C23150;
+  --corsa-deep: #5C1020;
+
+  --steel:      #6E6E72;
+  --steel-dark: rgba(244,240,230,.56);
+
+  --line:       rgba(19,18,17,.14);
+  --line-soft:  rgba(19,18,17,.08);
+  --line-dark:  rgba(244,240,230,.16);
+  --line-dark-soft: rgba(244,240,230,.09);
+
+  --grad-noir: linear-gradient(155deg,#1C1B1A 0%,#0A0A0B 55%,#000 100%);
+  --grad-gold: linear-gradient(120deg,#E3C480 0%,#A47B2B 56%,#7C5A1E 100%);
+  --grad-corsa: linear-gradient(135deg,#C23150 0%,#9E1B32 60%,#5C1020 100%);
+
+  --shadow-s: 0 4px 16px rgba(19,18,17,.10);
+  --shadow-m: 0 16px 38px rgba(19,18,17,.14);
+  --shadow-l: 0 32px 74px rgba(10,10,11,.22);
+  --shadow-btn: 0 14px 32px rgba(10,10,11,.30);
+
+  --r-s: 6px;
+  --r:   12px;
+  --r-l: 20px;
+  --ease: cubic-bezier(.22,1,.36,1);
+  --maxw: 1415px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body{
+  font-family:'Manrope',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+}
+/* faint technical grid texture */
+body::before{
+  content:'';
+  position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
+  background-image:
+    linear-gradient(rgba(19,18,17,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(19,18,17,.025) 1px, transparent 1px);
+  background-size:46px 46px;
+}
+body::after{
+  content:'';
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(1100px 650px at 95% -8%, rgba(164,123,43,.05), transparent 60%),
+    radial-gradient(900px 700px at -8% 8%, rgba(158,27,50,.035), transparent 55%);
+}
+main,header,footer,section,.controls,.section-products{ position:relative; z-index:1; }
+img{ display:block; max-width:100%; height:auto; }
+a{ text-decoration:none; color:inherit; }
+ul{ list-style:none; }
+::selection{ background:var(--corsa); color:#fff; }
+:focus-visible{ outline:2px solid var(--corsa); outline-offset:3px; }
+
+/* Typography */
+.display{ font-family:'Anton',sans-serif; font-weight:400; text-transform:uppercase; line-height:.94; letter-spacing:-.005em; }
+.accent{ font-family:'Italiana',serif; font-style:italic; font-weight:400; text-transform:none; letter-spacing:0; }
+.accent-gold{ background:var(--grad-corsa); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.mono{ font-family:'JetBrains Mono',monospace; }
+.eyebrow{ font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--corsa); display:inline-flex; align-items:center; gap:12px; }
+.eyebrow::before{ content:''; width:26px; height:1.5px; background:var(--corsa); }
+
+/* Bracket effects */
+.bracket-in{ position:relative; }
+.bracket-in::before,.bracket-in::after{
+  content:''; position:absolute; width:18px; height:18px; opacity:0; z-index:3;
+  transition:opacity .35s var(--ease), transform .35s var(--ease); pointer-events:none;
+}
+.bracket-in::before{ top:16px; left:16px; border-top:1.5px solid var(--corsa-2); border-left:1.5px solid var(--corsa-2); transform:translate(-5px,-5px); }
+.bracket-in::after{ bottom:16px; right:16px; border-bottom:1.5px solid var(--corsa-2); border-right:1.5px solid var(--corsa-2); transform:translate(5px,5px); }
+.bracket-in:hover::before,.bracket-in:hover::after{ opacity:1; transform:translate(0,0); }
+
+/* Meander divider */
+.meander{
+  height:16px; width:100%; max-width:var(--maxw); margin:0 auto;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16'%3E%3Cpath d='M1 15 V4 H11 V11 H6 V8 H9 M20 15 V4 H30 V11 H25 V8 H28' fill='none' stroke='%239E1B32' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat:repeat-x; background-position:center; opacity:.75;
+}
+.meander.dark{ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16'%3E%3Cpath d='M1 15 V4 H11 V11 H6 V8 H9 M20 15 V4 H30 V11 H25 V8 H28' fill='none' stroke='%23C23150' stroke-width='1.5'/%3E%3C/svg%3E"); opacity:.6; }
+.meander-wrap{ padding:0 30px; }
+
+/* Topbar Announcement */
+.topbar{
+  background:var(--grad-noir); color:#F1ECE0;
+  font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+  overflow:hidden; position:relative; z-index:60;
+}
+.topbar-track{ display:flex; gap:0; white-space:nowrap; animation:marq 38s linear infinite; padding:9px 0; }
+.topbar:hover .topbar-track{ animation-play-state:paused; }
+.topbar-track span{ padding:0 28px; display:inline-flex; align-items:center; gap:14px; opacity:.92; }
+.topbar-track span::after{ content:'◆'; color:var(--corsa-2); font-size:.5rem; }
+@keyframes marq{ to{ transform:translateX(-50%); } }
+
+/* Navbar */
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(246,243,236,.82);
+  -webkit-backdrop-filter:saturate(160%) blur(16px);
+  backdrop-filter:saturate(160%) blur(16px);
+  border-bottom:1px solid var(--line-soft);
+  transition:box-shadow .3s var(--ease), background .3s var(--ease);
+}
+.nav.scrolled{ background:rgba(246,243,236,.95); box-shadow:0 10px 30px rgba(19,18,17,.07); }
+.nav-inner{
+  max-width:var(--maxw); margin:0 auto; padding:0 30px;
+  height:92px; display:flex; align-items:center; gap:40px;
+}
+.nav .brand{ color:var(--ink); display:inline-flex; align-items:center; gap:12px; }
+.navpunks { display: flex; align-items: center; gap: 40px; }
+.navpunks a { text-decoration: none; color: var(--ink); font-size: 14px; font-weight: 700; text-transform: uppercase; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.5px; position: relative; padding-bottom: 8px; }
+.navpunks a::after{ content: ""; position: absolute; left: 50%; bottom: 0; width: 0; height: 2px; background: var(--corsa); transform: translateX(-50%); transition: width 0.3s ease; }
+.navpunks a:hover::after, .navpunks a.active::after{ width: 100%; }
+
+.nav-cta{
+  margin-left:auto; display:inline-flex; align-items:center; gap:10px;
+  background:var(--grad-noir); color:#fff; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.76rem;
+  letter-spacing:.14em; text-transform:uppercase; padding:14px 24px; border-radius:100px;
+  box-shadow:var(--shadow-btn); transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.nav-cta:hover{ transform:translateY(-2px); box-shadow:0 20px 44px rgba(10,10,11,.34); }
+.nav-cta .dot{ width:6px; height:6px; border-radius:50%; background:var(--corsa-2); box-shadow:0 0 0 3px rgba(194,49,80,.28); }
+
+.burger{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:10px; margin-left:16px; border-radius:var(--r-s); transition:background .25s; }
+.burger:hover{ background:rgba(19,18,17,.05); }
+.burger span{ width:25px; height:2px; background:var(--ink); transition:.3s var(--ease); transform-origin:center; }
+body.menu-open .burger span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+body.menu-open .burger span:nth-child(2){ opacity:0; }
+body.menu-open .burger span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* Slide-in Menu Drawer */
+.menu-overlay{
+  position:fixed; inset:0; z-index:80; background:rgba(8,8,8,.5);
+  -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
+  opacity:0; visibility:hidden; transition:opacity .35s var(--ease), visibility .35s;
+}
+body.menu-open .menu-overlay{ opacity:1; visibility:visible; }
+.menu-drawer{
+  position:fixed; top:0; right:0; height:100%; width:min(440px,100%); z-index:90;
+  background:var(--noir); color:#F1ECE0; box-shadow:-30px 0 80px rgba(0,0,0,.4);
+  transform:translateX(100%); transition:transform .42s var(--ease);
+  display:flex; flex-direction:column; overflow-y:auto; border-left:1px solid var(--line-dark);
+}
+body.menu-open .menu-drawer{ transform:translateX(0); }
+.menu-top{ display:flex; align-items:center; justify-content:space-between; padding:26px 30px 10px; }
+.menu-close{ background:none; border:none; cursor:pointer; width:42px; height:42px; border-radius:50%; display:grid; place-items:center; color:#F1ECE0; transition:background .25s; }
+.menu-close:hover{ background:rgba(244,240,230,.08); }
+.menu-primary{ padding:18px 30px 8px; display:flex; flex-direction:column; }
+.menu-primary a{ font-family:'Anton',sans-serif; font-weight:400; text-transform:uppercase; font-size:1.55rem; letter-spacing:.01em; color:#F1ECE0; padding:13px 0; display:flex; align-items:center; justify-content:space-between; transition:color .2s var(--ease), padding-left .25s var(--ease); border-bottom:1px solid var(--line-dark-soft); }
+.menu-primary a:last-child{ border-bottom:none; }
+.menu-primary a .chev{ font-family:'JetBrains Mono',monospace; opacity:0; transform:translateX(-6px); transition:.25s var(--ease); color:var(--corsa-2); }
+.menu-primary a:hover{ color:#fff; padding-left:8px; }
+.menu-primary a:hover .chev{ opacity:1; transform:translateX(0); }
+.menu-primary a .tagx{ font-family:'JetBrains Mono',monospace; font-size:.56rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:var(--grad-corsa); color:#fff; padding:4px 9px; border-radius:3px; margin-left:10px; }
+.menu-secondary{ padding:22px 30px; margin-top:auto; display:grid; grid-template-columns:1fr 1fr; gap:10px 18px; border-top:1px solid var(--line-dark); }
+.menu-secondary a{ font-family:'JetBrains Mono',monospace; font-size:.78rem; letter-spacing:.02em; color:var(--steel-dark); padding:5px 0; transition:color .2s; }
+.menu-secondary a:hover{ color:#fff; }
+.menu-foot{ padding:18px 30px 30px; display:flex; flex-direction:column; gap:14px; border-top:1px solid var(--line-dark); }
+.menu-chat{ display:inline-flex; align-items:center; justify-content:center; gap:9px; background:var(--grad-corsa); color:#fff; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; padding:15px; border-radius:100px; box-shadow:0 16px 38px rgba(158,27,50,.38); }
+.menu-social{ display:flex; gap:14px; }
+.menu-social a{ width:40px; height:40px; border-radius:50%; border:1px solid var(--line-dark); display:grid; place-items:center; color:#F1ECE0; transition:all .25s var(--ease); }
+.menu-social a:hover{ background:var(--corsa-2); color:#fff; border-color:var(--corsa-2); transform:translateY(-2px); }
+
+/* Catalogue Hero */
+.cat-hero { max-width:var(--maxw); margin:0 auto; padding:64px 30px 42px; position:relative; }
+.crumb { font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:600; letter-spacing:.06em; color:var(--ink-faint); margin-bottom:16px; display:flex; gap:8px; flex-wrap:wrap; text-transform:uppercase; }
+.crumb a { color:var(--corsa); font-weight:700; transition:color .3s; }
+.crumb a:hover { color:var(--corsa-deep); }
+.cat-title { font-size:clamp(2.7rem,5.6vw,4.85rem); margin: 16px 0 24px; }
+.cat-sub { font-size:1.08rem; color:var(--ink-soft); max-width:560px; line-height: 1.7; }
+.tabs { display:flex; flex-wrap:wrap; gap:14px; margin-top:38px; }
+.tab { font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; padding:14px 28px; border-radius:100px; background:transparent; color:var(--ink); border:1.5px solid var(--line); cursor:pointer; transition:all .3s var(--ease); }
+.tab:hover { border-color:var(--ink); transform:translateY(-2px); box-shadow:var(--shadow-s); }
+.tab.active { background:var(--grad-noir); color:#fff; border-color:transparent; box-shadow:var(--shadow-btn); }
+
+/* Controls */
+.controls { max-width:var(--maxw); margin:0 auto; padding:24px 30px 10px; display:flex; flex-direction:column; gap:20px; }
+.controls-row { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:18px; }
+.count { font-family:'Anton',sans-serif; font-size:1.5rem; text-transform:uppercase; color:var(--ink); }
+.count span { font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:600; color:var(--ink-soft); letter-spacing:.1em; margin-left:8px; }
+.sortwrap { display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono',monospace; font-size:.75rem; font-weight:700; text-transform:uppercase; color:var(--ink); }
+.sortwrap select { font-family:'JetBrains Mono',monospace; font-size:.75rem; font-weight:600; text-transform:uppercase; background:var(--surface); border:1.5px solid var(--line); border-radius:100px; padding:10px 18px; cursor:pointer; box-shadow:var(--shadow-s); }
+.chips { display:flex; flex-wrap:wrap; gap:10px; }
+.chip { font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:8px 18px; border-radius:100px; background:transparent; color:var(--ink); border:1.5px solid var(--line); cursor:pointer; transition:all .3s var(--ease); }
+.chip:hover { border-color:var(--ink); background:var(--paper-2); }
+.chip.active { background:var(--corsa); color:#fff; border-color:transparent; }
+
+/* Product Grid */
+.section-products { padding: 24px 30px 92px; }
+.products-grid { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+.product-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; position: relative; transition: all .4s var(--ease); box-shadow: var(--shadow-s); opacity: 0; transform: translateY(14px); }
+.product-card.in { opacity: 1; transform: none; }
+.product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-m); }
+.card-img-wrap { position: relative; aspect-ratio: 4/3; overflow: hidden; border-bottom: 1px solid var(--line); background: radial-gradient(circle at 50% 62%, #fff 0%, var(--paper-2) 100%); display: grid; place-items: center; padding: 14px; }
+.card-img-wrap svg { width: 80%; height: auto; filter: drop-shadow(0 10px 14px rgba(10,10,11,.18)); transition: transform .45s cubic-bezier(.2,.7,.2,1); }
+.product-card:hover .card-img-wrap svg { transform: translateY(-5px) rotate(-3deg) scale(1.04); }
+
+.card-sticker { position: absolute; top: 16px; left: 16px; background: var(--noir); color: #fff; font-family: 'JetBrains Mono', monospace; font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 6px 12px; border-radius: 4px; z-index: 2; box-shadow: var(--shadow-s); }
+.card-sticker--new { background: var(--grad-gold); color: #fff; }
+.card-sticker--hot { background: var(--grad-corsa); color: #fff; }
+.card-sticker--best { background: var(--grad-noir); color: #fff; }
+
+.price-tag { position: absolute; top: 16px; right: 16px; background: var(--grad-gold); color: #fff; padding: 6px 14px; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: .85rem; border-radius: 4px; box-shadow: var(--shadow-s); z-index: 2; }
+
+.card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+.card-cat { font-family: 'JetBrains Mono', monospace; font-size: .65rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--corsa); margin-bottom: 10px; }
+.card-title { font-family: 'Anton', sans-serif; font-size: 1.4rem; font-weight: 400; text-transform: uppercase; color: var(--ink); line-height: 1.1; margin-bottom: 12px; letter-spacing: 0.01em;}
+.card-desc { font-size: .88rem; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; flex: 1; }
+.swatches { display: flex; gap: 8px; margin-bottom: 18px; }
+.swatches i { width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--line); display: inline-block; box-shadow: 0 2px 4px rgba(0,0,0,.05); }
+.card-price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line); font-family: 'JetBrains Mono', monospace; }
+.price-old { font-size: .85rem; color: var(--ink-faint); text-decoration: line-through; font-weight: 600; }
+.price-discount { background: var(--corsa-deep); color: #fff; font-size: .65rem; font-weight: 700; padding: 4px 8px; border-radius: 4px; letter-spacing: .05em; text-transform: uppercase; }
+.card-buy-label { font-family: 'Italiana', serif; font-style: italic; font-size: 1.1rem; color: var(--ink); margin-bottom: 12px; font-weight: 600;}
+
+.card-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.card-btns a { flex: 1 1 60px; max-width: 90px; display: flex; align-items: center; justify-content: center; padding: 8px; border-radius: var(--r-s); border: 1.5px solid var(--line); min-height: 44px; transition: all .3s var(--ease); background: var(--paper); }
+.card-btns a:hover { transform: translateY(-3px); box-shadow: var(--shadow-s); border-color: var(--ink); background: var(--surface); }
+.card-btns a img { height: 22px; width: auto; max-width: 60px; object-fit: contain; filter: grayscale(1) opacity(0.6); transition: filter .3s, opacity .3s; }
+.card-btns a:hover img { filter: none; opacity: 1; }
+
+.empty { max-width: 1280px; margin: 40px auto; text-align: center; font-family: 'Italiana', serif; font-style: italic; font-size: 1.5rem; color: var(--ink-soft); }
+
+/* Footer */
+.footer{ background:var(--grad-noir); color:#F1ECE0; padding:70px 30px 0; position:relative; overflow:hidden; border-top: 1px solid var(--line-dark); }
+.footer-crest{ position:absolute; right:-40px; bottom:-40px; width:320px; height:320px; opacity:.05; pointer-events:none; }
+.footer-inner{ max-width:var(--maxw); margin:0 auto; display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:48px; padding-bottom:50px; border-bottom:1px solid var(--line-dark); position:relative; z-index: 2; }
+.footer .brand{ margin-bottom:18px; color:#F1ECE0; }
+.footer-brand p{ color:rgba(244,239,228,.58); font-size:.9rem; max-width:34ch; }
+.footer-col h4{ font-family:'JetBrains Mono',monospace; font-size:.68rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.88); margin-bottom:18px; }
+.footer-col a{ display:flex; align-items:center; gap:8px; font-size:.9rem; color:rgba(244,239,228,.64); margin-bottom:12px; transition:color .25s, transform .25s var(--ease); }
+.footer-col a::before{ content:'›'; color:var(--corsa-2); font-weight:700; }
+.footer-col a:hover{ color:#fff; transform:translateX(4px); }
+.footer-bot{ max-width:var(--maxw); margin:0 auto; padding:22px 0 28px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.02em; color:rgba(244,239,228,.46); position:relative; z-index: 2;}
+
+/* Floating WhatsApp */
+.wa{ position:fixed; right:24px; bottom:24px; z-index:40; display:inline-flex; align-items:center; gap:10px; background:#128c4f; color:#fff; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; padding:14px 22px; border-radius:100px; box-shadow:0 14px 34px rgba(18,140,79,.4); transition:transform .3s var(--ease); }
+.wa:hover{ transform:translateY(-3px) scale(1.02); }
+
+/* Responsive */
+@media (max-width:1000px){
+  .navpunks{ display:none; }
+  .footer-inner{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:768px){
+  .nav-cta{ display:none; }
+  .burger{ display:flex; margin-left:auto; }
+  .nav-inner{ height:76px; padding:0 18px; justify-content: space-between; }
+  .menu-drawer{ width:100%; }
+  .cat-hero { padding:42px 20px; }
+  .controls, .section-products { padding-left: 20px; padding-right: 20px; }
+  .products-grid{ grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+  .footer-inner{ grid-template-columns:1fr 1fr; gap:30px; }
+}
+@media (max-width:520px){
+  .products-grid{ grid-template-columns:1fr; }
+  .footer-inner{ grid-template-columns:1fr; gap:24px; }
+  .topbar-track span{ font-size: .65rem; padding: 0 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Crest Symbol Definition for Footer -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="goldFace" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C23150"/>
+      <stop offset=".55" stop-color="#9E1B32"/>
+      <stop offset="1" stop-color="#5C1020"/>
+    </linearGradient>
+    <path id="crestArcTop" d="M28,100 a72,72 0 0,1 144,0" />
+    <path id="crestArcBot" d="M172,100 a72,72 0 0,1 -144,0" />
+    <symbol id="crest" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="92" fill="none" stroke="#9E1B32" stroke-width="1.2"/>
+      <circle cx="100" cy="100" r="80" fill="none" stroke="#9E1B32" stroke-width="1" stroke-dasharray="1.6 5.2"/>
+      <text font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" letter-spacing="4" fill="#ffffff">
+        <textPath href="#crestArcTop" startOffset="50%" text-anchor="middle">PENNEN</textPath>
+      </text>
+      <text font-family="JetBrains Mono, monospace" font-size="8" font-weight="600" letter-spacing="3" fill="rgba(255,255,255,.72)">
+        <textPath href="#crestArcBot" startOffset="50%" text-anchor="middle">A GROWING STEP</textPath>
+      </text>
+      <path d="M100 58 L142 142 L58 142 Z" fill="url(#goldFace)"/>
+      <path d="M100 58 L114 118 L78 110 Z" fill="#fff" opacity=".92"/>
+      <path d="M100 58 L88 102 L78 110 Z" fill="#fff" opacity=".3"/>
+      <line x1="76" y1="150" x2="124" y2="150" stroke="#9E1B32" stroke-width="3"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- Announcement -->
+<div class="topbar" aria-label="Announcements">
+  <div class="topbar-track">
+    <span>Fast shipping</span><span>Easy returns</span><span>Proudly made in India</span><span>Up to 60% off this season</span>
+    <span>Fast shipping</span><span>Easy returns</span><span>Proudly made in India</span><span>Up to 60% off this season</span>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand" aria-label="PENNEN — A Growing Step">
+      <img class="crest-use nav-logo" src="pennen-icon.png" alt="" style="height:72px;width:auto;"/>
+    </a>
+    <span class="navpunks">
+      <a href="catalogue-men-shoes.html">MEN</a>
+      <a href="catalogue-women-shoes_1_.html" class="active">WOMEN</a>
+      <a href="#">KIDS</a>
+      <a href="#">SPORTS &amp; LIFESTYLE</a>
+      <a href="catalogue.html">OUTLET</a>
+    </span>
+    <a href="index.html" class="nav-cta"><span class="dot"></span> Back to Store</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-controls="menuDrawer" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- Slide-in Menu -->
+<div class="menu-overlay" id="menuOverlay"></div>
+<aside class="menu-drawer" id="menuDrawer" aria-label="Main menu" aria-hidden="true">
+  <div class="menu-top">
+    <span class="brand" aria-hidden="true">
+      <img class="crest-use" src="pennen-icon.png" alt="" style="height:38px;width:auto;">
+      <span style="font-family:'Anton', sans-serif; font-size:24px; margin-left: 10px;">PENNEN</span>
+    </span>
+    <button class="menu-close" id="menuClose" aria-label="Close menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="menu-primary">
+    <a href="index.html#catalogue">New &amp; Featured <span class="chev">→</span></a>
+    <a href="catalogue-men-shoes.html">Men's Shoes <span class="chev">→</span></a>
+    <a href="catalogue-women-shoes_1_.html" class="cur">Women's Shoes <span class="chev">→</span></a>
+    <a href="catalogue-men-slippers.html">Men's Slippers <span class="chev">→</span></a>
+    <a href="catalogue-women-slippers_1_.html">Women's Slippers <span class="chev">→</span></a>
+    <a href="catalogue-men-shoes.html">Sale <span class="tagx">Up to 60% off</span></a>
+  </nav>
+  <div class="menu-secondary">
+    <a href="index.html#story">Our Story</a>
+    <a href="index.html#footer">Find a Store</a>
+    <a href="index.html#footer">Contact Us</a>
+    <a href="index.html#footer">Help &amp; FAQs</a>
+    <a href="index.html#footer">Shipping</a>
+    <a href="index.html#footer">Returns</a>
+  </div>
+  <div class="menu-foot">
+    <a href="#" class="menu-chat">
+      <svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.3.6 4.4 1.7 6.3L3 29l7.4-2c1.8 1 3.9 1.5 6.1 1.5 6.9 0 12.5-5.6 12.5-12.5S22.9 3 16 3z"/></svg>
+      Chat with us
+    </a>
+    <div class="menu-social">
+      <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9z"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 8s-.2-1.5-.8-2.1c-.8-.8-1.6-.8-2-.9C16.5 4.7 12 4.7 12 4.7s-4.5 0-7.2.3c-.4.1-1.2.1-2 .9C2.2 6.5 2 8 2 8s-.2 1.7-.2 3.5v1c0 1.8.2 3.5.2 3.5s.2 1.5.8 2.1c.8.8 1.8.8 2.3.9 1.7.2 7 .3 7 .3s4.5 0 7.2-.3c.4-.1 1.2-.1 2-.9.6-.6.8-2.1.8-2.1s.2-1.7.2-3.5v-1c0-1.8-.2-3.5-.2-3.5zM10 14.5v-5l4.5 2.5L10 14.5z"/></svg></a>
+    </div>
+  </div>
+</aside>
+
+<!-- Category Hero -->
+<section class="cat-hero">
+  <nav class="crumb"><a href="index.html">Home</a> / <a href="catalogue.html">Catalogue</a> / <span>Footwear</span></nav>
+  <div class="eyebrow">Collection 03 — Women's Shoes</div>
+  <h1 class="display cat-title">Women's shoes made to <span class="accent accent-gold">move with you.</span></h1>
+  <p class="cat-sub">Elegant, comfort-first footwear for modern everyday movement — 100 flats, wedges, sneakers and mules that carry you from desk to dinner.</p>
+  <div class="tabs">
+    <a href="catalogue-men-shoes.html" class="tab">Men's Shoes</a>
+    <a href="catalogue-men-slippers.html" class="tab">Men's Slippers</a>
+    <a href="catalogue-women-shoes.html" class="tab active">Women's Shoes</a>
+    <a href="catalogue-women-slippers.html" class="tab">Women's Slippers</a>
+  </div>
+</section>
+
+<div class="meander-wrap"><div class="meander" aria-hidden="true"></div></div>
+
+<!-- Controls -->
+<div class="controls">
+  <div class="controls-row">
+    <div class="count" id="count">100 styles <span>in this collection</span></div>
+    <label class="sortwrap">Sort by
+      <select id="sort">
+        <option value="featured">Featured</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+        <option value="disc">Biggest Discount</option>
+      </select>
+    </label>
+  </div>
+  <div class="chips">
+    <button class="chip active" data-f="all">All</button>
+    <button class="chip" data-f="sneaker">Sneakers</button>
+    <button class="chip" data-f="flat">Flats</button>
+    <button class="chip" data-f="wedge">Wedges</button>
+    <button class="chip" data-f="loafer">Loafers</button>
+    <button class="chip" data-f="mule">Mules</button>
+  </div>
+</div>
+
+<!-- Products Grid -->
+<section class="section-products">
+  <div class="products-grid" id="grid"></div>
+</section>
+
+<!-- Floating WhatsApp -->
+<a class="wa" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.3.6 4.4 1.7 6.3L3 29l7.4-2c1.8 1 3.9 1.5 6.1 1.5 6.9 0 12.5-5.6 12.5-12.5S22.9 3 16 3zm0 22.6c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4 1.1 1.1-3.9-.2-.4c-1.1-1.7-1.6-3.6-1.6-5.6C5.6 9.7 10.3 5 16 5s10.4 4.7 10.4 10.5S21.7 25.6 16 25.6z"/></svg>
+  WhatsApp Us
+</a>
+
+<!-- Footer -->
+<footer class="footer" id="footer">
+  <svg class="footer-crest" viewBox="0 0 200 200" aria-hidden="true"><use href="#crest"/></svg>
+  <div class="meander dark" style="margin-bottom:46px" aria-hidden="true"></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand">
+        <img class="crest-use nav-logo" src="pennen-icon.png" alt="" style="height:150px;width:auto;">
+       </span>
+      <p style="margin-top:18px">A family-run footwear brand from India, selling quality shoes across every major marketplace. Built honestly, priced fairly, delivered everywhere.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="index.html">Home Store</a>
+      <a href="catalogue.html">All Collections</a>
+      <a href="index.html#story">Our Story</a>
+    </div>
+    <div class="footer-col">
+      <h4>Collections</h4>
+      <a href="catalogue-men-shoes.html">Men's Shoes</a>
+      <a href="catalogue-men-slippers.html">Men's Slippers</a>
+      <a href="catalogue-women-shoes.html">Women's Shoes</a>
+      <a href="catalogue-women-slippers.html">Women's Slippers</a>
+    </div>
+    <div class="footer-col">
+      <h4>Shop On</h4>
+      <a href="https://www.amazon.in" target="_blank" rel="noopener">Amazon</a>
+      <a href="https://www.flipkart.com" target="_blank" rel="noopener">Flipkart</a>
+      <a href="https://www.meesho.com" target="_blank" rel="noopener">Meesho</a>
+      <a href="https://www.myntra.com" target="_blank" rel="noopener">Myntra</a>
+      <a href="https://www.ajio.com" target="_blank" rel="noopener">Ajio</a>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <span>© 2026 PENNEN — A GROWING STEP. ALL RIGHTS RESERVED.</span>
+    <span>MADE IN INDIA 🇮🇳</span>
+  </div>
+</footer>
+
+<script>
+/* ---- Nav + Scroll Behaviour ---- */
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 14), {passive:true});
+
+const burger = document.getElementById('burger');
+const drawer = document.getElementById('menuDrawer');
+const overlay = document.getElementById('menuOverlay');
+const closeBtn = document.getElementById('menuClose');
+const openMenu = () => { document.body.classList.add('menu-open'); document.body.style.overflow='hidden'; burger.setAttribute('aria-expanded','true'); drawer.setAttribute('aria-hidden','false'); };
+const closeMenu = () => { document.body.classList.remove('menu-open'); document.body.style.overflow=''; burger.setAttribute('aria-expanded','false'); drawer.setAttribute('aria-hidden','true'); };
+burger && burger.addEventListener('click', () => document.body.classList.contains('menu-open') ? closeMenu() : openMenu());
+closeBtn && closeBtn.addEventListener('click', closeMenu);
+overlay && overlay.addEventListener('click', closeMenu);
+addEventListener('keydown', e => { if(e.key==='Escape') closeMenu(); });
+drawer && drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+/* ---- Fallback ---- */
+function imgFallback(img,label){var s=document.createElement('span');s.className='pill-txt mono';s.style.fontSize='0.65rem';s.style.fontWeight='700';s.textContent=label;img.replaceWith(s);}
+
+/* ---- Generating Dynamic SVGs & Products ---- */
+var SHAPES={"sneaker": "<svg viewBox=\"0 0 240 150\" xmlns=\"http://www.w3.org/2000/svg\">\n  <ellipse cx=\"120\" cy=\"138\" rx=\"96\" ry=\"8\" fill=\"rgba(10,10,11,.13)\"/>\n  <!-- outsole -->\n  <path d=\"M18 118 Q14 108 26 105 L210 100 Q224 100 222 112 Q221 124 206 126 L40 130 Q20 130 18 118 Z\" fill=\"{SOLE}\"/>\n  <!-- midsole -->\n  <path d=\"M22 106 Q18 99 30 97 L208 92 Q220 92 218 102 L210 100 L26 105 Q22 105 22 106 Z\" fill=\"{MID}\"/>\n  <!-- upper main body -->\n  <path d=\"M30 97 Q26 70 60 60 L120 48 Q150 44 168 50 Q200 60 206 92 L30 97 Z\" fill=\"{MAIN}\"/>\n  <!-- heel counter accent -->\n  <path d=\"M178 54 Q200 60 206 92 L182 93 Q176 70 170 56 Q174 54 178 54 Z\" fill=\"{ACC}\"/>\n  <!-- toe cap accent -->\n  <path d=\"M30 97 Q26 72 56 62 L72 60 Q52 76 52 96 Z\" fill=\"{ACC}\"/>\n  <!-- swoosh panel -->\n  <path d=\"M70 90 Q110 70 160 78 Q120 84 90 92 Z\" fill=\"{ACC}\"/>\n  <!-- collar / ankle opening -->\n  <path d=\"M150 50 Q168 48 176 56 Q170 62 158 64 Q150 58 150 50 Z\" fill=\"{DET}\"/>\n  <!-- tongue -->\n  <path d=\"M118 50 Q128 46 140 50 L138 64 Q126 62 120 64 Z\" fill=\"{DET}\"/>\n  <!-- laces -->\n  <g stroke=\"{DET}\" stroke-width=\"3.4\" stroke-linecap=\"round\" fill=\"none\">\n    <line x1=\"100\" y1=\"66\" x2=\"120\" y2=\"58\"/>\n    <line x1=\"104\" y1=\"74\" x2=\"124\" y2=\"66\"/>\n    <line x1=\"108\" y1=\"82\" x2=\"128\" y2=\"74\"/>\n  </g>\n  <g fill=\"{MAIN}\" stroke=\"{DET}\" stroke-width=\"1.4\">\n    <circle cx=\"100\" cy=\"66\" r=\"2.4\"/><circle cx=\"120\" cy=\"58\" r=\"2.4\"/>\n    <circle cx=\"104\" cy=\"74\" r=\"2.4\"/><circle cx=\"124\" cy=\"66\" r=\"2.4\"/>\n    <circle cx=\"108\" cy=\"82\" r=\"2.4\"/><circle cx=\"128\" cy=\"74\" r=\"2.4\"/>\n  </g>\n</svg>", "hightop": "<svg viewBox=\"0 0 240 150\" xmlns=\"http://www.w3.org/2000/svg\">\n  <ellipse cx=\"120\" cy=\"138\" rx=\"92\" ry=\"8\" fill=\"rgba(10,10,11,.13)\"/>\n  <path d=\"M24 118 Q20 108 32 105 L206 100 Q220 100 218 112 Q217 124 202 126 L44 130 Q26 130 24 118 Z\" fill=\"{SOLE}\"/>\n  <path d=\"M28 106 Q24 99 36 97 L204 92 Q216 92 214 102 L206 100 L32 105 Z\" fill=\"{MID}\"/>\n  <!-- tall padded ankle collar rising at the back -->\n  <path d=\"M132 90 L138 44 Q140 30 158 30 Q186 30 188 50 L190 92 Q160 86 132 90 Z\" fill=\"{MAIN}\"/>\n  <path d=\"M150 34 Q140 32 138 46 L140 78 Q150 76 162 76 L160 40 Q156 34 150 34 Z\" fill=\"{ACC}\"/>\n  <!-- main upper / toe -->\n  <path d=\"M36 97 Q30 70 70 62 L150 56 Q176 56 190 86 L190 92 L36 97 Z\" fill=\"{MAIN}\"/>\n  <!-- toe cap -->\n  <path d=\"M36 97 Q30 70 64 62 L78 60 Q58 76 58 96 Z\" fill=\"{ACC}\"/>\n  <!-- side stripe -->\n  <path d=\"M66 90 Q104 72 144 78 L144 86 Q106 82 76 92 Z\" fill=\"{ACC}\"/>\n  <!-- laces up the high collar -->\n  <g stroke=\"{DET}\" stroke-width=\"3\" stroke-linecap=\"round\" fill=\"none\">\n    <line x1=\"146\" y1=\"52\" x2=\"160\" y2=\"50\"/>\n    <line x1=\"145\" y1=\"62\" x2=\"159\" y2=\"60\"/>\n    <line x1=\"144\" y1=\"72\" x2=\"158\" y2=\"70\"/>\n    <line x1=\"143\" y1=\"82\" x2=\"157\" y2=\"80\"/>\n  </g>\n  <circle cx=\"159\" cy=\"44\" r=\"2.4\" fill=\"{DET}\"/>\n</svg>", "loafer": "<svg viewBox=\"0 0 240 150\" xmlns=\"http://www.w3.org/2000/svg\">\n  <ellipse cx=\"120\" cy=\"136\" rx=\"94\" ry=\"7\" fill=\"rgba(10,10,11,.13)\"/>\n  <!-- sole -->\n  <path d=\"M22 116 Q18 108 30 106 L206 102 Q220 102 218 112 Q216 122 200 123 L40 126 Q24 126 22 116 Z\" fill=\"{SOLE}\"/>\n  <!-- low sleek upper -->\n  <path d=\"M30 106 Q24 84 64 76 L150 68 Q188 66 204 92 Q208 100 206 102 L30 106 Z\" fill=\"{MAIN}\"/>\n  <!-- vamp opening -->\n  <path d=\"M96 78 Q120 70 152 72 Q150 84 130 86 Q108 86 96 78 Z\" fill=\"{ACC}\"/>\n  <!-- penny strap -->\n  <path d=\"M104 79 Q120 74 138 76 L138 81 Q120 78 104 83 Z\" fill=\"{DET}\"/>\n  <!-- heel accent -->\n  <path d=\"M176 70 Q188 66 204 92 L186 93 Q180 78 172 72 Q174 70 176 70 Z\" fill=\"{ACC}\"/>\n  <!-- toe seam -->\n  <path d=\"M30 106 Q26 86 60 78 L70 77 Q48 88 50 105 Z\" fill=\"{ACC}\"/>\n</svg>", "slipon": "<svg viewBox=\"0 0 240 150\" xmlns=\"http://www.w3.org/2000/svg\">\n  <ellipse cx=\"120\" cy=\"136\" rx=\"92\" ry=\"7\" fill=\"rgba(10,10,11,.13)\"/>\n  <!-- chunky cupsole -->\n  <path d=\"M20 114 Q16 104 30 102 L208 98 Q222 98 220 110 Q218 122 202 123 L38 126 Q22 126 20 114 Z\" fill=\"{SOLE}\"/>\n  <path d=\"M24 103 L216 99 L216 104 L24 108 Z\" fill=\"{MID}\"/>\n  <!-- canvas upper -->\n  <path d=\"M32 103 Q26 78 66 70 L150 62 Q190 60 206 92 Q210 100 208 98 L32 103 Z\" fill=\"{MAIN}\"/>\n  <!-- elastic gore -->\n  <path d=\"M104 70 Q124 64 146 66 Q140 80 122 82 Q108 80 104 70 Z\" fill=\"{ACC}\"/>\n  <g stroke=\"{DET}\" stroke-width=\"2\" opacity=\".7\">\n    <line x1=\"110\" y1=\"70\" x2=\"118\" y2=\"80\"/>\n    <line x1=\"120\" y1=\"68\" x2=\"126\" y2=\"80\"/>\n    <line x1=\"130\" y1=\"68\" x2=\"134\" y2=\"79\"/>\n  </g>\n  <!-- toe cap -->\n  <path d=\"M32 103 Q28 80 62 72 L74 71 Q52 84 52 102 Z\" fill=\"{ACC}\"/>\n</svg>", "flat": "<svg viewBox=\"0 0 240 150\" xmlns=\"http://www.w3.org/2000/svg\">\n  <ellipse cx=\"120\" cy=\"132\" rx=\"90\" ry=\"6\" fill=\"rgba(10,10,11,.13)\"/>\n  <!-- thin sole -->\n  <path d=\"M26 112 Q22 106 34 105 L196 100 Q212 100 210 108 Q208 116 192 117 L44 120 Q28 120 26 112 Z\" fill=\"{SOLE}\"/>\n  <!-- ballet upper -->\n  <path d=\"M34 105 Q30 90 60 84 Q110 74 150 78 Q186 82 196 100 L34 105 Z\" fill=\"{MAIN}\"/>\n  <!-- topline opening -->\n  <path d=\"M92 82 Q118 74 150 78 Q146 90 120 92 Q100 90 92 82 Z\" fill=\"{ACC}\"/>\n  <!-- little bow -->\n  <g fill=\"{DET}\">\n    <path d=\"M104 80 l-9 -5 0 10 z\"/>\n    <path d=\"M104 80 l9 -5 0 10 z\"/>\n    <circle cx=\"104\" cy=\"80\" r=\"2.6\"/>\n  </g>\n  <!-- toe sheen -->\n  <path d=\"M34 105 Q31 92 58 86 L66 85 Q46 94 48 104 Z\" fill=\"{ACC}\" opacity=\".6\"/>\n</svg>", "wedge": "<svg viewBox=\"0 0 240 150\" xmlns=\"http://www.w3.org/2000/svg\">\n  <ellipse cx=\"118\" cy=\"134\" rx=\"92\" ry=\"6\" fill=\"rgba(10,10,11,.13)\"/>\n  <!-- curved wedge sole: tall at heel, tapering to toe -->\n  <path d=\"M30 124 Q26 110 44 108 L150 100 Q188 98 196 112 Q200 122 188 124 L172 124 Q176 116 168 110 L60 116 Q44 118 44 124 Z\" fill=\"{SOLE}\"/>\n  <path d=\"M150 100 Q188 98 196 112 L178 113 Q170 104 152 105 Z\" fill=\"{MID}\"/>\n  <path d=\"M44 108 L150 100 L150 105 L48 112 Z\" fill=\"{MID}\"/>\n  <!-- vamp / toe band -->\n  <path d=\"M44 108 Q56 92 92 88 L138 86 Q150 92 150 100 L44 108 Z\" fill=\"{MAIN}\"/>\n  <path d=\"M52 104 Q66 94 96 92 L120 92 Q98 98 60 104 Z\" fill=\"{ACC}\"/>\n  <!-- ankle strap rising to the back -->\n  <path d=\"M150 92 Q172 64 184 62 Q190 62 190 68 Q180 72 166 96 Q158 98 150 96 Z\" fill=\"{MAIN}\"/>\n  <rect x=\"178\" y=\"62\" width=\"7\" height=\"8\" rx=\"1.6\" fill=\"{DET}\"/>\n</svg>", "slide": "<svg viewBox=\"0 0 240 150\" xmlns=\"http://www.w3.org/2000/svg\">\n  <ellipse cx=\"120\" cy=\"128\" rx=\"96\" ry=\"6\" fill=\"rgba(10,10,11,.13)\"/>\n  <!-- thick footbed / sole -->\n  <path d=\"M24 116 Q18 100 40 98 L196 92 Q220 92 218 106 Q216 120 196 121 L44 122 Q26 122 24 116 Z\" fill=\"{SOLE}\"/>\n  <!-- contoured footbed top -->\n  <path d=\"M34 100 Q30 92 48 91 L196 86 Q212 86 210 98 L196 92 L40 98 Q34 98 34 100 Z\" fill=\"{MID}\"/>\n  <!-- wide low band strap across the foot -->\n  <path d=\"M70 94 Q66 70 92 66 L150 62 Q176 64 178 90 Q178 96 168 95 Q166 76 148 74 L96 78 Q82 80 82 94 Q76 96 70 94 Z\" fill=\"{MAIN}\"/>\n  <!-- band highlight -->\n  <path d=\"M90 74 L150 70 Q166 72 168 86 Q160 76 148 76 L96 80 Q88 80 90 74 Z\" fill=\"{ACC}\" opacity=\".8\"/>\n</svg>", "flipflop": "<svg viewBox=\"0 0 240 150\" xmlns=\"http://www.w3.org/2000/svg\">\n  <ellipse cx=\"120\" cy=\"130\" rx=\"92\" ry=\"6\" fill=\"rgba(10,10,11,.13)\"/>\n  <!-- sole -->\n  <path d=\"M32 116 Q24 98 50 94 Q120 84 186 92 Q214 96 210 110 Q206 120 184 120 Q120 124 54 122 Q36 122 32 116 Z\" fill=\"{SOLE}\"/>\n  <path d=\"M44 100 Q120 90 182 96 L180 102 Q120 94 50 104 Z\" fill=\"{MID}\"/>\n  <!-- bold Y-thong straps -->\n  <path d=\"M120 94 L94 70\" stroke=\"{MAIN}\" stroke-width=\"10\" fill=\"none\" stroke-linecap=\"round\"/>\n  <path d=\"M120 94 L150 70\" stroke=\"{MAIN}\" stroke-width=\"10\" fill=\"none\" stroke-linecap=\"round\"/>\n  <path d=\"M94 70 Q120 60 150 70\" stroke=\"{MAIN}\" stroke-width=\"9\" fill=\"none\" stroke-linecap=\"round\"/>\n  <circle cx=\"120\" cy=\"96\" r=\"6\" fill=\"{ACC}\"/>\n</svg>", "fur": "<svg viewBox=\"0 0 240 150\" xmlns=\"http://www.w3.org/2000/svg\">\n  <ellipse cx=\"120\" cy=\"132\" rx=\"92\" ry=\"7\" fill=\"rgba(10,10,11,.13)\"/>\n  <!-- sole -->\n  <path d=\"M28 120 Q22 110 36 108 L200 104 Q216 104 214 114 Q212 124 196 125 L46 126 Q30 126 28 120 Z\" fill=\"{SOLE}\"/>\n  <!-- fluffy body (bumpy top edge) -->\n  <path d=\"M36 108 Q30 86 50 80\n           q8 -10 16 0 q8 -10 16 0 q8 -10 16 0 q8 -10 16 0\n           q8 -10 16 0 q8 -10 16 0 q8 -10 16 2\n           Q204 92 206 104 L36 108 Z\" fill=\"{MAIN}\"/>\n  <!-- inner shadow -->\n  <path d=\"M52 88 Q120 78 188 90 Q120 92 52 96 Z\" fill=\"{ACC}\" opacity=\".6\"/>\n  <!-- opening -->\n  <path d=\"M150 84 Q172 80 186 90 Q176 96 160 96 Q150 92 150 84 Z\" fill=\"{ACC}\"/>\n</svg>", "mule": "<svg viewBox=\"0 0 240 150\" xmlns=\"http://www.w3.org/2000/svg\">\n  <ellipse cx=\"118\" cy=\"132\" rx=\"90\" ry=\"6\" fill=\"rgba(10,10,11,.13)\"/>\n  <!-- low block sole -->\n  <path d=\"M26 116 Q20 108 34 106 L182 100 Q200 100 200 112 L198 120 Q120 122 40 122 Q28 122 26 116 Z\" fill=\"{SOLE}\"/>\n  <path d=\"M34 106 L182 100 Q200 100 200 110 L198 108 L36 112 Z\" fill=\"{MID}\"/>\n  <!-- closed-toe backless upper -->\n  <path d=\"M34 106 Q28 86 58 80 Q100 72 130 76 Q150 80 150 100 L150 106 L34 106 Z\" fill=\"{MAIN}\"/>\n  <!-- topline -->\n  <path d=\"M96 80 Q120 74 144 80 Q140 90 120 92 Q104 90 96 80 Z\" fill=\"{ACC}\"/>\n  <!-- toe sheen -->\n  <path d=\"M34 106 Q30 90 56 84 L64 83 Q44 92 46 105 Z\" fill=\"{ACC}\" opacity=\".55\"/>\n</svg>"};
+
+var PLATFORMS=[["amazon", "Amazon", "ammaloh.png", "https://www.amazon.in/s?k=PENNEN+{q}"], ["flipkart", "Flipkart", "flipkart-log-icon-e33c.png", "https://www.flipkart.com/search?q=PENNEN%20{q}"], ["meesho", "Meesho", "Meesho_logo.png", "https://www.meesho.com/search?q=PENNEN%20{q}"], ["snapdeal", "Snapdeal", "snapdeal.png", "https://www.snapdeal.com/search?keyword=PENNEN%20{q}"], ["jiomart", "JioMart", "jiomart.png", "https://www.jiomart.com/search/PENNEN%20{q}"], ["ajio", "Ajio", "ajio.png", "https://www.ajio.com/search/?text=PENNEN%20{q}"], ["myntra", "Myntra", "myntra.png", "https://www.myntra.com/PENNEN-{q}"]];
+var CW=[{"main": "#1d1d1f", "acc": "#f1f1ef", "sole": "#1d1d1f", "mid": "#ffffff", "det": "#2a2a2a", "sw": ["#1d1d1f", "#ffffff"]}, {"main": "#be185d", "acc": "#fce7f0", "sole": "#3d1f0a", "mid": "#fbcfe1", "det": "#7f1239", "sw": ["#be185d", "#fce7f0"]}, {"main": "#0e7490", "acc": "#cffafe", "sole": "#134e4a", "mid": "#e0f7fa", "det": "#0a4d5e", "sw": ["#0e7490", "#cffafe"]}, {"main": "#f59e0b", "acc": "#3d1f0a", "sole": "#3d1f0a", "mid": "#ffe7b8", "det": "#92560a", "sw": ["#f59e0b", "#3d1f0a"]}, {"main": "#6f4a2e", "acc": "#5a3a22", "sole": "#332217", "mid": "#caa177", "det": "#2a1a10", "sw": ["#6f4a2e"]}, {"main": "#7f1d1d", "acc": "#fca5a5", "sole": "#3d1f0a", "mid": "#fecaca", "det": "#5b1414", "sw": ["#7f1d1d", "#fca5a5"]}, {"main": "#e8c98a", "acc": "#b08850", "sole": "#5a3a22", "mid": "#f6e6c8", "det": "#7a5a32", "sw": ["#e8c98a", "#b08850"]}, {"main": "#134e4a", "acc": "#5eead4", "sole": "#0a2e2c", "mid": "#99f6e4", "det": "#0a3330", "sw": ["#134e4a", "#5eead4"]}, {"main": "#ea580c", "acc": "#fed7aa", "sole": "#3d1f0a", "mid": "#ffedd5", "det": "#9a3412", "sw": ["#ea580c", "#fed7aa"]}, {"main": "#3f4226", "acc": "#a3a86b", "sole": "#1f1f1f", "mid": "#d8d6c2", "det": "#2c2e1c", "sw": ["#3f4226", "#a3a86b"]}, {"main": "#2b3a67", "acc": "#eef1f7", "sole": "#cfd3dc", "mid": "#f4f6fa", "det": "#1b2748", "sw": ["#2b3a67", "#eef1f7"]}, {"main": "#db2777", "acc": "#fbcfe8", "sole": "#831843", "mid": "#fce7f3", "det": "#9d174d", "sw": ["#db2777", "#fbcfe8"]}, {"main": "#525252", "acc": "#d4d4d4", "sole": "#262626", "mid": "#e5e5e5", "det": "#171717", "sw": ["#525252", "#d4d4d4"]}, {"main": "#fbbf24", "acc": "#fffbeb", "sole": "#92400e", "mid": "#ffffff", "det": "#b45309", "sw": ["#fbbf24", "#fffbeb"]}, {"main": "#9d174d", "acc": "#fda4af", "sole": "#4c0519", "mid": "#fecdd3", "det": "#700a30", "sw": ["#9d174d", "#fda4af"]}, {"main": "#155e75", "acc": "#a5f3fc", "sole": "#083344", "mid": "#cffafe", "det": "#0c4a5e", "sw": ["#155e75", "#a5f3fc"]}];
+var CFG={"shapes": ["sneaker", "flat", "wedge", "loafer", "mule"], "prefix": ["Bloom", "Petal", "Grace", "Luxe", "Aura", "Lily", "Rose", "Pearl", "Ivory", "Dawn", "Muse", "Velvet", "Coral", "Jasmine", "Amber"], "core": {"sneaker": ["Sneaker", "Runner", "Street", "Daily", "Trainer", "Glide"], "flat": ["Flat", "Ballerina", "Bellie", "Mary-Jane", "Slip-On", "Day Flat"], "wedge": ["Wedge", "Espadrille", "Heel Wedge", "Comfort Wedge"], "loafer": ["Loafer", "Penny", "Moccasin", "Soft Loafer"], "mule": ["Mule", "Block Mule", "Slide Mule", "Backless"]}, "desc": {"sneaker": ["Everyday cushioned women's sneaker", "Lightweight lace-up for busy days", "Soft-step street-ready pair"], "flat": ["Soft ballet flat with bow", "Easy slip-on bellie for daily wear", "Comfort-padded flat for long days"], "wedge": ["Comfort wedge with ankle hold", "Gentle lift, all-day stability", "Festive-ready wedge sandal"], "loafer": ["Smart soft-grain loafer", "Office-ready slip-on", "Polished everyday moccasin"], "mule": ["Backless block-heel mule", "Easy slip-in for any outfit", "Minimal everyday mule"]}, "cat": "Women \u00b7 Footwear", "pmin": 599, "pmax": 2499};
+
+// deterministic pseudo-random so layout is stable per page
+var seed=2788;
+function rng(){seed=(seed*1664525+1013904223)%4294967296;return seed/4294967296;}
+function pick(a){return a[Math.floor(rng()*a.length)];}
+function peso(n){return '\u20b9'+n.toLocaleString('en-IN');}
+
+function svgFor(shape,c){
+  return SHAPES[shape].replace(/{MAIN}/g,c.main).replace(/{ACC}/g,c.acc)
+    .replace(/{SOLE}/g,c.sole).replace(/{MID}/g,c.mid).replace(/{DET}/g,c.det);
+}
+
+// build 100 unique products
+function buildProducts(){
+  var used={},out=[],guard=0;
+  var stickers=[null,null,null,'best',null,'new',null,null,'hot',null];
+  while(out.length<100 && guard<5000){
+    guard++;
+    var shape=pick(CFG.shapes);
+    var name=pick(CFG.prefix)+' '+pick(CFG.core[shape]);
+    if(used[name])continue; used[name]=1;
+    var c=pick(CW);
+    var price=Math.round((CFG.pmin+rng()*(CFG.pmax-CFG.pmin))/10)*10;
+    var disc=[30,35,40,45,50,55,60][Math.floor(rng()*7)];
+    var mrp=Math.round(price/(1-disc/100)/10)*10;
+    out.push({name:name,shape:shape,colors:c,sw:c.sw,price:price,mrp:mrp,disc:disc,
+      desc:pick(CFG.desc[shape]),sticker:stickers[out.length%stickers.length],
+      q:encodeURIComponent(name.replace(/\s+/g,'+'))});
+  }
+  return out;
+}
+
+function buyRow(p){
+  return PLATFORMS.map(function(pl){
+    var href=pl[3].replace('{q}',p.q);
+    return '<a target="_blank" rel="noopener" href="'+href+'">'+
+      '<img src="'+pl[2]+'" alt="'+pl[1]+'" onerror="imgFallback(this,\''+pl[1]+'\')"></a>';
+  }).join('');
+}
+function stickerHtml(s){
+  if(!s)return '';
+  var label={best:'\u2605 Bestseller',new:'\u2728 New',hot:'\ud83d\udd25 Hot'}[s];
+  return label?'<span class="card-sticker card-sticker--'+s+'">'+label+'</span>':'';
+}
+function card(p){
+  var dots=p.sw.map(function(s){return '<i style="background:'+s+'"></i>'}).join('');
+  return '<article class="product-card bracket-in" data-shape="'+p.shape+'">'+
+    '<div class="card-img-wrap">'+stickerHtml(p.sticker)+
+      '<span class="price-tag">'+peso(p.price)+'</span>'+svgFor(p.shape,p.colors)+'</div>'+
+    '<div class="card-body">'+
+      '<p class="card-cat">'+CFG.cat+'</p>'+
+      '<h3 class="card-title">'+p.name+'</h3>'+
+      '<p class="card-desc">'+p.desc+'</p>'+
+      '<div class="swatches">'+dots+'</div>'+
+      '<div class="card-price-row"><span class="price-old">'+peso(p.mrp)+'</span>'+
+        '<span class="price-discount">'+p.disc+'% OFF</span></div>'+
+      '<p class="card-buy-label">Available on \u2014</p>'+
+      '<div class="card-btns">'+buyRow(p)+'</div>'+
+    '</div></article>';
+}
+
+var ALL=buildProducts();
+var view=ALL.slice();
+var grid=document.getElementById('grid');
+var activeFilter='all';
+
+function render(){
+  grid.innerHTML=view.map(card).join('');
+  var cards=[].slice.call(grid.children);
+  cards.forEach(function(el,i){var d=Math.min(i,16)*45;setTimeout(function(){el.classList.add('in')},40+d);});
+  document.getElementById('count').innerHTML=view.length+' styles <span>in this collection</span>';
+}
+function applyFilter(){
+  view=(activeFilter==='all')?ALL.slice():ALL.filter(function(p){return p.shape===activeFilter;});
+  sortView();
+}
+function sortView(){
+  var v=document.getElementById('sort').value;
+  if(v==='low')view.sort(function(a,b){return a.price-b.price});
+  else if(v==='high')view.sort(function(a,b){return b.price-a.price});
+  else if(v==='disc')view.sort(function(a,b){return b.disc-a.disc});
+  render();
+}
+document.getElementById('sort').addEventListener('change',sortView);
+[].slice.call(document.querySelectorAll('.chip')).forEach(function(ch){
+  ch.addEventListener('click',function(){
+    document.querySelectorAll('.chip').forEach(function(c){c.classList.remove('active')});
+    ch.classList.add('active');activeFilter=ch.dataset.f;applyFilter();
+  });
+});
+render();
+</script>
+
+</body>
+</html>

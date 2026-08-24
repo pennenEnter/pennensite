@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PENNEN — A Growing Step</title>
+<meta name="description" content="PENNEN — engineered footwear, a growing step. Shop across every major Indian marketplace." />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Italiana&family=JetBrains+Mono:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  .navpunks {
+  display: flex;
+   align-items: center;
+    gap: 40px; 
+}
+.navpunks {
+}
+.navpunks {
+}
+.navpunks a {
+   text-decoration: none;
+    color: #111;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 8px;
+}
+.navpunks a::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #111;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.navpunks a:hover::after{
+    width: 100%;
+}
+
+:root{
+  /* ── paper / ink ── */
+  --paper:      #F6F3EC;
+  --paper-2:    #EDE7D8;
+  --surface:    #FFFFFF;
+  --ink:        #131211;
+  --ink-soft:   rgba(19,18,17,.62);
+  --ink-faint:  rgba(19,18,17,.40);
+
+  /* ── noir (dark sections) ── */
+  --noir:       #0A0A0B;
+  --noir-2:     #000000;
+
+  /* ── gold (bullion, not bright yellow) ── */
+  --gold:       #A47B2B;
+  --gold-foil:  #D9B768;
+  --gold-deep:  #7C5A1E;
+
+  /* ── corsa red (deep racing/heraldic red) ── */
+  --corsa:      #9E1B32;
+  --corsa-2:    #C23150;
+  --corsa-deep: #5C1020;
+
+  --steel:      #6E6E72;
+  --steel-dark: rgba(244,240,230,.56);
+
+  --line:       rgba(19,18,17,.14);
+  --line-soft:  rgba(19,18,17,.08);
+  --line-dark:  rgba(244,240,230,.16);
+  --line-dark-soft: rgba(244,240,230,.09);
+
+  --grad-noir: linear-gradient(155deg,#1C1B1A 0%,#0A0A0B 55%,#000 100%);
+  --grad-gold: linear-gradient(120deg,#E3C480 0%,#A47B2B 56%,#7C5A1E 100%);
+  --grad-corsa: linear-gradient(135deg,#C23150 0%,#9E1B32 60%,#5C1020 100%);
+
+  --shadow-s: 0 4px 16px rgba(19,18,17,.10);
+  --shadow-m: 0 16px 38px rgba(19,18,17,.14);
+  --shadow-l: 0 32px 74px rgba(10,10,11,.22);
+  --shadow-btn: 0 14px 32px rgba(10,10,11,.30);
+  --shadow-gold: 0 16px 38px rgba(124,90,30,.38);
+
+  --r-s: 6px;
+  --r:   12px;
+  --r-l: 20px;
+  --ease: cubic-bezier(.22,1,.36,1);
+  --maxw: 1415px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body{
+  font-family:'Manrope',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+}
+/* faint technical grid texture — blueprint paper, not noise */
+body::before{
+  content:'';
+  position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
+  background-image:
+    linear-gradient(rgba(19,18,17,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(19,18,17,.025) 1px, transparent 1px);
+  background-size:46px 46px;
+}
+body::after{
+  content:'';
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(1100px 650px at 95% -8%, rgba(164,123,43,.05), transparent 60%),
+    radial-gradient(900px 700px at -8% 8%, rgba(158,27,50,.035), transparent 55%);
+}
+main,header,footer,section{ position:relative; z-index:1; }
+img{ display:block; max-width:100%; height:auto; }
+a{ text-decoration:none; color:inherit; }
+ul{ list-style:none; }
+::selection{ background:var(--corsa); color:#fff; }
+:focus-visible{ outline:2px solid var(--corsa); outline-offset:3px; }
+
+/* ─── type system ───
+   Anton      → display headlines (Adidas: blunt, technical, all-caps)
+   Italiana   → italic luxury accent words only (Versace: thin, ornamental)
+   JetBrains Mono → labels, eyebrows, buttons, captions (spec-sheet voice)
+   Manrope    → body copy (quiet, legible workhorse) */
+.display{ font-family:'Anton',sans-serif; font-weight:400; text-transform:uppercase; line-height:.94; letter-spacing:-.005em; }
+.accent{ font-family:'Italiana',serif; font-style:italic; font-weight:400; text-transform:none; letter-spacing:0; }
+.accent-gold{
+  background:var(--grad-corsa); -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.mono{ font-family:'JetBrains Mono',monospace; }
+.eyebrow{
+  font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--corsa); display:inline-flex; align-items:center; gap:12px;
+}
+.eyebrow::before{ content:''; width:26px; height:1.5px; background:var(--corsa); }
+.eyebrow.center{ justify-content:center; }
+.eyebrow.on-dark{ color:var(--corsa-2); }
+
+/* Greek-key (meander) divider — ancient ornament, used sparingly as a rule */
+.meander{
+  height:16px; width:100%; max-width:var(--maxw); margin:0 auto;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16'%3E%3Cpath d='M1 15 V4 H11 V11 H6 V8 H9 M20 15 V4 H30 V11 H25 V8 H28' fill='none' stroke='%239E1B32' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat:repeat-x; background-position:center; opacity:.75;
+}
+.meander.dark{ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16'%3E%3Cpath d='M1 15 V4 H11 V11 H6 V8 H9 M20 15 V4 H30 V11 H25 V8 H28' fill='none' stroke='%23C23150' stroke-width='1.5'/%3E%3C/svg%3E"); opacity:.6; }
+.meander-wrap{ padding:0 30px; }
+
+/* ─── logo lockup ─── */
+.brand{ display:inline-flex; align-items:center; gap:12px; }
+.brand .crest-use{ flex:none; }
+.logo-word{ font-family:'Anton',sans-serif; font-weight:400; letter-spacing:.01em; text-transform:uppercase; }
+.logo-tag{ font-family:'JetBrains Mono',monospace; font-weight:600; letter-spacing:.3em; text-transform:uppercase; }
+
+/* ─── bracket frame (signature secondary motif) ───
+   .bracket = outside corners, for buttons/free elements
+   .bracket-in = inside corners, for overflow:hidden cards (viewfinder effect) */
+.bracket{ position:relative; }
+.bracket::before,.bracket::after{
+  content:''; position:absolute; width:14px; height:14px; opacity:0;
+  transition:opacity .3s var(--ease), transform .3s var(--ease); pointer-events:none;
+}
+.bracket::before{ top:-7px; left:-7px; border-top:1.5px solid var(--corsa-2); border-left:1.5px solid var(--corsa-2); transform:translate(5px,5px); }
+.bracket::after{ bottom:-7px; right:-7px; border-bottom:1.5px solid var(--corsa-2); border-right:1.5px solid var(--corsa-2); transform:translate(-5px,-5px); }
+.bracket:hover::before,.bracket:hover::after,.bracket:focus-visible::before,.bracket:focus-visible::after{ opacity:1; transform:translate(0,0); }
+
+.bracket-in{ position:relative; }
+.bracket-in::before,.bracket-in::after{
+  content:''; position:absolute; width:18px; height:18px; opacity:0; z-index:3;
+  transition:opacity .35s var(--ease), transform .35s var(--ease); pointer-events:none;
+}
+.bracket-in::before{ top:16px; left:16px; border-top:1.5px solid var(--corsa-2); border-left:1.5px solid var(--corsa-2); transform:translate(-5px,-5px); }
+.bracket-in::after{ bottom:16px; right:16px; border-bottom:1.5px solid var(--corsa-2); border-right:1.5px solid var(--corsa-2); transform:translate(5px,5px); }
+.bracket-in:hover::before,.bracket-in:hover::after{ opacity:1; transform:translate(0,0); }
+
+/* ─── announcement bar ─── */
+.topbar{
+  background:var(--grad-noir); color:#F1ECE0;
+  font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+  overflow:hidden; position:relative; z-index:60;
+}
+.topbar-track{ display:flex; gap:0; white-space:nowrap; animation:marq 38s linear infinite; padding:9px 0; }
+.topbar:hover .topbar-track{ animation-play-state:paused; }
+.topbar-track span{ padding:0 28px; display:inline-flex; align-items:center; gap:14px; opacity:.92; }
+.topbar-track span::after{ content:'◆'; color:var(--corsa-2); font-size:.5rem; }
+@keyframes marq{ to{ transform:translateX(-50%); } }
+
+/* ─── nav ─── */
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(246,243,236,.82);
+  -webkit-backdrop-filter:saturate(160%) blur(16px);
+  backdrop-filter:saturate(160%) blur(16px);
+  border-bottom:1px solid var(--line-soft);
+  transition:box-shadow .3s var(--ease), background .3s var(--ease);
+}
+.nav.scrolled{ background:rgba(246,243,236,.95); box-shadow:0 10px 30px rgba(19,18,17,.07); }
+.nav-inner{
+  max-width:var(--maxw); margin:0 auto; padding:0 30px;
+  height:92px; display:flex; align-items:center; gap:40px;
+}
+.nav .brand{ color:var(--ink); }
+.nav-links{ display:none; }
+.nav-cta{
+  margin-left:auto; display:inline-flex; align-items:center; gap:10px;
+  background:var(--grad-noir); color:#fff; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.76rem;
+  letter-spacing:.14em; text-transform:uppercase; padding:14px 24px; border-radius:100px;
+  box-shadow:var(--shadow-btn); transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.nav-cta:hover{ transform:translateY(-2px); box-shadow:0 20px 44px rgba(10,10,11,.34); }
+.nav-cta .dot{ width:6px; height:6px; border-radius:50%; background:var(--corsa-2); box-shadow:0 0 0 3px rgba(194,49,80,.28); }
+
+/* hamburger — the only menu trigger, on every screen size */
+.burger{ display:inline-flex; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:10px; margin-left:16px; border-radius:var(--r-s); transition:background .25s; }
+.burger:hover{ background:rgba(19,18,17,.05); }
+.burger span{ width:25px; height:2px; background:var(--ink); transition:.3s var(--ease); transform-origin:center; }
+body.menu-open .burger span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+body.menu-open .burger span:nth-child(2){ opacity:0; }
+body.menu-open .burger span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* ─── slide-in menu drawer ─── */
+.menu-overlay{
+  position:fixed; inset:0; z-index:80; background:rgba(8,8,8,.5);
+  -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
+  opacity:0; visibility:hidden; transition:opacity .35s var(--ease), visibility .35s;
+}
+body.menu-open .menu-overlay{ opacity:1; visibility:visible; }
+.menu-drawer{
+  position:fixed; top:0; right:0; height:100%; width:min(440px,100%); z-index:90;
+  background:var(--noir); color:#F1ECE0; box-shadow:-30px 0 80px rgba(0,0,0,.4);
+  transform:translateX(100%); transition:transform .42s var(--ease);
+  display:flex; flex-direction:column; overflow-y:auto;
+  border-left:1px solid var(--line-dark);
+}
+body.menu-open .menu-drawer{ transform:translateX(0); }
+.menu-top{ display:flex; align-items:center; justify-content:space-between; padding:26px 30px 10px; }
+.menu-top .brand{ color:#F1ECE0; }
+.menu-close{ background:none; border:none; cursor:pointer; width:42px; height:42px; border-radius:50%; display:grid; place-items:center; color:#F1ECE0; transition:background .25s; }
+.menu-close:hover{ background:rgba(244,240,230,.08); }
+.menu-primary{ padding:18px 30px 8px; display:flex; flex-direction:column; }
+.menu-primary a{
+  font-family:'Anton',sans-serif; font-weight:400; text-transform:uppercase; font-size:1.55rem; letter-spacing:.01em;
+  color:#F1ECE0; padding:13px 0; display:flex; align-items:center; justify-content:space-between;
+  transition:color .2s var(--ease), padding-left .25s var(--ease); border-bottom:1px solid var(--line-dark-soft);
+}
+.menu-primary a:last-child{ border-bottom:none; }
+.menu-primary a .chev{ font-family:'JetBrains Mono',monospace; opacity:0; transform:translateX(-6px); transition:.25s var(--ease); color:var(--corsa-2); }
+.menu-primary a:hover{ color:#fff; padding-left:8px; }
+.menu-primary a:hover .chev{ opacity:1; transform:translateX(0); }
+.menu-primary a .tagx{ font-family:'JetBrains Mono',monospace; font-size:.56rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:var(--grad-corsa); color:#fff; padding:4px 9px; border-radius:3px; margin-left:10px; }
+.menu-secondary{ padding:22px 30px; margin-top:auto; display:grid; grid-template-columns:1fr 1fr; gap:10px 18px; border-top:1px solid var(--line-dark); }
+.menu-secondary a{ font-family:'JetBrains Mono',monospace; font-size:.78rem; letter-spacing:.02em; color:var(--steel-dark); padding:5px 0; transition:color .2s; }
+.menu-secondary a:hover{ color:#fff; }
+.menu-foot{ padding:18px 30px 30px; display:flex; flex-direction:column; gap:14px; border-top:1px solid var(--line-dark); }
+.menu-chat{ display:inline-flex; align-items:center; justify-content:center; gap:9px; background:var(--grad-corsa); color:#fff; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; padding:15px; border-radius:100px; box-shadow:0 16px 38px rgba(158,27,50,.38); }
+.menu-social{ display:flex; gap:14px; }
+.menu-social a{ width:40px; height:40px; border-radius:50%; border:1px solid var(--line-dark); display:grid; place-items:center; color:#F1ECE0; transition:all .25s var(--ease); }
+.menu-social a:hover{ background:var(--corsa-2); color:#fff; border-color:var(--corsa-2); transform:translateY(-2px); }
+
+/* ─── hero ─── */
+.hero{ max-width:var(--maxw); margin:0 auto; padding:64px 30px 84px; position:relative; }
+.hero-grid{ display:grid; grid-template-columns:1.08fr .92fr; gap:54px; align-items:center; }
+
+.hero-kicker{ margin-bottom:24px; }
+.hero-title{ font-size:clamp(2.7rem,5.6vw,4.85rem); margin-bottom:26px; }
+.hero-title .ln{ display:block; }
+.hero-title .accent{ font-size:.84em; }
+.hero-lead{ font-size:1.08rem; color:var(--ink-soft); max-width:44ch; margin-bottom:32px; }
+.hero-actions{ display:flex; flex-wrap:wrap; gap:14px; align-items:center; margin-bottom:38px; }
+.btn{
+  display:inline-flex; align-items:center; gap:10px; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.78rem;
+  letter-spacing:.12em; text-transform:uppercase; padding:17px 32px; border-radius:100px; transition:all .3s var(--ease); cursor:pointer;
+}
+.btn-primary{ background:var(--grad-noir); color:#fff; box-shadow:var(--shadow-btn); }
+.btn-primary .arrow{ transition:transform .3s var(--ease); }
+.btn-primary:hover{ transform:translateY(-3px); box-shadow:0 22px 48px rgba(10,10,11,.34); }
+.btn-primary:hover .arrow{ transform:translateX(5px); }
+.btn-ghost{ background:transparent; color:var(--ink); border:1.5px solid var(--line); }
+.btn-ghost:hover{ border-color:var(--ink); transform:translateY(-3px); box-shadow:var(--shadow-s); }
+.btn-gold{ background:var(--grad-corsa); color:#fff; box-shadow:0 16px 38px rgba(158,27,50,.38); }
+.btn-gold:hover{ transform:translateY(-3px); box-shadow:0 24px 52px rgba(158,27,50,.52); }
+
+.hero-stats{ display:flex; gap:32px; flex-wrap:wrap; }
+.stat .num{ font-family:'Anton',sans-serif; font-weight:400; font-size:1.7rem; line-height:1; color:var(--ink); }
+.stat .num em{ font-style:normal; color:var(--corsa); }
+.stat .lbl{ font-family:'JetBrains Mono',monospace; font-size:.66rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin-top:7px; }
+.stat + .stat{ padding-left:32px; border-left:1px solid var(--line); }
+
+/* hero visual — framed like a technical spec card */
+.hero-visual{ position:relative; padding:14px; }
+.hero-card{
+  position:relative; border-radius:var(--r-l); overflow:hidden;
+  background:var(--grad-noir); aspect-ratio:4/5; box-shadow:var(--shadow-l);
+  border:1px solid rgba(255,255,255,.06);
+}
+.hero-card video,.hero-card .hero-card-img{ width:100%; height:100%; object-fit:cover; opacity:.96; }
+.hero-card .scrim{ position:absolute; inset:0; background:linear-gradient(180deg,transparent 38%,rgba(8,8,9,.6)); }
+.hero-card .glow{
+  position:absolute; width:120%; height:55%; left:-10%; top:-18%;
+  background:radial-gradient(closest-side,rgba(158,27,50,.32),transparent); filter:blur(22px);
+}
+/* spec tag chips, like a tech-pack callout */
+.spec-tag{
+  position:absolute; z-index:4; display:inline-flex; align-items:center; gap:7px;
+  font-family:'JetBrains Mono',monospace; font-size:.62rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  color:#F1ECE0; background:rgba(10,10,11,.55); border:1px solid var(--line-dark); border-radius:4px;
+  padding:7px 11px; -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+}
+.spec-tag::before{ content:''; width:5px; height:5px; border-radius:50%; background:var(--corsa-2); flex:none; }
+.spec-tag.tr{ top:18px; right:18px; }
+.spec-tag.br{ bottom:18px; right:18px; }
+
+/* medallion badge */
+.badge-trust{
+  position:absolute; left:-22px; top:30px; z-index:5;
+  width:118px; height:118px; border-radius:50%;
+  background:var(--grad-noir); color:#fff; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center; box-shadow:var(--shadow-btn);
+  border:1px solid rgba(194,49,80,.45); animation:spinwob 9s ease-in-out infinite;
+}
+.badge-trust .ring{ position:absolute; inset:8px; border-radius:50%; border:1px dashed rgba(194,49,80,.38); }
+@keyframes spinwob{ 0%,100%{ transform:rotate(-4deg); } 50%{ transform:rotate(3deg); } }
+.badge-trust b{ font-family:'Anton',sans-serif; font-weight:400; font-size:1.55rem; line-height:1; color:#fff; }
+.badge-trust small{ font-family:'JetBrains Mono',monospace; font-size:.5rem; font-weight:700; letter-spacing:.12em; margin-top:6px; }
+
+/* crest watermark, faint, behind hero visual */
+.crest-watermark{ position:absolute; right:-70px; bottom:-70px; width:260px; height:260px; opacity:.07; z-index:0; pointer-events:none; }
+
+/* available-on strip */
+.avail{ margin-top:50px; padding-top:28px; border-top:1px solid var(--line); }
+.avail-label{ margin-bottom:18px; }
+.avail-row{ display:flex; flex-wrap:wrap; align-items:center; gap:0; }
+.avail-row a{ display:flex; align-items:center; padding:4px 22px; border-right:1px solid var(--line); }
+.avail-row a:first-child{ padding-left:0; }
+.avail-row a:last-child{ border-right:none; }
+.avail-row img{ height:26px; width:auto; max-width:88px; object-fit:contain; filter:grayscale(1) opacity(.55); transition:filter .3s, transform .3s; }
+.avail-row a:hover img{ filter:none; transform:translateY(-2px); }
+
+/* ─── section frame ─── */
+.section{ max-width:var(--maxw); margin:0 auto; padding:92px 30px; }
+.sec-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:30px; margin-bottom:46px; flex-wrap:wrap; }
+.sec-head h2{ font-size:clamp(2rem,3.8vw,3.1rem); max-width:18ch; }
+.sec-head p{ color:var(--ink-soft); max-width:34ch; font-size:.98rem; }
+
+/* ─── categories ─── */
+.cat-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.cat-card{
+  position:relative; border-radius:var(--r); overflow:hidden; aspect-ratio:3/4;
+  background:var(--grad-noir); box-shadow:var(--shadow-m); display:block;
+  transition:transform .45s var(--ease), box-shadow .45s var(--ease);
+  border:1px solid rgba(255,255,255,.05);
+}
+.cat-card::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg,transparent 28%,rgba(8,8,9,.86)); }
+.cat-card img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .6s var(--ease); }
+.cat-card:hover{ transform:translateY(-7px); box-shadow:var(--shadow-l); }
+.cat-card:hover img{ transform:scale(1.06); }
+.cat-ref{
+  position:absolute; top:14px; left:14px; z-index:3;
+  font-family:'JetBrains Mono',monospace; font-size:.6rem; font-weight:600; letter-spacing:.08em;
+  color:#fff; background:rgba(8,8,9,.5); border:1px solid var(--line-dark);
+  padding:5px 9px; border-radius:3px; -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px);
+}
+.cat-meta{ position:absolute; left:0; right:0; bottom:0; padding:22px; z-index:2; color:#fff; }
+.cat-meta .k{ font-family:'JetBrains Mono',monospace; font-size:.62rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--corsa-2); }
+.cat-meta h3{ font-family:'Anton',sans-serif; font-weight:400; text-transform:uppercase; font-size:1.3rem; margin:7px 0 5px; }
+.cat-meta .go{ font-family:'JetBrains Mono',monospace; display:inline-flex; align-items:center; gap:7px; font-weight:600; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; opacity:.9; transition:gap .3s var(--ease); }
+.cat-card:hover .go{ gap:13px; }
+
+/* ─── editorial split (story / ethos) ─── */
+.story{ background:var(--grad-noir); color:#F1ECE0; position:relative; overflow:hidden; }
+.story::before{ content:''; position:absolute; inset:0; background:radial-gradient(800px 500px at 82% 8%,rgba(158,27,50,.16),transparent 60%); }
+.story-inner{ max-width:var(--maxw); margin:0 auto; padding:92px 30px; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; position:relative; }
+.story h2{ font-size:clamp(2.1rem,4.2vw,3.3rem); margin-bottom:22px; color:#F4EFE4; }
+.story p{ color:rgba(244,239,228,.72); font-size:1.02rem; margin-bottom:16px; max-width:48ch; }
+.story-pic{ border-radius:var(--r-l); overflow:hidden; aspect-ratio:1/1; box-shadow:var(--shadow-l); border:1px solid rgba(255,255,255,.08); position:relative; }
+.story-pic img{ width:100%; height:100%; object-fit:cover; }
+.story-quote{ font-family:'Italiana',serif; font-style:italic; font-size:1.9rem; color:var(--corsa-2); margin-top:10px; }
+
+/* ─── value props ─── */
+.values{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid var(--line); border-radius:var(--r); overflow:hidden; background:var(--surface); box-shadow:var(--shadow-s); }
+.value{ padding:32px 26px; display:flex; gap:16px; align-items:flex-start; border-right:1px solid var(--line); transition:background .3s; }
+.value:last-child{ border-right:none; }
+.value:hover{ background:var(--paper-2); }
+.value .ic{ width:44px; height:44px; flex:none; border-radius:var(--r-s); border:1.5px solid var(--corsa); display:grid; place-items:center; color:var(--corsa); position:relative; }
+.value h4{ font-family:'Anton',sans-serif; font-weight:400; text-transform:uppercase; font-size:.94rem; letter-spacing:.01em; }
+.value p{ font-size:.85rem; color:var(--ink-soft); margin-top:4px; }
+
+/* ─── CTA band ─── */
+.cta-band{ max-width:var(--maxw); margin:0 auto; padding:0 30px 92px; }
+.cta-box{
+  position:relative; overflow:hidden; border-radius:var(--r-l); padding:64px 56px;
+  background:var(--grad-noir); color:#fff; box-shadow:var(--shadow-btn); text-align:center;
+}
+.cta-box::before{ content:''; position:absolute; inset:0; background:radial-gradient(600px 300px at 50% -20%,rgba(158,27,50,.28),transparent 60%); }
+.cta-crest{ width:54px; height:54px; margin:0 auto 22px; opacity:.85; position:relative; }
+.cta-box h2{ font-size:clamp(2rem,4vw,3.2rem); line-height:1.05; position:relative; }
+.cta-box .accent{ display:block; font-size:.52em; margin-top:10px; color:var(--corsa-2); }
+.cta-box p{ color:rgba(255,255,255,.8); max-width:44ch; margin:18px auto 30px; position:relative; font-size:.98rem; }
+
+/* ─── footer ─── */
+.footer{ background:var(--grad-noir); color:#F1ECE0; padding:70px 30px 0; position:relative; overflow:hidden; }
+.footer-crest{ position:absolute; right:-40px; bottom:-40px; width:320px; height:320px; opacity:.05; pointer-events:none; }
+.footer-inner{ max-width:var(--maxw); margin:0 auto; display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:48px; padding-bottom:50px; border-bottom:1px solid var(--line-dark); position:relative; }
+.footer .brand{ margin-bottom:18px; color:#F1ECE0; }
+.footer-brand p{ color:rgba(244,239,228,.58); font-size:.9rem; max-width:34ch; }
+.footer-col h4{ font-family:'JetBrains Mono',monospace; font-size:.68rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.88); margin-bottom:18px; }
+.footer-col a{ display:flex; align-items:center; gap:8px; font-size:.9rem; color:rgba(244,239,228,.64); margin-bottom:12px; transition:color .25s, transform .25s var(--ease); }
+.footer-col a::before{ content:'›'; color:var(--corsa-2); font-weight:700; }
+.footer-col a:hover{ color:#fff; transform:translateX(4px); }
+.footer-bot{ max-width:var(--maxw); margin:0 auto; padding:22px 0 28px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.02em; color:rgba(244,239,228,.46); position:relative; }
+
+/* floating whatsapp */
+.wa{ position:fixed; right:24px; bottom:24px; z-index:40; display:inline-flex; align-items:center; gap:10px;
+  background:#128c4f; color:#fff; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.74rem; letter-spacing:.08em; text-transform:uppercase;
+  padding:14px 22px; border-radius:100px; box-shadow:0 14px 34px rgba(18,140,79,.4); transition:transform .3s var(--ease); }
+.wa:hover{ transform:translateY(-3px) scale(1.02); }
+
+/* reveal on scroll */
+.reveal{ opacity:0; transform:translateY(24px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.in{ opacity:1; transform:none; }
+.d1{ transition-delay:.08s } .d2{ transition-delay:.16s } .d3{ transition-delay:.24s } .d4{ transition-delay:.32s }
+
+/* page-load stagger for hero */
+.rise{ opacity:0; transform:translateY(26px); animation:rise .9s var(--ease) forwards; }
+.rise.r1{ animation-delay:.1s } .rise.r2{ animation-delay:.2s } .rise.r3{ animation-delay:.3s } .rise.r4{ animation-delay:.4s } .rise.r5{ animation-delay:.5s }
+@keyframes rise{ to{ opacity:1; transform:none; } }
+
+/* ─── responsive ─── */
+@media (max-width:1000px){
+  .navpunks{ display:none; }
+  .hero-grid{ grid-template-columns:1fr; gap:46px; }
+  .hero-visual{ max-width:480px; margin:0 auto; width:100%; }
+  .cat-grid{ grid-template-columns:repeat(2,1fr); }
+  .values{ grid-template-columns:repeat(2,1fr); }
+  .value:nth-child(2){ border-right:none; }
+  .value:nth-child(1),.value:nth-child(2){ border-bottom:1px solid var(--line); }
+  .story-inner{ grid-template-columns:1fr; }
+  .footer-inner{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:680px){
+  .nav-cta{ display:none; }
+  .burger{ margin-left:auto; margin-right:-4px; }
+  .nav-inner{ height:76px; padding:0 18px; }
+  .nav-logo{ height:52px !important; }
+  .logo-word{ font-size:26px!important; }
+  .menu-drawer{ width:100%; }
+  .menu-primary a{ font-size:1.35rem; }
+  .section{ padding:60px 20px; }
+  .hero{ padding:42px 20px 64px; }
+  .cat-grid{ grid-template-columns:1fr; }
+  .values{ grid-template-columns:1fr; }
+  .value{ border-right:none; border-bottom:1px solid var(--line); }
+  .value:last-child{ border-bottom:none; }
+  .footer-inner{ grid-template-columns:1fr 1fr; gap:30px; }
+  .cta-box{ padding:46px 24px; }
+  .stat + .stat{ padding-left:22px; }
+  .hero-stats{ gap:22px; }
+  .badge-trust{ width:92px; height:92px; left:-12px; top:18px; }
+  .badge-trust b{ font-size:1.2rem; }
+  .spec-tag{ font-size:.56rem; padding:6px 9px; }
+  .avail-row a{ padding:4px 14px; }
+  .story-inner{ padding:60px 20px; gap:32px; }
+  .sec-head{ margin-bottom:28px; gap:16px; }
+  .sec-head p{ max-width:100%; }
+  .footer-inner{ gap:24px; }
+}
+@media (max-width:400px){
+  .hero-title{ font-size:2.2rem; }
+  .hero-actions{ flex-direction:column; align-items:stretch; }
+  .hero-actions .btn{ justify-content:center; }
+  .hero-stats{ gap:16px; }
+  .stat + .stat{ padding-left:16px; }
+  .cta-box h2{ font-size:1.8rem; }
+  .hero-lead{ font-size:.97rem; }
+}
+@media (prefers-reduced-motion:reduce){
+  *{ animation:none!important; transition:none!important; }
+  .reveal{ opacity:1; transform:none; } .rise{ opacity:1; transform:none; }
+}
+  @media (max-width: 768px) {
+    .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        display: block;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+  html,
+body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+}
+</style>
+</head>
+<body>
+
+<!-- SVG defs: PENNEN crest medallion (the signature device, reused at every scale) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="goldFace" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C23150"/>
+      <stop offset=".55" stop-color="#9E1B32"/>
+      <stop offset="1" stop-color="#5C1020"/>
+    </linearGradient>
+    <path id="crestArcTop" d="M28,100 a72,72 0 0,1 144,0" />
+    <path id="crestArcBot" d="M172,100 a72,72 0 0,1 -144,0" />
+    <symbol id="crest" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="92" fill="none" stroke="#9E1B32" stroke-width="1.2"/>
+      <circle cx="100" cy="100" r="80" fill="none" stroke="#9E1B32" stroke-width="1" stroke-dasharray="1.6 5.2"/>
+      <text font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" letter-spacing="4" fill="#ffffff">
+        <textPath href="#crestArcTop" startOffset="50%" text-anchor="middle">PENNEN</textPath>
+      </text>
+      <text font-family="JetBrains Mono, monospace" font-size="8" font-weight="600" letter-spacing="3" fill="rgba(255,255,255,.72)">
+        <textPath href="#crestArcBot" startOffset="50%" text-anchor="middle">A GROWING STEP</textPath>
+      </text>
+      <path d="M100 58 L142 142 L58 142 Z" fill="url(#goldFace)"/>
+      <path d="M100 58 L114 118 L78 110 Z" fill="#fff" opacity=".92"/>
+      <path d="M100 58 L88 102 L78 110 Z" fill="#fff" opacity=".3"/>
+      <line x1="76" y1="150" x2="124" y2="150" stroke="#9E1B32" stroke-width="3"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- announcement -->
+<div class="topbar" aria-label="Announcements">
+  <div class="topbar-track">
+    <span>Fast shipping</span><span>Easy returns</span><span>Proudly made in India</span><span>Up to 60% off this season</span>
+    <span>Fast shipping</span><span>Easy returns</span><span>Proudly made in India</span><span>Up to 60% off this season</span>
+  </div>
+</div>
+
+<!-- nav -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="brand" aria-label="PENNEN — A Growing Step">
+      <img class="crest-use nav-logo" src="pennen-icon.png" alt="" style="height:120px;width:auto;"/>
+    </a>
+    <span class="navpunks">  <a href="#">SHOES</a>
+    <a href="#" class="active">MEN</a>
+    <a href="#">WOMEN</a>
+    <a href="#">KIDS</a>
+    <a href="#">SPORTS &amp; LIFESTYLE</a>
+    <a href="#">OUTLET</a>
+</span>
+    <nav class="nav-links">
+      <a class="nav-link active" href="#home">Home</a>
+      <a class="nav-link" href="#catalogue">Catalogue</a>
+      <a class="nav-link" href="#story">Our Story</a>
+      <a class="nav-link" href="#footer">Contact</a>
+    </nav>
+    <a href="#" class="nav-cta"><span class="dot"></span> Chat Now</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-controls="menuDrawer" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- slide-in menu -->
+<div class="menu-overlay" id="menuOverlay"></div>
+<aside class="menu-drawer" id="menuDrawer" aria-label="Main menu" aria-hidden="true">
+  <div class="menu-top">
+    <span class="brand" aria-hidden="true">
+      <img class="crest-use" src="pennen-icon.png" alt="" style="height:38px;width:auto;">
+      <span class="logo-word" style="font-size:24px;">PENNEN</span>
+    </span>
+    <button class="menu-close" id="menuClose" aria-label="Close menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="menu-primary">
+    <a href="#catalogue">New &amp; Featured <span class="chev">→</span></a>
+    <a href="catalogue-men-shoes.html">Men's Shoes <span class="chev">→</span></a>
+    <a href="catalogue-women-shoes_1_.html">Women's Shoes <span class="chev">→</span></a>
+    <a href="catalogue-men-slippers.html">Men's Slippers <span class="chev">→</span></a>
+    <a href="catalogue-women-slippers_1_.html">Women's Slippers <span class="chev">→</span></a>
+    <a href="catalogue-men-shoes.html">Sale <span class="tagx">Up to 60% off</span></a>
+  </nav>
+  <div class="menu-secondary">
+    <a href="#story">Our Story</a>
+    <a href="#footer">Find a Store</a>
+    <a href="#footer">Contact Us</a>
+    <a href="#footer">Help &amp; FAQs</a>
+    <a href="#footer">Shipping</a>
+    <a href="#footer">Returns</a>
+  </div>
+  <div class="menu-foot">
+    <a href="#" class="menu-chat">
+      <svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.3.6 4.4 1.7 6.3L3 29l7.4-2c1.8 1 3.9 1.5 6.1 1.5 6.9 0 12.5-5.6 12.5-12.5S22.9 3 16 3z"/></svg>
+      Chat with us
+    </a>
+    <div class="menu-social">
+      <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9z"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 8s-.2-1.5-.8-2.1c-.8-.8-1.6-.8-2-.9C16.5 4.7 12 4.7 12 4.7s-4.5 0-7.2.3c-.4.1-1.2.1-2 .9C2.2 6.5 2 8 2 8s-.2 1.7-.2 3.5v1c0 1.8.2 3.5.2 3.5s.2 1.5.8 2.1c.8.8 1.8.8 2.3.9 1.7.2 7 .3 7 .3s4.5 0 7.2-.3c.4-.1 1.2-.1 2-.9.6-.6.8-2.1.8-2.1s.2-1.7.2-3.5v-1c0-1.8-.2-3.5-.2-3.5zM10 14.5v-5l4.5 2.5L10 14.5z"/></svg></a>
+    </div>
+  </div>
+</aside>
+
+<main>
+<!-- hero -->
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="hero-kicker eyebrow rise r1">Technical footwear · Made in India</div>
+      <h1 class="display hero-title">
+        <span class="ln rise r1">Walk bold.</span>
+        <span class="ln rise r2">Grow with every</span>
+        <span class="ln accent rise r3"><span class="accent-gold">single step.</span></span>
+      </h1>
+      <p class="hero-lead rise r3">Technical comfort, honestly priced. Engineered in India, stocked everywhere you already shop.</p>
+      <div class="hero-actions rise r4">
+        <a href="#catalogue" class="btn btn-primary bracket">Shop the collection <span class="arrow">→</span></a>
+        <a href="#story" class="btn btn-ghost bracket">Our story</a>
+      </div>
+      <div class="hero-stats rise r5">
+        <div class="stat"><div class="num"><em>20k+</em></div><div class="lbl">Happy customers</div></div>
+        <div class="stat"><div class="num">7</div><div class="lbl">Marketplaces</div></div>
+        <div class="stat"><div class="num">4.8<em>★</em></div><div class="lbl">Avg. rating</div></div>
+      </div>
+    </div>
+
+    <div class="hero-visual rise r3">
+    
+      <div class="badge-trust">
+        <div class="ring"></div>
+        <b>20k+</b><small>HAPPY<br/>STEPS DAILY</small>
+      </div>
+      <div class="hero-card bracket">
+        <div class="glow"></div>
+        <video class="hero-card-vid" autoplay muted loop playsinline poster="hero_video_poster.jpg">
+          <source src="hero_video.mp4" type="video/mp4" />
+        </video>
+        <img class="hero-card-img" src="hero-shoe.png" alt="PENNEN footwear" style="display:none" onerror="this.style.display='none'"/>
+        <span class="spec-tag tr">A growing Step</span>
+        <span class="spec-tag br">Made in India</span>
+        <div class="scrim"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- available on -->
+  <div class="avail rise r5">
+    <div class="avail-label eyebrow">Available on</div>
+    <div class="avail-row">
+      <a href="https://www.amazon.in" target="_blank" rel="noopener"><img src="ammaloh.png" alt="Amazon"/></a>
+      <a href="https://www.flipkart.com" target="_blank" rel="noopener"><img src="flipkart-log-icon-e33c.png" alt="Flipkart"/></a>
+      <a href="https://www.meesho.com" target="_blank" rel="noopener"><img src="Meesho_logo.png" alt="Meesho"/></a>
+      <a href="https://www.snapdeal.com" target="_blank" rel="noopener"><img src="Snapdeal.png" alt="Snapdeal"/></a>
+      <a href="https://www.jiomart.com" target="_blank" rel="noopener"><img src="jiomart.png" alt="JioMart"/></a>
+      <a href="https://www.ajio.com" target="_blank" rel="noopener"><img src="AJIO.png" alt="AJIO"/></a>
+      <a href="https://www.myntra.com" target="_blank" rel="noopener"><img src="Myntra.png" alt="Myntra"/></a>
+    </div>
+  </div>
+</section>
+
+<div class="meander-wrap"><div class="meander reveal" aria-hidden="true"></div></div>
+
+<!-- categories -->
+<section class="section" id="catalogue">
+  <div class="sec-head">
+    <h2 class="display reveal">Shop by <span class="accent accent-gold">category.</span></h2>
+    <p class="reveal d1">Same construction standard across every category we build.</p>
+  </div>
+  <div class="cat-grid">
+    <a href="catalogue-men-shoes.html" class="cat-card bracket-in reveal">
+      <img src="cat-men-shoes.png" alt="Men's shoes"/>
+      <span class="cat-ref">Exclusive Collection</span>
+      <div class="cat-meta"><div class="k">For Him</div><h3>Men's Shoes</h3><span class="go">Explore →</span></div>
+    </a>
+    <a href="catalogue-men-slippers.html" class="cat-card bracket-in reveal d1">
+      <img src="cat-men-slippers.png" alt="Men's slippers"/>
+      <span class="cat-ref">Featured</span>
+      <div class="cat-meta"><div class="k">Everyday</div><h3>Men's Slippers</h3><span class="go">Explore →</span></div>
+    </a>
+    <a href="#" class="cat-card bracket-in reveal d2">
+      <img src="cat-women-footwear.png" alt="Women's footwear"/>
+      <span class="cat-ref">Grails</span>
+      <div class="cat-meta"><div class="k">For Her</div><h3>Women's Shoes</h3><span class="go">Explore →</span></div>
+    </a>
+    <a href="catalogue-women-slippers_1_.html" class="cat-card bracket-in reveal d3">
+      <img src="cat-trending.png" alt="Women's slippers"/>
+      <span class="cat-ref">Steppers</span>
+      <div class="cat-meta"><div class="k">Soft &amp; light</div><h3>Women's Slippers</h3><span class="go">Explore →</span></div>
+    </a>
+  </div>
+</section>
+
+<!-- story / ethos -->
+<section class="story" id="story">
+  <div class="story-inner">
+    <div class="reveal">
+      <div class="eyebrow on-dark">The PENNEN ethos</div>
+      <h2 class="display" style="margin-top:18px">Built for <span class="accent accent-gold">real</span> distance.</h2>
+      <p>PENNEN began with a simple belief: a good pair shouldn't cost a fortune or compromise on comfort. Every style is tested before it's listed, built to carry you from morning runs to office floors.</p>
+      <p>Fair prices, real materials, and a name you can trust across every marketplace in India.</p>
+      <div class="story-quote">— a growing step.</div>
+    </div>
+    <div class="story-pic reveal d2">
+      <img src="hero-shoe.png" alt="PENNEN craftsmanship" onerror="this.parentElement.style.background='linear-gradient(135deg,#1C1B1A,#0A0A0B)'"/>
+    </div>
+  </div>
+</section>
+
+<!-- value props -->
+<section class="section" style="padding-top:0">
+  <div class="values">
+    <div class="value reveal">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+      <div><h4>Fast Shipping</h4><p>On all orders, anywhere in India.</p></div>
+    </div>
+    <div class="value reveal d1">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div>
+      <div><h4>Easy Returns</h4><p>Changed your mind? No questions asked.</p></div>
+    </div>
+    <div class="value reveal d2">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <div><h4>Secure Payments</h4><p>100% safe checkout on every platform.</p></div>
+    </div>
+    <div class="value reveal d3">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 7h20M2 17h20"/></svg></div>
+      <div><h4>Made in India</h4><p>Crafted locally, for every Indian step.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA band -->
+<div class="cta-band">
+  <div class="cta-box reveal">
+    <h2 class="display">Season sale.<span class="accent">up to 60% off.</span></h2>
+    <p>Stocked across every marketplace we sell on. Sizes move fast this time of year.</p>
+    <a href="catalogue-men-shoes.html" class="btn btn-gold bracket">Shop the sale →</a>
+  </div>
+</div>
+</main>
+
+<!-- footer -->
+<footer class="footer" id="footer">
+  <svg class="footer-crest" viewBox="0 0 200 200" aria-hidden="true"><use href="#crest"/></svg>
+  <div class="meander dark" style="margin-bottom:46px" aria-hidden="true"></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand">
+        <img class="crest-use nav-logo" src="pennen-icon.png" alt="" style="height:150px;width:auto;">
+       </span>
+      <p style="margin-top:18px">A premium footwear label from India — engineered honestly, priced fairly, stocked everywhere you shop.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="#home">Home</a><a href="#catalogue">Catalogue</a><a href="#story">Our Story</a><a href="#footer">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Shop On</h4>
+      <a href="https://www.amazon.in" target="_blank" rel="noopener">Amazon</a><a href="https://www.flipkart.com" target="_blank" rel="noopener">Flipkart</a><a href="https://www.meesho.com" target="_blank" rel="noopener">Meesho</a><a href="https://www.myntra.com" target="_blank" rel="noopener">Myntra</a>
+    </div>
+    <div class="footer-col">
+      <h4>Reach Us</h4>
+      <a href="https://wa.me/919289084530">WhatsApp</a><a href="#">Email</a><a href="#">Returns</a><a href="#">Support</a>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <span>© 2026 PENNEN — A GROWING STEP. ALL RIGHTS RESERVED.</span>
+    <span>MADE IN INDIA 🇮🇳</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/919289084530" class="wa" aria-label="Chat on WhatsApp">
+  <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.3.6 4.4 1.7 6.3L3 29l7.4-2c1.8 1 3.9 1.5 6.1 1.5 6.9 0 12.5-5.6 12.5-12.5S22.9 3 16 3zm0 22.6c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4 1.1 1.1-3.9-.2-.4c-1.1-1.7-1.6-3.6-1.6-5.6C5.6 9.7 10.3 5 16 5s10.4 4.7 10.4 10.5S21.7 25.6 16 25.6z"/></svg>
+  WhatsApp
+</a>
+
+<script>
+  // nav scroll state
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>14),{passive:true});
+  // slide-in menu
+  const burger=document.getElementById('burger');
+  const drawer=document.getElementById('menuDrawer');
+  const overlay=document.getElementById('menuOverlay');
+  const closeBtn=document.getElementById('menuClose');
+  const openMenu=()=>{ document.body.classList.add('menu-open'); document.body.style.overflow='hidden'; burger.setAttribute('aria-expanded','true'); drawer.setAttribute('aria-hidden','false'); };
+  const closeMenu=()=>{ document.body.classList.remove('menu-open'); document.body.style.overflow=''; burger.setAttribute('aria-expanded','false'); drawer.setAttribute('aria-hidden','true'); };
+  burger&&burger.addEventListener('click',()=>document.body.classList.contains('menu-open')?closeMenu():openMenu());
+  closeBtn&&closeBtn.addEventListener('click',closeMenu);
+  overlay&&overlay.addEventListener('click',closeMenu);
+  addEventListener('keydown',e=>{ if(e.key==='Escape') closeMenu(); });
+  drawer&&drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+  // reveal on scroll
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // if hero video missing, show fallback image inside card
+  const v=document.querySelector('.hero-card-vid');
+  if(v){ v.addEventListener('error',()=>{ v.style.display='none'; const img=document.querySelector('.hero-card-img'); if(img) img.style.display='block'; }); }
+</script>
+</body>
+</html>

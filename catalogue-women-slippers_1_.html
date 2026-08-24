@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PENNEN — Women's Slippers Catalogue</title>
+<meta name="description" content="PENNEN — engineered footwear, a growing step. Shop across every major Indian marketplace." />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Italiana&family=JetBrains+Mono:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root {
+  /* ── paper / ink ── */
+  --paper:      #F6F3EC;
+  --paper-2:    #EDE7D8;
+  --surface:    #FFFFFF;
+  --ink:        #131211;
+  --ink-soft:   rgba(19,18,17,.62);
+  --ink-faint:  rgba(19,18,17,.40);
+
+  /* ── noir (dark sections) ── */
+  --noir:       #0A0A0B;
+  --noir-2:     #000000;
+
+  /* ── gold ── */
+  --gold:       #A47B2B;
+  --gold-foil:  #D9B768;
+  --gold-deep:  #7C5A1E;
+
+  /* ── corsa red ── */
+  --corsa:      #9E1B32;
+  --corsa-2:    #C23150;
+  --corsa-deep: #5C1020;
+
+  --steel:      #6E6E72;
+  --steel-dark: rgba(244,240,230,.56);
+
+  --line:       rgba(19,18,17,.14);
+  --line-soft:  rgba(19,18,17,.08);
+  --line-dark:  rgba(244,240,230,.16);
+  --line-dark-soft: rgba(244,240,230,.09);
+
+  --grad-noir: linear-gradient(155deg,#1C1B1A 0%,#0A0A0B 55%,#000 100%);
+  --grad-gold: linear-gradient(120deg,#E3C480 0%,#A47B2B 56%,#7C5A1E 100%);
+  --grad-corsa: linear-gradient(135deg,#C23150 0%,#9E1B32 60%,#5C1020 100%);
+
+  --shadow-s: 0 4px 16px rgba(19,18,17,.10);
+  --shadow-m: 0 16px 38px rgba(19,18,17,.14);
+  --shadow-l: 0 32px 74px rgba(10,10,11,.22);
+  --shadow-btn: 0 14px 32px rgba(10,10,11,.30);
+
+  --r-s: 6px;
+  --r:   12px;
+  --r-l: 20px;
+  --ease: cubic-bezier(.22,1,.36,1);
+  --maxw: 1415px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body{
+  font-family:'Manrope',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+}
+/* faint technical grid texture */
+body::before{
+  content:'';
+  position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
+  background-image:
+    linear-gradient(rgba(19,18,17,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(19,18,17,.025) 1px, transparent 1px);
+  background-size:46px 46px;
+}
+body::after{
+  content:'';
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(1100px 650px at 95% -8%, rgba(164,123,43,.05), transparent 60%),
+    radial-gradient(900px 700px at -8% 8%, rgba(158,27,50,.035), transparent 55%);
+}
+main,header,footer,section,.controls,.section-products{ position:relative; z-index:1; }
+img{ display:block; max-width:100%; height:auto; }
+a{ text-decoration:none; color:inherit; }
+ul{ list-style:none; }
+::selection{ background:var(--corsa); color:#fff; }
+:focus-visible{ outline:2px solid var(--corsa); outline-offset:3px; }
+
+/* Typography */
+.display{ font-family:'Anton',sans-serif; font-weight:400; text-transform:uppercase; line-height:.94; letter-spacing:-.005em; }
+.accent{ font-family:'Italiana',serif; font-style:italic; font-weight:400; text-transform:none; letter-spacing:0; }
+.accent-gold{ background:var(--grad-corsa); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.mono{ font-family:'JetBrains Mono',monospace; }
+.eyebrow{ font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--corsa); display:inline-flex; align-items:center; gap:12px; }
+.eyebrow::before{ content:''; width:26px; height:1.5px; background:var(--corsa); }
+
+/* Bracket effects */
+.bracket-in{ position:relative; }
+.bracket-in::before,.bracket-in::after{
+  content:''; position:absolute; width:18px; height:18px; opacity:0; z-index:3;
+  transition:opacity .35s var(--ease), transform .35s var(--ease); pointer-events:none;
+}
+.bracket-in::before{ top:16px; left:16px; border-top:1.5px solid var(--corsa-2); border-left:1.5px solid var(--corsa-2); transform:translate(-5px,-5px); }
+.bracket-in::after{ bottom:16px; right:16px; border-bottom:1.5px solid var(--corsa-2); border-right:1.5px solid var(--corsa-2); transform:translate(5px,5px); }
+.bracket-in:hover::before,.bracket-in:hover::after{ opacity:1; transform:translate(0,0); }
+
+/* Meander divider */
+.meander{
+  height:16px; width:100%; max-width:var(--maxw); margin:0 auto;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16'%3E%3Cpath d='M1 15 V4 H11 V11 H6 V8 H9 M20 15 V4 H30 V11 H25 V8 H28' fill='none' stroke='%239E1B32' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat:repeat-x; background-position:center; opacity:.75;
+}
+.meander.dark{ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='16' viewBox='0 0 40 16'%3E%3Cpath d='M1 15 V4 H11 V11 H6 V8 H9 M20 15 V4 H30 V11 H25 V8 H28' fill='none' stroke='%23C23150' stroke-width='1.5'/%3E%3C/svg%3E"); opacity:.6; }
+.meander-wrap{ padding:0 30px; }
+
+/* Topbar Announcement */
+.topbar{
+  background:var(--grad-noir); color:#F1ECE0;
+  font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+  overflow:hidden; position:relative; z-index:60;
+}
+.topbar-track{ display:flex; gap:0; white-space:nowrap; animation:marq 38s linear infinite; padding:9px 0; }
+.topbar:hover .topbar-track{ animation-play-state:paused; }
+.topbar-track span{ padding:0 28px; display:inline-flex; align-items:center; gap:14px; opacity:.92; }
+.topbar-track span::after{ content:'◆'; color:var(--corsa-2); font-size:.5rem; }
+@keyframes marq{ to{ transform:translateX(-50%); } }
+
+/* Navbar */
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(246,243,236,.82);
+  -webkit-backdrop-filter:saturate(160%) blur(16px);
+  backdrop-filter:saturate(160%) blur(16px);
+  border-bottom:1px solid var(--line-soft);
+  transition:box-shadow .3s var(--ease), background .3s var(--ease);
+}
+.nav.scrolled{ background:rgba(246,243,236,.95); box-shadow:0 10px 30px rgba(19,18,17,.07); }
+.nav-inner{
+  max-width:var(--maxw); margin:0 auto; padding:0 30px;
+  height:92px; display:flex; align-items:center; gap:40px;
+}
+.nav .brand{ color:var(--ink); display:inline-flex; align-items:center; gap:12px; }
+.navpunks { display: flex; align-items: center; gap: 40px; }
+.navpunks a { text-decoration: none; color: var(--ink); font-size: 14px; font-weight: 700; text-transform: uppercase; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.5px; position: relative; padding-bottom: 8px; }
+.navpunks a::after{ content: ""; position: absolute; left: 50%; bottom: 0; width: 0; height: 2px; background: var(--corsa); transform: translateX(-50%); transition: width 0.3s ease; }
+.navpunks a:hover::after, .navpunks a.active::after{ width: 100%; }
+
+.nav-cta{
+  margin-left:auto; display:inline-flex; align-items:center; gap:10px;
+  background:var(--grad-noir); color:#fff; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.76rem;
+  letter-spacing:.14em; text-transform:uppercase; padding:14px 24px; border-radius:100px;
+  box-shadow:var(--shadow-btn); transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.nav-cta:hover{ transform:translateY(-2px); box-shadow:0 20px 44px rgba(10,10,11,.34); }
+.nav-cta .dot{ width:6px; height:6px; border-radius:50%; background:var(--corsa-2); box-shadow:0 0 0 3px rgba(194,49,80,.28); }
+
+.burger{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:10px; margin-left:16px; border-radius:var(--r-s); transition:background .25s; }
+.burger:hover{ background:rgba(19,18,17,.05); }
+.burger span{ width:25px; height:2px; background:var(--ink); transition:.3s var(--ease); transform-origin:center; }
+body.menu-open .burger span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+body.menu-open .burger span:nth-child(2){ opacity:0; }
+body.menu-open .burger span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* Slide-in Menu Drawer */
+.menu-overlay{
+  position:fixed; inset:0; z-index:80; background:rgba(8,8,8,.5);
+  -webkit-backdrop-filter:blur(2px); backdrop-filter:blur(2px);
+  opacity:0; visibility:hidden; transition:opacity .35s var(--ease), visibility .35s;
+}
+body.menu-open .menu-overlay{ opacity:1; visibility:visible; }
+.menu-drawer{
+  position:fixed; top:0; right:0; height:100%; width:min(440px,100%); z-index:90;
+  background:var(--noir); color:#F1ECE0; box-shadow:-30px 0 80px rgba(0,0,0,.4);
+  transform:translateX(100%); transition:transform .42s var(--ease);
+  display:flex; flex-direction:column; overflow-y:auto; border-left:1px solid var(--line-dark);
+}
+body.menu-open .menu-drawer{ transform:translateX(0); }
+.menu-top{ display:flex; align-items:center; justify-content:space-between; padding:26px 30px 10px; }
+.menu-close{ background:none; border:none; cursor:pointer; width:42px; height:42px; border-radius:50%; display:grid; place-items:center; color:#F1ECE0; transition:background .25s; }
+.menu-close:hover{ background:rgba(244,240,230,.08); }
+.menu-primary{ padding:18px 30px 8px; display:flex; flex-direction:column; }
+.menu-primary a{ font-family:'Anton',sans-serif; font-weight:400; text-transform:uppercase; font-size:1.55rem; letter-spacing:.01em; color:#F1ECE0; padding:13px 0; display:flex; align-items:center; justify-content:space-between; transition:color .2s var(--ease), padding-left .25s var(--ease); border-bottom:1px solid var(--line-dark-soft); }
+.menu-primary a:last-child{ border-bottom:none; }
+.menu-primary a .chev{ font-family:'JetBrains Mono',monospace; opacity:0; transform:translateX(-6px); transition:.25s var(--ease); color:var(--corsa-2); }
+.menu-primary a:hover{ color:#fff; padding-left:8px; }
+.menu-primary a:hover .chev{ opacity:1; transform:translateX(0); }
+.menu-primary a .tagx{ font-family:'JetBrains Mono',monospace; font-size:.56rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:var(--grad-corsa); color:#fff; padding:4px 9px; border-radius:3px; margin-left:10px; }
+.menu-secondary{ padding:22px 30px; margin-top:auto; display:grid; grid-template-columns:1fr 1fr; gap:10px 18px; border-top:1px solid var(--line-dark); }
+.menu-secondary a{ font-family:'JetBrains Mono',monospace; font-size:.78rem; letter-spacing:.02em; color:var(--steel-dark); padding:5px 0; transition:color .2s; }
+.menu-secondary a:hover{ color:#fff; }
+.menu-foot{ padding:18px 30px 30px; display:flex; flex-direction:column; gap:14px; border-top:1px solid var(--line-dark); }
+.menu-chat{ display:inline-flex; align-items:center; justify-content:center; gap:9px; background:var(--grad-corsa); color:#fff; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; padding:15px; border-radius:100px; box-shadow:0 16px 38px rgba(158,27,50,.38); }
+.menu-social{ display:flex; gap:14px; }
+.menu-social a{ width:40px; height:40px; border-radius:50%; border:1px solid var(--line-dark); display:grid; place-items:center; color:#F1ECE0; transition:all .25s var(--ease); }
+.menu-social a:hover{ background:var(--corsa-2); color:#fff; border-color:var(--corsa-2); transform:translateY(-2px); }
+
+/* Catalogue Hero */
+.cat-hero { max-width:var(--maxw); margin:0 auto; padding:64px 30px 42px; position:relative; }
+.crumb { font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:600; letter-spacing:.06em; color:var(--ink-faint); margin-bottom:16px; display:flex; gap:8px; flex-wrap:wrap; text-transform:uppercase; }
+.crumb a { color:var(--corsa); font-weight:700; transition:color .3s; }
+.crumb a:hover { color:var(--corsa-deep); }
+.cat-title { font-size:clamp(2.7rem,5.6vw,4.85rem); margin: 16px 0 24px; }
+.cat-sub { font-size:1.08rem; color:var(--ink-soft); max-width:560px; line-height: 1.7; }
+.tabs { display:flex; flex-wrap:wrap; gap:14px; margin-top:38px; }
+.tab { font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; padding:14px 28px; border-radius:100px; background:transparent; color:var(--ink); border:1.5px solid var(--line); cursor:pointer; transition:all .3s var(--ease); }
+.tab:hover { border-color:var(--ink); transform:translateY(-2px); box-shadow:var(--shadow-s); }
+.tab.active { background:var(--grad-noir); color:#fff; border-color:transparent; box-shadow:var(--shadow-btn); }
+
+/* Controls */
+.controls { max-width:var(--maxw); margin:0 auto; padding:24px 30px 10px; display:flex; flex-direction:column; gap:20px; }
+.controls-row { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:18px; }
+.count { font-family:'Anton',sans-serif; font-size:1.5rem; text-transform:uppercase; color:var(--ink); }
+.count span { font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:600; color:var(--ink-soft); letter-spacing:.1em; margin-left:8px; }
+.sortwrap { display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono',monospace; font-size:.75rem; font-weight:700; text-transform:uppercase; color:var(--ink); }
+.sortwrap select { font-family:'JetBrains Mono',monospace; font-size:.75rem; font-weight:600; text-transform:uppercase; background:var(--surface); border:1.5px solid var(--line); border-radius:100px; padding:10px 18px; cursor:pointer; box-shadow:var(--shadow-s); }
+.chips { display:flex; flex-wrap:wrap; gap:10px; }
+.chip { font-family:'JetBrains Mono',monospace; font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:8px 18px; border-radius:100px; background:transparent; color:var(--ink); border:1.5px solid var(--line); cursor:pointer; transition:all .3s var(--ease); }
+.chip:hover { border-color:var(--ink); background:var(--paper-2); }
+.chip.active { background:var(--corsa); color:#fff; border-color:transparent; }
+
+/* Product Grid */
+.section-products { padding: 24px 30px 92px; }
+.products-grid { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+.product-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; position: relative; transition: all .4s var(--ease); box-shadow: var(--shadow-s); opacity: 0; transform: translateY(14px); }
+.product-card.in { opacity: 1; transform: none; }
+.product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-m); }
+.card-img-wrap { position: relative; aspect-ratio: 4/3; overflow: hidden; border-bottom: 1px solid var(--line); background: radial-gradient(circle at 50% 62%, #fff 0%, var(--paper-2) 100%); display: grid; place-items: center; padding: 14px; }
+.product-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .4s ease, transform .45s var(--ease); }
+.hover-img { opacity: 0; }
+.product-card:hover .hover-img { opacity: 1; }
+.product-card:hover .main-img { opacity: 0; }
+.product-card:hover .product-img { transform: scale(1.06); }
+
+.card-sticker { position: absolute; top: 16px; left: 16px; background: var(--noir); color: #fff; font-family: 'JetBrains Mono', monospace; font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 6px 12px; border-radius: 4px; z-index: 2; box-shadow: var(--shadow-s); }
+.card-sticker--new { background: var(--grad-gold); color: #fff; }
+.card-sticker--hot { background: var(--grad-corsa); color: #fff; }
+.card-sticker--best { background: var(--grad-noir); color: #fff; }
+
+.price-tag { position: absolute; top: 16px; right: 16px; background: var(--grad-gold); color: #fff; padding: 6px 14px; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: .85rem; border-radius: 4px; box-shadow: var(--shadow-s); z-index: 2; }
+
+.card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+.card-cat { font-family: 'JetBrains Mono', monospace; font-size: .65rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: var(--corsa); margin-bottom: 10px; }
+.card-title { font-family: 'Anton', sans-serif; font-size: 1.4rem; font-weight: 400; text-transform: uppercase; color: var(--ink); line-height: 1.1; margin-bottom: 12px; letter-spacing: 0.01em;}
+.card-desc { font-size: .88rem; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; flex: 1; }
+.swatches { display: flex; gap: 8px; margin-bottom: 18px; }
+.swatches i { width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--line); display: inline-block; box-shadow: 0 2px 4px rgba(0,0,0,.05); }
+.card-price-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px dashed var(--line); font-family: 'JetBrains Mono', monospace; }
+.price-old { font-size: .85rem; color: var(--ink-faint); text-decoration: line-through; font-weight: 600; }
+.price-discount { background: var(--corsa-deep); color: #fff; font-size: .65rem; font-weight: 700; padding: 4px 8px; border-radius: 4px; letter-spacing: .05em; text-transform: uppercase; }
+.card-buy-label { font-family: 'Italiana', serif; font-style: italic; font-size: 1.1rem; color: var(--ink); margin-bottom: 12px; font-weight: 600;}
+
+.card-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.card-btns a { flex: 1 1 60px; max-width: 90px; display: flex; align-items: center; justify-content: center; padding: 8px; border-radius: var(--r-s); border: 1.5px solid var(--line); min-height: 44px; transition: all .3s var(--ease); background: var(--paper); }
+.card-btns a:hover { transform: translateY(-3px); box-shadow: var(--shadow-s); border-color: var(--ink); background: var(--surface); }
+.card-btns a img { height: 22px; width: auto; max-width: 60px; object-fit: contain; filter: grayscale(1) opacity(0.6); transition: filter .3s, opacity .3s; }
+.card-btns a:hover img { filter: none; opacity: 1; }
+
+.empty { max-width: 1280px; margin: 40px auto; text-align: center; font-family: 'Italiana', serif; font-style: italic; font-size: 1.5rem; color: var(--ink-soft); }
+
+/* Footer */
+.footer{ background:var(--grad-noir); color:#F1ECE0; padding:70px 30px 0; position:relative; overflow:hidden; border-top: 1px solid var(--line-dark); }
+.footer-crest{ position:absolute; right:-40px; bottom:-40px; width:320px; height:320px; opacity:.05; pointer-events:none; }
+.footer-inner{ max-width:var(--maxw); margin:0 auto; display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:48px; padding-bottom:50px; border-bottom:1px solid var(--line-dark); position:relative; z-index: 2; }
+.footer .brand{ margin-bottom:18px; color:#F1ECE0; }
+.footer-brand p{ color:rgba(244,239,228,.58); font-size:.9rem; max-width:34ch; }
+.footer-col h4{ font-family:'JetBrains Mono',monospace; font-size:.68rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.88); margin-bottom:18px; }
+.footer-col a{ display:flex; align-items:center; gap:8px; font-size:.9rem; color:rgba(244,239,228,.64); margin-bottom:12px; transition:color .25s, transform .25s var(--ease); }
+.footer-col a::before{ content:'›'; color:var(--corsa-2); font-weight:700; }
+.footer-col a:hover{ color:#fff; transform:translateX(4px); }
+.footer-bot{ max-width:var(--maxw); margin:0 auto; padding:22px 0 28px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.02em; color:rgba(244,239,228,.46); position:relative; z-index: 2;}
+
+/* Floating WhatsApp */
+.wa{ position:fixed; right:24px; bottom:24px; z-index:40; display:inline-flex; align-items:center; gap:10px; background:#128c4f; color:#fff; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; padding:14px 22px; border-radius:100px; box-shadow:0 14px 34px rgba(18,140,79,.4); transition:transform .3s var(--ease); }
+.wa:hover{ transform:translateY(-3px) scale(1.02); }
+
+/* Responsive */
+@media (max-width:1000px){
+  .navpunks{ display:none; }
+  .footer-inner{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:768px){
+  .nav-cta{ display:none; }
+  .burger{ display:flex; margin-left:auto; }
+  .nav-inner{ height:76px; padding:0 18px; justify-content: space-between; }
+  .menu-drawer{ width:100%; }
+  .cat-hero { padding:42px 20px; }
+  .controls, .section-products { padding-left: 20px; padding-right: 20px; }
+  .products-grid{ grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+  .footer-inner{ grid-template-columns:1fr 1fr; gap:30px; }
+}
+@media (max-width:520px){
+  .products-grid{ grid-template-columns:1fr; }
+  .footer-inner{ grid-template-columns:1fr; gap:24px; }
+  .topbar-track span{ font-size: .65rem; padding: 0 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Crest Symbol Definition for Footer -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="goldFace" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C23150"/>
+      <stop offset=".55" stop-color="#9E1B32"/>
+      <stop offset="1" stop-color="#5C1020"/>
+    </linearGradient>
+    <path id="crestArcTop" d="M28,100 a72,72 0 0,1 144,0" />
+    <path id="crestArcBot" d="M172,100 a72,72 0 0,1 -144,0" />
+    <symbol id="crest" viewBox="0 0 200 200">
+      <circle cx="100" cy="100" r="92" fill="none" stroke="#9E1B32" stroke-width="1.2"/>
+      <circle cx="100" cy="100" r="80" fill="none" stroke="#9E1B32" stroke-width="1" stroke-dasharray="1.6 5.2"/>
+      <text font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" letter-spacing="4" fill="#ffffff">
+        <textPath href="#crestArcTop" startOffset="50%" text-anchor="middle">PENNEN</textPath>
+      </text>
+      <text font-family="JetBrains Mono, monospace" font-size="8" font-weight="600" letter-spacing="3" fill="rgba(255,255,255,.72)">
+        <textPath href="#crestArcBot" startOffset="50%" text-anchor="middle">A GROWING STEP</textPath>
+      </text>
+      <path d="M100 58 L142 142 L58 142 Z" fill="url(#goldFace)"/>
+      <path d="M100 58 L114 118 L78 110 Z" fill="#fff" opacity=".92"/>
+      <path d="M100 58 L88 102 L78 110 Z" fill="#fff" opacity=".3"/>
+      <line x1="76" y1="150" x2="124" y2="150" stroke="#9E1B32" stroke-width="3"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- Announcement -->
+<div class="topbar" aria-label="Announcements">
+  <div class="topbar-track">
+    <span>Fast shipping</span><span>Easy returns</span><span>Proudly made in India</span><span>Up to 60% off this season</span>
+    <span>Fast shipping</span><span>Easy returns</span><span>Proudly made in India</span><span>Up to 60% off this season</span>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand" aria-label="PENNEN — A Growing Step">
+      <img class="crest-use nav-logo" src="pennen-icon.png" alt="" style="height:72px;width:auto;"/>
+    </a>
+    <span class="navpunks">
+      <a href="catalogue-men-shoes.html">MEN</a>
+      <a href="catalogue-women-shoes_1_.html">WOMEN</a>
+      <a href="#">KIDS</a>
+      <a href="#">SPORTS &amp; LIFESTYLE</a>
+      <a href="catalogue.html">OUTLET</a>
+    </span>
+    <a href="index.html" class="nav-cta"><span class="dot"></span> Back to Store</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-controls="menuDrawer" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- Slide-in Menu -->
+<div class="menu-overlay" id="menuOverlay"></div>
+<aside class="menu-drawer" id="menuDrawer" aria-label="Main menu" aria-hidden="true">
+  <div class="menu-top">
+    <span class="brand" aria-hidden="true">
+      <img class="crest-use" src="pennen-icon.png" alt="" style="height:38px;width:auto;">
+      <span style="font-family:'Anton', sans-serif; font-size:24px; margin-left: 10px;">PENNEN</span>
+    </span>
+    <button class="menu-close" id="menuClose" aria-label="Close menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="menu-primary">
+    <a href="index.html#catalogue">New &amp; Featured <span class="chev">→</span></a>
+    <a href="catalogue-men-shoes.html">Men's Shoes <span class="chev">→</span></a>
+    <a href="catalogue-women-shoes_1_.html">Women's Shoes <span class="chev">→</span></a>
+    <a href="catalogue-men-slippers.html">Men's Slippers <span class="chev">→</span></a>
+    <a href="catalogue-women-slippers_1_.html" class="cur">Women's Slippers <span class="chev">→</span></a>
+    <a href="catalogue-men-shoes.html">Sale <span class="tagx">Up to 60% off</span></a>
+  </nav>
+  <div class="menu-secondary">
+    <a href="index.html#story">Our Story</a>
+    <a href="index.html#footer">Find a Store</a>
+    <a href="index.html#footer">Contact Us</a>
+    <a href="index.html#footer">Help &amp; FAQs</a>
+    <a href="index.html#footer">Shipping</a>
+    <a href="index.html#footer">Returns</a>
+  </div>
+  <div class="menu-foot">
+    <a href="#" class="menu-chat">
+      <svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.3.6 4.4 1.7 6.3L3 29l7.4-2c1.8 1 3.9 1.5 6.1 1.5 6.9 0 12.5-5.6 12.5-12.5S22.9 3 16 3z"/></svg>
+      Chat with us
+    </a>
+    <div class="menu-social">
+      <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9z"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 8s-.2-1.5-.8-2.1c-.8-.8-1.6-.8-2-.9C16.5 4.7 12 4.7 12 4.7s-4.5 0-7.2.3c-.4.1-1.2.1-2 .9C2.2 6.5 2 8 2 8s-.2 1.7-.2 3.5v1c0 1.8.2 3.5.2 3.5s.2 1.5.8 2.1c.8.8 1.8.8 2.3.9 1.7.2 7 .3 7 .3s4.5 0 7.2-.3c.4-.1 1.2-.1 2-.9.6-.6.8-2.1.8-2.1s.2-1.7.2-3.5v-1c0-1.8-.2-3.5-.2-3.5zM10 14.5v-5l4.5 2.5L10 14.5z"/></svg></a>
+    </div>
+  </div>
+</aside>
+
+<!-- Category Hero -->
+<section class="cat-hero">
+  <nav class="crumb"><a href="index.html">Home</a> / <a href="catalogue.html">Catalogue</a> / <span>Slippers</span></nav>
+  <div class="eyebrow">Women's Slippers</div>
+  <h1 class="display cat-title">Women's slippers, <span class="accent accent-gold">soft and colourful.</span></h1>
+  <p class="cat-sub">Light, lovely and made for daily comfort — 100 slides, fur-lined cozies and flip-flops in colours that brighten the everyday.</p>
+  <div class="tabs">
+    <a href="catalogue-men-shoes.html" class="tab">Men's Shoes</a>
+    <a href="catalogue-men-slippers.html" class="tab">Men's Slippers</a>
+    <a href="catalogue-women-shoes_1_.html" class="tab">Women's Shoes</a>
+    <a href="catalogue-women-slippers_1_.html" class="tab active">Women's Slippers</a>
+  </div>
+</section>
+
+<div class="meander-wrap"><div class="meander" aria-hidden="true"></div></div>
+
+<!-- Controls -->
+<div class="controls">
+  <div class="controls-row">
+    <div class="count" id="count">styles <span>in this collection</span></div>
+    <label class="sortwrap">Sort by
+      <select id="sort">
+        <option value="featured">Featured</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+        <option value="disc">Biggest Discount</option>
+      </select>
+    </label>
+  </div>
+  <div class="chips">
+    <button class="chip active" data-f="all">All</button>
+    <button class="chip" data-f="slide">Slides</button>
+    <button class="chip" data-f="flipflop">Flip-Flops</button>
+    <button class="chip" data-f="mule">Mules</button>
+  </div>
+</div>
+
+<!-- Products Grid -->
+<section class="section-products">
+  <div class="products-grid" id="grid"></div>
+</section>
+
+<!-- Floating WhatsApp -->
+<a class="wa" href="https://wa.me/910000000000" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.3.6 4.4 1.7 6.3L3 29l7.4-2c1.8 1 3.9 1.5 6.1 1.5 6.9 0 12.5-5.6 12.5-12.5S22.9 3 16 3zm0 22.6c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4 1.1 1.1-3.9-.2-.4c-1.1-1.7-1.6-3.6-1.6-5.6C5.6 9.7 10.3 5 16 5s10.4 4.7 10.4 10.5S21.7 25.6 16 25.6z"/></svg>
+  WhatsApp Us
+</a>
+
+<!-- Footer -->
+<footer class="footer" id="footer">
+  <svg class="footer-crest" viewBox="0 0 200 200" aria-hidden="true"><use href="#crest"/></svg>
+  <div class="meander dark" style="margin-bottom:46px" aria-hidden="true"></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand">
+        <img class="crest-use nav-logo" src="pennen-icon.png" alt="" style="height:150px;width:auto;">
+       </span>
+      <p style="margin-top:18px">A breakout footwear label from India, selling quality shoes across every major marketplace. Built honestly, priced fairly, delivered everywhere.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="index.html">Home Store</a>
+      <a href="catalogue.html">All Collections</a>
+      <a href="index.html#story">Our Story</a>
+    </div>
+    <div class="footer-col">
+      <h4>Collections</h4>
+      <a href="catalogue-men-shoes.html">Men's Shoes</a>
+      <a href="catalogue-men-slippers.html">Men's Slippers</a>
+      <a href="catalogue-women-shoes_1_.html">Women's Shoes</a>
+      <a href="catalogue-women-slippers_1_.html">Women's Slippers</a>
+    </div>
+    <div class="footer-col">
+      <h4>Shop On</h4>
+      <a href="https://www.amazon.in" target="_blank" rel="noopener">Amazon</a>
+      <a href="https://www.flipkart.com" target="_blank" rel="noopener">Flipkart</a>
+      <a href="https://www.meesho.com" target="_blank" rel="noopener">Meesho</a>
+      <a href="https://www.myntra.com" target="_blank" rel="noopener">Myntra</a>
+      <a href="https://www.ajio.com" target="_blank" rel="noopener">Ajio</a>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <span>© 2026 PENNEN — A GROWING STEP. ALL RIGHTS RESERVED.</span>
+    <span>MADE IN INDIA 🇮🇳</span>
+  </div>
+</footer>
+
+<script>
+/* ---- Nav + Scroll Behaviour ---- */
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 14), {passive:true});
+
+const burger = document.getElementById('burger');
+const drawer = document.getElementById('menuDrawer');
+const overlay = document.getElementById('menuOverlay');
+const closeBtn = document.getElementById('menuClose');
+const openMenu = () => { document.body.classList.add('menu-open'); document.body.style.overflow='hidden'; burger.setAttribute('aria-expanded','true'); drawer.setAttribute('aria-hidden','false'); };
+const closeMenu = () => { document.body.classList.remove('menu-open'); document.body.style.overflow=''; burger.setAttribute('aria-expanded','false'); drawer.setAttribute('aria-hidden','true'); };
+burger && burger.addEventListener('click', () => document.body.classList.contains('menu-open') ? closeMenu() : openMenu());
+closeBtn && closeBtn.addEventListener('click', closeMenu);
+overlay && overlay.addEventListener('click', closeMenu);
+addEventListener('keydown', e => { if(e.key==='Escape') closeMenu(); });
+drawer && drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+/* ---- Fallback ---- */
+function imgFallback(img,label){var s=document.createElement('span');s.className='pill-txt mono';s.style.fontSize='0.65rem';s.style.fontWeight='700';s.textContent=label;img.replaceWith(s);}
+
+/* ---- Selling Platforms ---- */
+var PLATFORMS=[
+  ["amazon","Amazon","ammaloh.png","https://www.amazon.in/s?k=PENNEN+{q}"],
+  ["flipkart","Flipkart","flipkart-log-icon-e33c.png","https://www.flipkart.com/search?q=PENNEN%20{q}"],
+  ["meesho","Meesho","Meesho_logo.png","https://www.meesho.com/search?q=PENNEN%20{q}"],
+  ["snapdeal","Snapdeal","snapdeal.png","https://www.snapdeal.com/search?keyword=PENNEN%20{q}"],
+  ["jiomart","JioMart","jiomart.png","https://www.jiomart.com/search/PENNEN%20{q}"],
+  ["ajio","Ajio","ajio.png","https://www.ajio.com/search/?text=PENNEN%20{q}"],
+  ["myntra","Myntra","myntra.png","https://www.myntra.com/PENNEN-{q}"]
+];
+
+/* ---- PENNEN Women's Slipper Catalogue Data ---- */
+var PRODUCTS = [
+  { "name": "PENNEN Snug Padded Slide", "shape": "slide", "image": "images/women-slippers/1/main.jpg", "hoverImage": "images/women-slippers/1/hover.jpg", "price": 329, "mrp": 599, "disc": 45, "desc": "Lightweight everyday comfort slide", "sw": ["#3f6078", "#0c161f", "#182633"], "sticker": "", "q": "PENNEN+Snug+Padded+Slide" },
+  { "name": "PENNEN Cloud Padded Slide", "shape": "slide", "image": "images/women-slippers/2/main.jpg", "hoverImage": "images/women-slippers/2/hover.jpg", "price": 229, "mrp": 379, "disc": 40, "desc": "Gentle arch-support slide", "sw": ["#13161d", "#151f2d", "#10141b"], "sticker": "", "q": "PENNEN+Cloud+Padded+Slide" },
+  { "name": "PENNEN Lily Slide", "shape": "slide", "image": "images/women-slippers/3/main.jpg", "hoverImage": "images/women-slippers/3/hover.jpg", "price": 869, "mrp": 1339, "disc": 35, "desc": "Padded footbed slide for all day", "sw": ["#c0b6a8", "#6a5e54", "#a9a298"], "sticker": "best", "q": "PENNEN+Lily+Slide" },
+  { "name": "PENNEN Petal Slide", "shape": "slide", "image": "images/women-slippers/4/main.jpg", "hoverImage": "images/women-slippers/4/hover.jpg", "price": 759, "mrp": 1079, "disc": 30, "desc": "Soft-cushion daily slide", "sw": ["#1b2429", "#3e484d", "#32383b"], "sticker": "", "q": "PENNEN+Petal+Slide" },
+  { "name": "PENNEN Rosy Slide", "shape": "slide", "image": "images/women-slippers/5/main.jpg", "hoverImage": "images/women-slippers/5/hover.jpg", "price": 659, "mrp": 1459, "disc": 55, "desc": "Lightweight everyday comfort slide", "sw": ["#233e4e", "#5e666f", "#172834"], "sticker": "hot", "q": "PENNEN+Rosy+Slide" },
+  { "name": "PENNEN Soft Mule Slipper", "shape": "mule", "image": "images/women-slippers/6/main.jpg", "hoverImage": "images/women-slippers/6/hover.jpg", "price": 549, "mrp": 1099, "disc": 50, "desc": "Comfort-padded daily mule", "sw": ["#c4c2b7", "#433b2d", "#8e8070"], "sticker": "best", "q": "PENNEN+Soft+Mule+Slipper" },
+  { "name": "PENNEN Sweet Mule Slipper", "shape": "mule", "image": "images/women-slippers/7/main.jpg", "hoverImage": "images/women-slippers/7/hover.jpg", "price": 449, "mrp": 819, "disc": 45, "desc": "Lightweight cushioned mule", "sw": ["#b8b2a6", "#89867c", "#5d5b50"], "sticker": "", "q": "PENNEN+Sweet+Mule+Slipper" },
+  { "name": "PENNEN Plush Comfort Mule", "shape": "mule", "image": "images/women-slippers/8/main.jpg", "hoverImage": "images/women-slippers/8/hover.jpg", "price": 429, "mrp": 949, "disc": 55, "desc": "Comfort-padded daily mule", "sw": ["#6f854a", "#70aab1", "#dce0dd"], "sticker": "hot", "q": "PENNEN+Plush+Comfort+Mule" },
+  { "name": "PENNEN Cloud Soft Mule", "shape": "mule", "image": "images/women-slippers/9/main.jpg", "hoverImage": "images/women-slippers/9/hover.jpg", "price": 169, "mrp": 259, "disc": 35, "desc": "Lightweight cushioned mule", "sw": ["#7e715b", "#eee5cd", "#d4cbb6"], "sticker": "", "q": "PENNEN+Cloud+Soft+Mule" },
+  { "name": "PENNEN Plush Mule Slipper", "shape": "mule", "image": "images/women-slippers/10/main.jpg", "hoverImage": "images/women-slippers/10/hover.jpg", "price": 879, "mrp": 1259, "disc": 30, "desc": "Easy slip-in home mule", "sw": ["#1a1b1f", "#35404f", "#20252e"], "sticker": "", "q": "PENNEN+Plush+Mule+Slipper" },
+  { "name": "PENNEN Daisy Slide", "shape": "slide", "image": "images/women-slippers/11/main.jpg", "hoverImage": "images/women-slippers/11/hover.jpg", "price": 779, "mrp": 1729, "disc": 55, "desc": "Gentle arch-support slide", "sw": ["#3a2a28", "#bf733b", "#d38c50"], "sticker": "hot", "q": "PENNEN+Daisy+Slide" },
+  { "name": "PENNEN Bloom Slide", "shape": "slide", "image": "images/women-slippers/12/main.jpg", "hoverImage": "images/women-slippers/12/hover.jpg", "price": 669, "mrp": 1339, "disc": 50, "desc": "Padded footbed slide for all day", "sw": ["#4c642d", "#63793e", "#a0a181"], "sticker": "", "q": "PENNEN+Bloom+Slide" },
+  { "name": "PENNEN Breeze Slide", "shape": "slide", "image": "images/women-slippers/13/main.jpg", "hoverImage": "images/women-slippers/13/hover.jpg", "price": 569, "mrp": 1029, "disc": 45, "desc": "Soft-cushion daily slide", "sw": ["#e4d3b8", "#665a52", "#a28f7c"], "sticker": "", "q": "PENNEN+Breeze+Slide" },
+  { "name": "PENNEN Velvet Slide", "shape": "slide", "image": "images/women-slippers/14/main.jpg", "hoverImage": "images/women-slippers/14/hover.jpg", "price": 459, "mrp": 759, "disc": 40, "desc": "Lightweight everyday comfort slide", "sw": ["#acb7bb", "#7d9491", "#44553a"], "sticker": "hot", "q": "PENNEN+Velvet+Slide" },
+  { "name": "PENNEN Plush Comfort Slide", "shape": "slide", "image": "images/women-slippers/15/main.jpg", "hoverImage": "images/women-slippers/15/hover.jpg", "price": 869, "mrp": 1449, "disc": 40, "desc": "Gentle arch-support slide", "sw": ["#e1e0d7", "#5e615f", "#4c433d"], "sticker": "", "q": "PENNEN+Plush+Comfort+Slide" },
+  { "name": "PENNEN Velvet Mule Slipper", "shape": "mule", "image": "images/women-slippers/16/main.jpg", "hoverImage": "images/women-slippers/16/hover.jpg", "price": 249, "mrp": 359, "disc": 30, "desc": "Comfort-padded daily mule", "sw": ["#2e404b", "#212c34", "#6f7077"], "sticker": "", "q": "PENNEN+Velvet+Mule+Slipper" },
+  { "name": "PENNEN Calm Slide", "shape": "slide", "image": "images/women-slippers/17/main.jpg", "hoverImage": "images/women-slippers/17/hover.jpg", "price": 899, "mrp": 1279, "disc": 30, "desc": "Padded footbed slide for all day", "sw": ["#b87746", "#6a4d3c", "#f8d8b3"], "sticker": "new", "q": "PENNEN+Calm+Slide" },
+  { "name": "PENNEN Pearl Slide", "shape": "slide", "image": "images/women-slippers/18/main.jpg", "hoverImage": "images/women-slippers/18/hover.jpg", "price": 789, "mrp": 1749, "disc": 55, "desc": "Soft-cushion daily slide", "sw": ["#bfbdba", "#9a958f", "#a7a49f"], "sticker": "", "q": "PENNEN+Pearl+Slide" },
+  { "name": "PENNEN Mellow Slide", "shape": "slide", "image": "images/women-slippers/19/main.jpg", "hoverImage": "images/women-slippers/19/hover.jpg", "price": 689, "mrp": 1379, "disc": 50, "desc": "Lightweight everyday comfort slide", "sw": ["#1f282f", "#101920", "#172027"], "sticker": "", "q": "PENNEN+Mellow+Slide" },
+  { "name": "PENNEN Blush Slide", "shape": "slide", "image": "images/women-slippers/20/main.jpg", "hoverImage": "images/women-slippers/20/hover.jpg", "price": 579, "mrp": 1049, "disc": 45, "desc": "Gentle arch-support slide", "sw": ["#1c272f", "#5a6169", "#2b3c46"], "sticker": "new", "q": "PENNEN+Blush+Slide" },
+  { "name": "PENNEN Mellow Mule Slipper", "shape": "mule", "image": "images/women-slippers/21/main.jpg", "hoverImage": "images/women-slippers/21/hover.jpg", "price": 469, "mrp": 779, "disc": 40, "desc": "Comfort-padded daily mule", "sw": ["#cabca8", "#514f4e", "#837c75"], "sticker": "", "q": "PENNEN+Mellow+Mule+Slipper" },
+  { "name": "PENNEN Blush Mule Slipper", "shape": "mule", "image": "images/women-slippers/22/main.jpg", "hoverImage": "images/women-slippers/22/hover.jpg", "price": 369, "mrp": 569, "disc": 35, "desc": "Lightweight cushioned mule", "sw": ["#b9b2a7", "#8c7663", "#4b4a48"], "sticker": "", "q": "PENNEN+Blush+Mule+Slipper" },
+  { "name": "PENNEN Cozy Mule Slipper", "shape": "mule", "image": "images/women-slippers/23/main.jpg", "hoverImage": "images/women-slippers/23/hover.jpg", "price": 259, "mrp": 369, "disc": 30, "desc": "Closed-toe soft mule", "sw": ["#b5ab9d", "#504841", "#af9b87"], "sticker": "new", "q": "PENNEN+Cozy+Mule+Slipper" },
+  { "name": "PENNEN Snug Mule Slipper", "shape": "mule", "image": "images/women-slippers/24/main.jpg", "hoverImage": "images/women-slippers/24/hover.jpg", "price": 159, "mrp": 349, "disc": 55, "desc": "Easy slip-in home mule", "sw": ["#574c42", "#a7988a", "#735a46"], "sticker": "", "q": "PENNEN+Snug+Mule+Slipper" },
+  { "name": "PENNEN Cloud Mule Slipper", "shape": "mule", "image": "images/women-slippers/25/main.jpg", "hoverImage": "images/women-slippers/25/hover.jpg", "price": 799, "mrp": 1599, "disc": 50, "desc": "Comfort-padded daily mule", "sw": ["#cccbc6", "#bac6cd", "#858e85"], "sticker": "", "q": "PENNEN+Cloud+Mule+Slipper" },
+  { "name": "PENNEN Lily Mule Slipper", "shape": "mule", "image": "images/women-slippers/26/main.jpg", "hoverImage": "images/women-slippers/26/hover.jpg", "price": 699, "mrp": 1269, "disc": 45, "desc": "Lightweight cushioned mule", "sw": ["#beb0a1", "#383839", "#745c51"], "sticker": "new", "q": "PENNEN+Lily+Mule+Slipper" },
+  { "name": "PENNEN Petal Mule Slipper", "shape": "mule", "image": "images/women-slippers/27/main.jpg", "hoverImage": "images/women-slippers/27/hover.jpg", "price": 589, "mrp": 979, "disc": 40, "desc": "Closed-toe soft mule", "sw": ["#353b3f", "#8b7e72", "#eee2c9"], "sticker": "", "q": "PENNEN+Petal+Mule+Slipper" },
+  { "name": "PENNEN Pearl Soft Mule", "shape": "mule", "image": "images/women-slippers/28/main.jpg", "hoverImage": "images/women-slippers/28/hover.jpg", "price": 509, "mrp": 779, "disc": 35, "desc": "Closed-toe soft mule", "sw": ["#24282b", "#0f1518", "#323d42"], "sticker": "", "q": "PENNEN+Pearl+Soft+Mule" },
+  { "name": "PENNEN Petal Soft Slide", "shape": "slide", "image": "images/women-slippers/29/main.jpg", "hoverImage": "images/women-slippers/29/hover.jpg", "price": 509, "mrp": 849, "disc": 40, "desc": "Padded footbed slide for all day", "sw": ["#453527", "#cfc4b2", "#aa9a85"], "sticker": "best", "q": "PENNEN+Petal+Soft+Slide" },
+  { "name": "PENNEN Rosy Mule Slipper", "shape": "mule", "image": "images/women-slippers/30/main.jpg", "hoverImage": "images/women-slippers/30/hover.jpg", "price": 279, "mrp": 619, "disc": 55, "desc": "Comfort-padded daily mule", "sw": ["#ccbca4", "#403322", "#92785d"], "sticker": "", "q": "PENNEN+Rosy+Mule+Slipper" },
+  { "name": "PENNEN Cozy Easy Mule", "shape": "mule", "image": "images/women-slippers/31/main.jpg", "hoverImage": "images/women-slippers/31/hover.jpg", "price": 479, "mrp": 1059, "disc": 55, "desc": "Comfort-padded daily mule", "sw": ["#6a6660", "#c6c6c6", "#b86333"], "sticker": "", "q": "PENNEN+Cozy+Easy+Mule" },
+  { "name": "PENNEN Sweet Slide", "shape": "slide", "image": "images/women-slippers/32/main.jpg", "hoverImage": "images/women-slippers/32/hover.jpg", "price": 819, "mrp": 1489, "disc": 45, "desc": "Soft-cushion daily slide", "sw": ["#151d24", "#5d524e", "#2b333a"], "sticker": "best", "q": "PENNEN+Sweet+Slide" },
+  { "name": "PENNEN Plush Slide", "shape": "slide", "image": "images/women-slippers/33/main.jpg", "hoverImage": "images/women-slippers/33/hover.jpg", "price": 709, "mrp": 1179, "disc": 40, "desc": "Lightweight everyday comfort slide", "sw": ["#333840", "#aea8a0", "#a39487"], "sticker": "", "q": "PENNEN+Plush+Slide" },
+  { "name": "PENNEN Daisy Mule Slipper", "shape": "mule", "image": "images/women-slippers/34/main.jpg", "hoverImage": "images/women-slippers/34/hover.jpg", "price": 609, "mrp": 939, "disc": 35, "desc": "Comfort-padded daily mule", "sw": ["#212a30", "#191c21", "#3e3838"], "sticker": "hot", "q": "PENNEN+Daisy+Mule+Slipper" },
+  { "name": "PENNEN Pearl Mule Slipper", "shape": "mule", "image": "images/women-slippers/35/main.jpg", "hoverImage": "images/women-slippers/35/hover.jpg", "price": 199, "mrp": 399, "disc": 50, "desc": "Closed-toe soft mule", "sw": ["#beb5a7", "#504d47", "#8d7761"], "sticker": "new", "q": "PENNEN+Pearl+Mule+Slipper" },
+  { "name": "PENNEN Bloom Slip Mule", "shape": "mule", "image": "images/women-slippers/36/main.jpg", "hoverImage": "images/women-slippers/36/hover.jpg", "price": 689, "mrp": 1529, "disc": 55, "desc": "Closed-toe soft mule", "sw": ["#c2af9a", "#896f5a", "#353a3f"], "sticker": "", "q": "PENNEN+Bloom+Slip+Mule" },
+  { "name": "PENNEN Bloom Mule Slipper", "shape": "mule", "image": "images/women-slippers/37/main.jpg", "hoverImage": "images/women-slippers/37/hover.jpg", "price": 289, "mrp": 579, "disc": 50, "desc": "Closed-toe soft mule", "sw": ["#c9b39a", "#c1966d", "#322918"], "sticker": "hot", "q": "PENNEN+Bloom+Mule+Slipper" },
+  { "name": "PENNEN Breeze Mule Slipper", "shape": "mule", "image": "images/women-slippers/38/main.jpg", "hoverImage": "images/women-slippers/38/hover.jpg", "price": 179, "mrp": 329, "disc": 45, "desc": "Easy slip-in home mule", "sw": ["#d2c5ae", "#5d5950", "#7e6e5b"], "sticker": "best", "q": "PENNEN+Breeze+Mule+Slipper" },
+  { "name": "PENNEN Calm Comfort Mule", "shape": "mule", "image": "images/women-slippers/39/main.jpg", "hoverImage": "images/women-slippers/39/hover.jpg", "price": 659, "mrp": 1199, "disc": 45, "desc": "Comfort-padded daily mule", "sw": ["#e0dfd6", "#786859", "#847d72"], "sticker": "", "q": "PENNEN+Calm+Comfort+Mule" },
+  { "name": "PENNEN Calm Flip-Flop", "shape": "flipflop", "image": "images/women-slippers/40/main.jpg", "hoverImage": "images/women-slippers/40/hover.jpg", "price": 719, "mrp": 1199, "disc": 40, "desc": "Easy everyday chappal", "sw": ["#bdbab4", "#635950", "#89786a"], "sticker": "hot", "q": "PENNEN+Calm+Flip-Flop" },
+  { "name": "PENNEN Velvet Flip-Flop", "shape": "flipflop", "image": "images/women-slippers/41/main.jpg", "hoverImage": "images/women-slippers/41/hover.jpg", "price": 619, "mrp": 949, "disc": 35, "desc": "Soft-strap daily flip-flop", "sw": ["#817a74", "#d0cdc5", "#a39b92"], "sticker": "", "q": "PENNEN+Velvet+Flip-Flop" },
+  { "name": "PENNEN Blush Flip-Flop", "shape": "flipflop", "image": "images/women-slippers/42/main.jpg", "hoverImage": "images/women-slippers/42/hover.jpg", "price": 639, "mrp": 979, "disc": 35, "desc": "Easy everyday chappal", "sw": ["#817b74", "#d0cdc5", "#a29b92"], "sticker": "", "q": "PENNEN+Blush+Flip-Flop" },
+  { "name": "PENNEN Pearl Flip-Flop", "shape": "flipflop", "image": "images/women-slippers/43/main.jpg", "hoverImage": "images/women-slippers/43/hover.jpg", "price": 409, "mrp": 909, "disc": 55, "desc": "Breezy warm-weather thong", "sw": ["#c7c4c0", "#5d5851", "#827871"], "sticker": "hot", "q": "PENNEN+Pearl+Flip-Flop" },
+  { "name": "PENNEN Soft Day Slide", "shape": "slide", "image": "images/women-slippers/44/main.jpg", "hoverImage": "images/women-slippers/44/hover.jpg", "price": 869, "mrp": 1579, "disc": 45, "desc": "Soft-cushion daily slide", "sw": ["#71b3cd", "#9a8e71", "#edeae1"], "sticker": "", "q": "PENNEN+Soft+Day+Slide" },
+  { "name": "PENNEN Cozy Soft Slide", "shape": "slide", "image": "images/women-slippers/45/main.jpg", "hoverImage": "images/women-slippers/45/hover.jpg", "price": 609, "mrp": 1349, "disc": 55, "desc": "Lightweight everyday comfort slide", "sw": ["#86a25f", "#6c8f42", "#565440"], "sticker": "", "q": "PENNEN+Cozy+Soft+Slide" },
+  { "name": "PENNEN Cozy Slide", "shape": "slide", "image": "images/women-slippers/46/main.jpg", "hoverImage": "images/women-slippers/46/hover.jpg", "price": 839, "mrp": 1399, "disc": 40, "desc": "Soft-cushion daily slide", "sw": ["#d1a67f", "#6b5442", "#5f422e"], "sticker": "new", "q": "PENNEN+Cozy+Slide" },
+  { "name": "PENNEN Snug Slide", "shape": "slide", "image": "images/women-slippers/47/main.jpg", "hoverImage": "images/women-slippers/47/hover.jpg", "price": 739, "mrp": 1139, "disc": 35, "desc": "Lightweight everyday comfort slide", "sw": ["#93ab5a", "#749147", "#5c5941"], "sticker": "", "q": "PENNEN+Snug+Slide" }
+];
+
+/* ---- Helpers ---- */
+function peso(n){return '\u20b9'+n.toLocaleString('en-IN');}
+function stickerHtml(s){
+  if(!s)return '';
+  var label={best:'\u2605 Bestseller',new:'\u2728 New In',hot:'\ud83d\udd25 Hot'}[s];
+  return label?'<span class="card-sticker card-sticker--'+s+'">'+label+'</span>':'';
+}
+function buyRow(p){
+  return PLATFORMS.map(function(pl){
+    var href=pl[3].replace('{q}',p.q);
+    return '<a target="_blank" rel="noopener" href="'+href+'">'+
+      '<img src="'+pl[2]+'" alt="'+pl[1]+'" onerror="imgFallback(this,\''+pl[1]+'\')"></a>';
+  }).join('');
+}
+function card(p){
+  var dots=(p.sw||[]).map(function(s){return '<i style="background:'+s+'"></i>';}).join('');
+  return '<article class="product-card bracket-in" data-shape="'+p.shape+'">'+
+    '<div class="card-img-wrap">'+
+      stickerHtml(p.sticker)+
+      '<span class="price-tag">'+peso(p.price)+'</span>'+
+      '<img src="'+p.image+'" alt="'+p.name+'" class="product-img main-img" loading="lazy">'+
+      '<img src="'+p.hoverImage+'" alt="'+p.name+' alternate view" class="product-img hover-img" loading="lazy">'+
+    '</div>'+
+    '<div class="card-body">'+
+      '<p class="card-cat">Women \u00b7 Slippers</p>'+
+      '<h3 class="card-title">'+p.name+'</h3>'+
+      '<p class="card-desc">'+p.desc+'</p>'+
+      '<div class="swatches">'+dots+'</div>'+
+      '<div class="card-price-row"><span class="price-old">'+peso(p.mrp)+'</span>'+
+        '<span class="price-discount">'+p.disc+'% OFF</span></div>'+
+      '<p class="card-buy-label">Available on \u2014</p>'+
+      '<div class="card-btns">'+buyRow(p)+'</div>'+
+    '</div></article>';
+}
+
+/* ---- State + Rendering ---- */
+var grid = document.getElementById('grid');
+var activeFilter = 'all';
+var view = PRODUCTS.slice();
+
+function render(){
+  if(!view.length){
+    grid.innerHTML='<p class="empty">No styles in this filter yet — check back soon.</p>';
+  }else{
+    grid.innerHTML=view.map(card).join('');
+    var cards=[].slice.call(grid.querySelectorAll('.product-card'));
+    cards.forEach(function(el,i){var d=Math.min(i,16)*45;setTimeout(function(){el.classList.add('in');},40+d);});
+  }
+  document.getElementById('count').innerHTML = view.length + ' styles <span>in this collection</span>';
+}
+function applyFilter(){
+  view = (activeFilter==='all') ? PRODUCTS.slice() : PRODUCTS.filter(function(p){return p.shape===activeFilter;});
+  sortView();
+}
+function sortView(){
+  var v=document.getElementById('sort').value;
+  if(v==='low')view.sort(function(a,b){return a.price-b.price;});
+  else if(v==='high')view.sort(function(a,b){return b.price-a.price;});
+  else if(v==='disc')view.sort(function(a,b){return b.disc-a.disc;});
+  render();
+}
+
+document.getElementById('sort').addEventListener('change', sortView);
+[].slice.call(document.querySelectorAll('.chip')).forEach(function(ch){
+  ch.addEventListener('click',function(){
+    document.querySelectorAll('.chip').forEach(function(c){c.classList.remove('active');});
+    ch.classList.add('active');
+    activeFilter=ch.dataset.f;
+    applyFilter();
+  });
+});
+
+render();
+</script>
+
+</body>
+</html>
